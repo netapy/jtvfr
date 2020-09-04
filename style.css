@@ -1,10 +1,10 @@
 ::selection{
-  background-color: #A52A2A;
+  background-color: #444;
   color: white;
 }
 
 /* Firefox */
 ::-moz-selection {
-  background-color: #A52A2A;
+  background-color: #444;
   color: white;
 }
