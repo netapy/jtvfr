@@ -1,10 +1,52 @@
-::selection{
-  background-color: #444;
-  color: white;
-}
-/* Firefox */
-::-moz-selection {
-  background-color: #444;
-  color: white;
+::selection {
+    background-color: #444;
+    color: white;
 }
 
+
+/* Firefox */
+
+::-moz-selection {
+    background-color: #444;
+    color: white;
+}
+
+.nuage {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.flotte1 {
+    animation: float 8s ease-in-out infinite;
+}
+
+.flotte2 {
+    animation: float2 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translatey(0px);
+    }
+    50% {
+        transform: translatey(-7px);
+    }
+    100% {
+        transform: translatey(0px);
+    }
+}
+
+@keyframes float2 {
+    0% {
+        transform: translatey(0px);
+    }
+    50% {
+        transform: translatey(-10px);
+    }
+    100% {
+        transform: translatey(0px);
+    }
+}
