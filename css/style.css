@@ -1,6 +1,30 @@
-::selection {
-    background-color: #444;
-    color: white;
+/* Fonts */
+
+@font-face {
+    font-family: AileronHeavy;
+    src: url(fonts/Aileron-Heavy.otf);
+}
+
+@font-face {
+    font-family: RalewaySmBold;
+    src: url(fonts/Raleway-SemiBold.ttf);
+}
+
+
+/* Style */
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: AileronHeavy;
+    color: #333333;
+}
+
+.fancyPhrase {
+    font-size: 18px;
+    font-family: RalewaySmBold;
 }
 
 html,
@@ -12,10 +36,12 @@ body {
     position: relative
 }
 
-
-/* Firefox */
-
 ::-moz-selection {
+    background-color: #444;
+    color: white;
+}
+
+::selection {
     background-color: #444;
     color: white;
 }
@@ -58,4 +84,28 @@ body {
     100% {
         transform: translatey(0px);
     }
+}
+
+@keyframes revelationLogo {
+    0% {
+        transform: translatey(0px);
+    }
+    100% {
+        transform: translatey(-250px);
+    }
+}
+
+.neumorphButton {
+    border-radius: 27px;
+    background: linear-gradient(145deg, #5817c2, #691be7);
+    box-shadow: 5px 5px 10px #5215b5, -5px -5px 10px #721dfb;
+    height: 30px;
+    width: 100px;
+    font-family: RalewaySmBold;
+    color: #F9F5FF;
+    opacity: .95;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
