@@ -1,1 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 925.58 214.55"><defs><style>.cls-1{fill:#8792fd;}</style></defs><title>Fichier 3</title><g id="Calque_2" data-name="Calque 2"><g id="Calque_1-2" data-name="Calque 1"><circle class="cls-1" cx="45.38" cy="55.4" r="45.38"/><circle class="cls-1" cx="83.38" cy="66.4" r="45.38"/><ellipse class="cls-1" cx="890.83" cy="28.5" rx="34.75" ry="28.5"/><ellipse class="cls-1" cx="880.16" cy="55.17" rx="34.75" ry="28.5"/><ellipse class="cls-1" cx="850.46" cy="65.07" rx="34.75" ry="28.5"/><ellipse class="cls-1" cx="734.83" cy="109.2" rx="34.75" ry="28.5"/><ellipse class="cls-1" cx="820.92" cy="75.21" rx="34.75" ry="28.5"/><ellipse class="cls-1" cx="762.16" cy="97.87" rx="34.75" ry="28.5"/><ellipse class="cls-1" cx="800.32" cy="91.85" rx="55.75" ry="28.5" transform="translate(10.66 251.16) rotate(-17.95)"/><ellipse class="cls-1" cx="466.76" cy="118.03" rx="42.16" ry="70.08" transform="matrix(0.16, -0.99, 0.99, 0.16, 273.35, 558.92)"/><ellipse class="cls-1" cx="357.15" cy="113.31" rx="34.75" ry="28.5"/><ellipse class="cls-1" cx="548.76" cy="150.64" rx="70.08" ry="55.25"/><circle class="cls-1" cx="629.26" cy="159.31" r="55.25"/><ellipse class="cls-1" cx="164.07" cy="93.03" rx="28.5" ry="55.87" transform="translate(5.59 195.29) rotate(-62.39)"/><ellipse class="cls-1" cx="211.82" cy="127.22" rx="34.75" ry="28.5"/><ellipse class="cls-1" cx="291.15" cy="130.31" rx="34.75" ry="28.5"/><ellipse class="cls-1" cx="320.9" cy="120.65" rx="34.75" ry="28.5"/></g></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 925.6 214.6" style="enable-background:new 0 0 925.6 214.6;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#8792FD;}
+</style>
+<title>Fichier 3</title>
+<g>
+	<g id="Calque_1-2">
+		<ellipse class="st0" cx="45.4" cy="56" rx="45.4" ry="42"/>
+		<ellipse class="st0" cx="83.4" cy="66.2" rx="45.4" ry="41.2"/>
+		<ellipse class="st0" cx="890.8" cy="36.6" rx="34.8" ry="28.5"/>
+		<ellipse class="st0" cx="880.2" cy="55.2" rx="34.8" ry="28.5"/>
+		<ellipse class="st0" cx="850.5" cy="65.1" rx="34.8" ry="28.5"/>
+		<ellipse class="st0" cx="734.8" cy="109.2" rx="34.8" ry="28.5"/>
+		<ellipse class="st0" cx="820.9" cy="75.2" rx="34.8" ry="28.5"/>
+		<ellipse class="st0" cx="762.2" cy="97.9" rx="34.8" ry="28.5"/>
+		
+			<ellipse transform="matrix(0.9513 -0.3082 0.3082 0.9513 10.6351 251.1264)" class="st0" cx="800.3" cy="91.9" rx="55.8" ry="28.5"/>
+		
+			<ellipse transform="matrix(0.1595 -0.9872 0.9872 0.1595 258.084 556.4926)" class="st0" cx="455.9" cy="126.7" rx="42.3" ry="70.3"/>
+		<ellipse class="st0" cx="357.1" cy="113.3" rx="34.8" ry="28.5"/>
+		<ellipse class="st0" cx="548.8" cy="150.6" rx="70.1" ry="55.3"/>
+		<circle class="st0" cx="629.3" cy="159.3" r="55.3"/>
+		<ellipse transform="matrix(0.4635 -0.8861 0.8861 0.4635 5.6287 195.2698)" class="st0" cx="164.1" cy="93" rx="28.5" ry="55.9"/>
+		<ellipse class="st0" cx="211.8" cy="127.2" rx="34.8" ry="28.5"/>
+		<ellipse class="st0" cx="291.1" cy="130.3" rx="34.8" ry="28.5"/>
+		<ellipse class="st0" cx="320.9" cy="120.7" rx="34.8" ry="28.5"/>
+	</g>
+</g>
+</svg>
