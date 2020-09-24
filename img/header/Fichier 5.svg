@@ -4,6 +4,7 @@
 	 viewBox="0 0 930.3 186.3" style="enable-background:new 0 0 930.3 186.3;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#FAF7FF;}
+	.st1{fill:#F9F5FF;}
 </style>
 <title>Fichier 6</title>
 <g>
@@ -20,4 +21,5 @@
 		<circle class="st0" cx="868.2" cy="62.1" r="62.1"/>
 	</g>
 </g>
+<rect y="80" class="st1" width="930.3" height="106.3"/>
 </svg>
