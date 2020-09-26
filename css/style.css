@@ -33,12 +33,12 @@ body {
 }
 
 body {
-    position: relative
+    position: relative;
 }
 
 ::-moz-selection {
     background-color: #444;
-    color: white;
+    color: #ffffff;
 }
 
 ::selection {
