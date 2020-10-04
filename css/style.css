@@ -130,9 +130,9 @@ body {
 }
 
 .shadow-bg-icon-right{
-    font-size: 200px;
-    opacity: .1;
+    height: 80%;
+    opacity: .05;
     position: absolute;
     right: 0px;
-    bottom: 0px;
+    bottom: -10%;
 }
