@@ -10,6 +10,10 @@
     src: url(fonts/Raleway-SemiBold.ttf);
 }
 
+@font-face {
+    font-family: RalewayMedium;
+    src: url(fonts/Raleway-Medium.ttf);
+}
 
 /* Style */
 
@@ -30,6 +34,7 @@ h5 {
 html,
 body {
     overflow-x: hidden;
+    font-family: RalewayMedium;
 }
 
 body {
@@ -66,9 +71,11 @@ body {
     0% {
         transform: translatey(0px);
     }
+
     50% {
         transform: translatey(-7px);
     }
+
     100% {
         transform: translatey(0px);
     }
@@ -78,9 +85,11 @@ body {
     0% {
         transform: translatey(0px);
     }
+
     50% {
         transform: translatey(-10px);
     }
+
     100% {
         transform: translatey(0px);
     }
@@ -90,6 +99,7 @@ body {
     0% {
         transform: translatey(0px);
     }
+
     100% {
         transform: translatey(-250px);
     }
@@ -108,4 +118,21 @@ body {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+
+.neumorphSection {
+    border-radius: 20px;
+    background: #FAF7FF;
+    box-shadow: 6px 6px 12px #f5f2fa,
+        -6px -6px 12px #fffcff;
+    padding: 40px 20px;
+    margin: 60px 0px;
+}
+
+.shadow-bg-icon-right{
+    font-size: 200px;
+    opacity: .1;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
 }
