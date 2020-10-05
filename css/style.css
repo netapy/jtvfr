@@ -123,13 +123,13 @@ body {
 .neumorphSection {
     border-radius: 20px;
     background: #FAF7FF;
-    box-shadow: 6px 6px 12px #f5f2fa,
-        -6px -6px 12px #fffcff;
-    padding: 40px 20px;
+    box-shadow: 20px 20px 35px #eeebf2,
+        -20px -20px 35px #ffffff;
+    padding: 40px 30px;
     margin: 60px 0px;
 }
 
-.shadow-bg-icon-right{
+.shadow-bg-icon-right {
     height: 80%;
     opacity: .05;
     position: absolute;

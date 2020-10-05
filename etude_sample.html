@@ -28,8 +28,7 @@
                 <h2>Le smartphone en France.</h2><br>
                 <p class="fancyPhrase">Lecture de l'e-commerce Français.</p>
             </div>
-
-            <div class="container neumorphSection">
+            <div class="container neumorphSection" data-aos="flip-down">
                 <div class="row">
                     <div class="col-sm">
                         <canvas id="chart1_parts_de_marche" style="min-height: 250px;"></canvas>
@@ -37,17 +36,161 @@
                     <div class="col-sm text-left d-flex align-items-center" style="padding: 25px 20px;">
                         <div>
                             <h4>Android occupe 76% du marché.</h4>
-                            En 2019, le marché du smartphone à échelle mondiale, en termes de systèmes d’exploitation, est
-                            particulièrement concentré. Cette concentration se reflète dans des proportions très similaires
+                            En 2019, le marché du smartphone à échelle mondiale, en termes de systèmes d’exploitation,
+                            est
+                            particulièrement concentré. Cette concentration se reflète dans des proportions très
+                            similaires
                             sur le marché Français.
-                            <img class="shadow-bg-icon-right" src="img/android_lgo.svg">    
+                            <img class="shadow-bg-icon-right" src="img/android_lgo.svg">
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="container neumorphSection" >
+                <div class="row">
+                    <div class="col-sm text-left d-flex align-items-center" style="padding: 25px 20px;">
+                        <div>
+                            <h4>Samsung en tête des classements.</h4>
+                            Les constructeurs dont les produits composent l’échantillon sont multiples, néanmoins la
+                            présence des quatre
+                            premiers constructeurs mondiaux est représentée dans des proportions similaires en France.
+                            <br><u>Point sur l’iPhone :</u> si l'échantillon prenait en compte les produits d’occasion et
+                            reconditionnés, Apple serait en
+                            deuxième position du classement en termes de meilleures ventes. Au troisième trimestre 2019
+                            les produits
+                            d’occasion représentaient près d’un quart du score total réalisé par Apple.
+                            <img class="shadow-bg-icon-right" src="img/stonks.svg">
+                        </div>
+                    </div>  
+                    <div class="col-sm">
+                        <canvas id="chart2_marques" style="min-height: 250px;"></canvas>
+                    </div>
+                </div>
+            </div>
+            <br><br><br><br><br>
         </div>
+        
 
         <script>
+            let dicoo = {
+                "columns": [
+                    "score"
+                ],
+                "index": [
+                    "samsung",
+                    "apple",
+                    "xiaomi",
+                    "huawei",
+                    "honor",
+                    "oneplus",
+                    "asus",
+                    "oppo",
+                    "sony",
+                    "google",
+                    "nokia",
+                    "motorola",
+                    "blackberry",
+                    "htc",
+                    "realme",
+                    "alcatel",
+                    "microsoft",
+                    "lg",
+                    "cat",
+                    "nubia",
+                    "tcl"
+                ],
+                "data": [
+                    [
+                        271404
+                    ],
+                    [
+                        198319
+                    ],
+                    [
+                        172792
+                    ],
+                    [
+                        163933
+                    ],
+                    [
+                        35271
+                    ],
+                    [
+                        20611
+                    ],
+                    [
+                        14151
+                    ],
+                    [
+                        9101
+                    ],
+                    [
+                        6395
+                    ],
+                    [
+                        6306
+                    ],
+                    [
+                        5994
+                    ],
+                    [
+                        4312
+                    ],
+                    [
+                        1530
+                    ],
+                    [
+                        258
+                    ],
+                    [
+                        211
+                    ],
+                    [
+                        189
+                    ],
+                    [
+                        170
+                    ],
+                    [
+                        105
+                    ],
+                    [
+                        97
+                    ],
+                    [
+                        77
+                    ],
+                    [
+                        45
+                    ]
+                ]
+            }
+        </script>
+
+
+        <script>
+            var ctxx = document.getElementById('chart2_marques').getContext('2d');
+            var chart_marques = new Chart(ctxx, {
+                type: 'bar',
+                data: {
+                    labels: dicoo["index"],
+                    datasets: [{
+                        label: "Indice de popularité",
+                        backgroundColor: '#6219D8',
+                        data: dicoo["data"].map(x => x[0])
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    tooltips: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    maintainAspectRatio: false,
+                }
+            });
+
+
             var ctx = document.getElementById('chart1_parts_de_marche').getContext('2d');
             var chart = new Chart(ctx, {
                 type: 'bar',
@@ -93,6 +236,8 @@
                 }
             });
         </script>
+
+
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
