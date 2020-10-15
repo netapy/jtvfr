@@ -129,6 +129,7 @@ body {
     margin: 60px 0px;
 }
 
+
 .shadow-bg-icon-right {
     height: 80%;
     opacity: .05;
@@ -158,6 +159,15 @@ body {
     border-color: #d8d8d8;
 }
 
+.neumorphSectionHomePage {
+    border-radius: 20px;
+    background: #FAF7FF;
+    box-shadow: 20px 20px 35px #eeebf2,
+        -20px -20px 35px #ffffff;
+    padding: 40px 30px;
+}
+
 .spacing-homepage {
     padding: 15px 30px;
+    margin: 50px 0px;
 }
