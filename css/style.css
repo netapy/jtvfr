@@ -136,3 +136,28 @@ body {
     right: 0px;
     bottom: -10%;
 }
+
+.img-home {
+    width: 100%;
+    padding: 45px;
+}
+
+.header-text {
+    padding: 15px 0px;
+}
+
+@media (min-width: 1635px) {
+    .header-text {
+    padding-top: 40px;
+    }
+  }
+
+  .hr-homepage {
+    border-width: 4px;
+    width:25%;
+    border-color: #d8d8d8;
+}
+
+.spacing-homepage {
+    padding: 15px 30px;
+}
