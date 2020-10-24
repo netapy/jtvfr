@@ -11,8 +11,9 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script src="ressources/dt.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>  en bas on teste le module "deferred"-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-deferred@1"></script>  
     <title>Etudes.</title>
 
     <!-- Favicon -->
@@ -23,11 +24,12 @@
 <body>
     <div style="background-color: #FAF7FF;">
         <div class="container text-center"
-            style="position: relative; height: 100vh; z-index: 1980;background-color: #FAF7FF; padding: 80px 0px">
+            style="position: relative; z-index: 1980;background-color: #FAF7FF; padding: 80px 0px">
             <div class="container">
                 <img src="img/LOGO_JTV_ALT.svg" style="height: 120px; opacity: .05; position: absolute; left: 0px;">
-                <h2>Le smartphone en France.</h2><br>
-                <p class="fancyPhrase">Lecture de l'e-commerce Français.</p>
+                <h4>Etude Jetevois.</h4>
+                <h1>Le smartphone en France.</h1><br>
+                <h3 class="fancyPhrase">Lecture de l'e-commerce Français.</h3>
             </div>
             <div class="container neumorphSection" data-aos="flip-down">
                 <div class="row">
@@ -47,7 +49,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container neumorphSection" >
+            <div class="container neumorphSection" data-aos="flip-down">
                 <div class="row">
                     <div class="col-sm text-left d-flex align-items-center" style="padding: 25px 20px;">
                         <div>
@@ -55,92 +57,45 @@
                             Les constructeurs dont les produits composent l’échantillon sont multiples, néanmoins la
                             présence des quatre
                             premiers constructeurs mondiaux est représentée dans des proportions similaires en France.
-                            <br><u>Point sur l’iPhone :</u> si l'échantillon prenait en compte les produits d’occasion et
+                            <br><u>Point sur l’iPhone :</u> si l'échantillon prenait en compte les produits d’occasion
+                            et
                             reconditionnés, Apple serait en
                             deuxième position du classement en termes de meilleures ventes. Au troisième trimestre 2019
                             les produits
                             d’occasion représentaient près d’un quart du score total réalisé par Apple.
                             <img class="shadow-bg-icon-right" src="img/stonks.svg">
                         </div>
-                    </div>  
+                    </div>
                     <div class="col-sm">
                         <canvas id="chart2_marques" style="min-height: 250px;"></canvas>
                     </div>
                 </div>
             </div>
+            <div class="container neumorphSection" data-aos="flip-down">
+                <div class="row">
+                    <div class="col-sm">
+                        <canvas id="chart3_materio" style="min-height: 250px;"></canvas>
+                    </div>
+                    <div class="col-sm">
+                        <canvas id="chart4_color" style="min-height: 250px;"></canvas>
+                    </div>
+                    <div class="col-sm text-left d-flex align-items-center" style="padding: 25px 20px;">
+                        <div>
+                            <h4>Les smartphones en verre en n°1.</h4>
+                            Les constructeurs dont les produits composent l’échantillon sont multiples, néanmoins la
+                            présence des quatre
+                            premiers constructeurs mondiaux est représentée dans des proportions similaires en France.
+                            <img class="shadow-bg-icon-right" src="img/stonks.svg">
+                        </div>
+                    </div>
+                </div>
+            </div>
             <br><br><br><br><br>
         </div>
-        
-        <script>
-            var ctxx = document.getElementById('chart2_marques').getContext('2d');
-            var chart_marques = new Chart(ctxx, {
-                type: 'bar',
-                data: {
-                    labels: data_chart_2["index"],
-                    datasets: [{
-                        label: "Indice de popularité",
-                        backgroundColor: '#6219D8',
-                        data: data_chart_2["data"].map(x => x[0])
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    tooltips: {
-                        mode: 'index',
-                        intersect: false
-                    },
-                    maintainAspectRatio: false,
-                }
-            });
 
 
-            var ctx = document.getElementById('chart1_parts_de_marche').getContext('2d');
-            var chart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Sept 2015', 'Jun 2016', 'Jun 2017', 'Jun 2018', 'Sept 2020'],
-                    datasets: [{
-                        label: 'Android',
-                        backgroundColor: '#6219D8',
-                        data: [66.77, 69.68, 73.52, 76.61, 76.24, 74.44]
-                    }, {
-                        label: 'iOS',
-                        backgroundColor: '#7F67F1',
-                        data: [18.14, 19.38, 19.37, 20.66, 22.48, 24.98]
-                    }, {
-                        label: 'Windows Phone',
-                        backgroundColor: '#777EF2',
-                        data: [2.22, 1.63, 0.77, 0.37, 0.17, 0.03]
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    tooltips: {
-                        mode: 'index',
-                        intersect: false
-                    },
-                    maintainAspectRatio: false,
-                    scales: {
-                        xAxes: [{
-                            stacked: true,
-                            gridLines: {
-                                display: false
-                            }
-                        }],
-                        yAxes: [{
-                            stacked: true,
-                            ticks: {
-                                max: 100,
-                                min: 0,
-                                stepSize: 25
-                            }
-                        }]
-                    }
-                }
-            });
-        </script>
-
-
+        <script src="ressources/dt.js"></script>
+        <script src="ressources/grphs.js"></script>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -160,7 +115,7 @@
         <script>
             AOS.init();
         </script>
-
+    </div>
 
 </body>
 
