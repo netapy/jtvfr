@@ -101,7 +101,7 @@ body {
     }
 
     100% {
-        transform: translatey(-250px);
+        transform: translatey(-55vh);
     }
 }
 
