@@ -175,12 +175,12 @@ body {
 
 .spacing-homepage {
     padding: 15px 30px;
-    margin: 50px 0px;
+    margin: 30px 0px;
 }
 
 .thumbnail-etudes {
     width: 100%;
-    border-radius: 8px; 
+    border-radius: 8px;
     margin-bottom: 10px;
     transition: all 1s cubic-bezier(.25, .8, .25, 1);
 }
@@ -190,5 +190,16 @@ body {
 }
 
 .separateur-hp {
-    margin:90px 0px
+    margin: 90px 0px
+}
+
+.titreEtude{
+    padding-top: 50px;
+    text-align: left;
+    opacity: .9;
+}
+
+
+hr{
+    margin: 60px 20vw;
 }

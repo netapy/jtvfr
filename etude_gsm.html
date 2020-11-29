@@ -13,10 +13,9 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>  en bas on teste le module "deferred"-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-deferred@1"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-deferred@1"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
     <title>Etudes.</title>
-
-    <!-- Favicon -->
     <link rel="icon" href="img/favicon.ico" />
 
 </head>
@@ -24,13 +23,26 @@
 <body>
     <div style="background-color: #FAF7FF;">
         <div class="container text-center"
-            style="position: relative; z-index: 1980;background-color: #FAF7FF; padding: 80px 0px">
+            style="position: relative; z-index: 1980;background-color: #FAF7FF; padding: 80px 15px">
             <div class="container">
                 <img src="img/LOGO_JTV_ALT.svg" style="height: 120px; opacity: .05; position: absolute; left: 0px;">
-                <h4>Etude Jetevois.</h4>
                 <h1>Le smartphone en France.</h1><br>
                 <h3 class="fancyPhrase">Lecture de l'e-commerce Français.</h3>
             </div>
+
+            <div class="container neumorphSection" data-aos="flip-down">
+                <div class="container">
+                    Voici la méthodologie
+                </div>
+            </div>
+
+
+            <hr>
+
+            <div class="titreEtude">
+                <h3>1. Informations générales sur le marché</h3>
+            </div>
+
             <div class="container neumorphSection" data-aos="flip-down">
                 <div class="row">
                     <div class="col-sm">
@@ -39,11 +51,12 @@
                     <div class="col-sm text-left d-flex align-items-center" style="padding: 25px 20px;">
                         <div>
                             <h4>Android occupe 76% du marché.</h4>
-                            En 2019, le marché du smartphone à échelle mondiale, en termes de systèmes d’exploitation,
-                            est
-                            particulièrement concentré. Cette concentration se reflète dans des proportions très
-                            similaires
-                            sur le marché Français.
+                            <p>En 2019, le marché du smartphone à échelle mondiale, en termes de systèmes
+                                d’exploitation,
+                                est
+                                particulièrement concentré. Cette concentration se reflète dans des proportions très
+                                similaires
+                                sur le marché Français.</p>
                             <img class="shadow-bg-icon-right" src="img/android_lgo.svg">
                         </div>
                     </div>
@@ -54,15 +67,17 @@
                     <div class="col-sm text-left d-flex align-items-center" style="padding: 25px 20px;">
                         <div>
                             <h4>Samsung en tête des classements.</h4>
-                            Les constructeurs dont les produits composent l’échantillon sont multiples, néanmoins la
-                            présence des quatre
-                            premiers constructeurs mondiaux est représentée dans des proportions similaires en France.
-                            <br><u>Point sur l’iPhone :</u> si l'échantillon prenait en compte les produits d’occasion
-                            et
-                            reconditionnés, Apple serait en
-                            deuxième position du classement en termes de meilleures ventes. Au troisième trimestre 2019
-                            les produits
-                            d’occasion représentaient près d’un quart du score total réalisé par Apple.
+                            <p>Les constructeurs dont les produits composent l’échantillon sont multiples, néanmoins la
+                                présence des quatre
+                                premiers constructeurs mondiaux est représentée dans des proportions similaires en
+                                France.</p>
+                            <p><u>Point sur l’iPhone :</u> si l'échantillon prenait en compte les produits d’occasion
+                                et
+                                reconditionnés, Apple serait en
+                                deuxième position du classement en termes de meilleures ventes. Au troisième trimestre
+                                2019
+                                les produits
+                                d’occasion représentaient près d’un quart du score total réalisé par Apple.</p>
                             <img class="shadow-bg-icon-right" src="img/stonks.svg">
                         </div>
                     </div>
@@ -71,6 +86,11 @@
                     </div>
                 </div>
             </div>
+
+            <div class="titreEtude">
+                <h3>2. Informations générales sur le marché</h3>
+            </div>
+
             <div class="container neumorphSection" data-aos="flip-down">
                 <div class="row">
                     <div class="col-sm">
@@ -82,14 +102,68 @@
                     <div class="col-sm text-left d-flex align-items-center" style="padding: 25px 20px;">
                         <div>
                             <h4>Les smartphones en verre en n°1.</h4>
-                            Les constructeurs dont les produits composent l’échantillon sont multiples, néanmoins la
-                            présence des quatre
-                            premiers constructeurs mondiaux est représentée dans des proportions similaires en France.
+                            <p>Les constructeurs dont les produits composent l’échantillon sont multiples, néanmoins la
+                                présence des quatre
+                                premiers constructeurs mondiaux est représentée dans des proportions similaires en
+                                France.</p>
                             <img class="shadow-bg-icon-right" src="img/stonks.svg">
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="container neumorphSection" data-aos="flip-down">
+                <div class="row">
+                    <div class="col-sm">
+                        <canvas id="chart5_catprix" style="min-height: 250px;"></canvas>
+                    </div>
+                    <div class="col-sm text-left d-flex align-items-center" style="padding: 25px 20px;">
+                        <div>
+                            <h4>Les smartphones abordables restent les plus populaires.</h4>
+                            <p>En 2019, le marché du smartphone à échelle mondiale, en termes de systèmes
+                                d’exploitation,
+                                est
+                                particulièrement concentré. Cette concentration se reflète dans des proportions très
+                                similaires
+                                sur le marché Français.</p>
+                            <p>En 2019, le marché du smartphone à échelle mondiale, en termes de systèmes
+                                d’exploitation,
+                                est
+                                particulièrement concentré. Cette concentration se reflète dans des proportions très
+                                similaires
+                                sur le marché Français.</p>
+                            <img class="shadow-bg-icon-right" src="img/android_lgo.svg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container neumorphSection" data-aos="flip-down">
+                <div class="row">
+                    <div class="col-sm text-left d-flex align-items-center" style="padding: 25px 20px;">
+                        <div>
+                            <h4>Les smartphones abordables restent les plus populaires.</h4>
+                            <p>En 2019, le marché du smartphone à échelle mondiale, en termes de systèmes
+                                d’exploitation,
+                                est
+                                particulièrement concentré. Cette concentration se reflète dans des proportions très
+                                similaires
+                                sur le marché Français.</p>
+                            <p>En 2019, le marché du smartphone à échelle mondiale, en termes de systèmes
+                                d’exploitation,
+                                est
+                                particulièrement concentré. Cette concentration se reflète dans des proportions très
+                                similaires
+                                sur le marché Français.</p>
+                            <img class="shadow-bg-icon-right" src="img/android_lgo.svg">
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <canvas id="chart6_popcpu" style="min-height: 250px;"></canvas>
+                    </div>
+                </div>
+            </div>
+
             <br><br><br><br><br>
         </div>
 
