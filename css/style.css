@@ -118,6 +118,11 @@ body {
     cursor: pointer;
     border-width: 0px;
     padding: 10px;
+    transition: all .8s cubic-bezier(.25, .8, .25, 1);
+}
+
+.neumorphButton:hover {
+    transform: scale(1.05);
 }
 
 .neumorphSection {
@@ -127,6 +132,11 @@ body {
         -20px -20px 35px #ffffff;
     padding: 40px 30px;
     margin: 60px 0px;
+    transition: all .8s cubic-bezier(.25, .8, .25, 1);
+}
+
+.neumorphSection:hover {
+    transform: scale(1.02);
 }
 
 
@@ -239,4 +249,27 @@ hr {
     max-width: 1000px;
     border-left: 3px solid #31037c56;
     border-radius: 2px;
+}
+
+.headerEtude {
+    background-color: #6219D8;
+    clip-path: polygon(100% 0, 100% 6%, 73% 26%, 31% 36%, 0 53%, 0% 0%);
+    height: 180px;
+    position: absolute;
+    width: 100vw;
+    animation: clipMove 10s ease-in-out infinite;
+}
+
+@keyframes clipMove {
+    0% {
+        clip-path: polygon(90% 0,  63% 26%, 31% 36%, 0 53%, 0% 0%);
+    }
+
+    50% {
+        clip-path: polygon(88% 0,61% 27%, 27% 28%, 0 62%, 0% 0%);
+    }
+
+    100% {
+        clip-path: polygon(90% 0, 63% 26%, 31% 36%, 0 53%, 0% 0%);
+    }
 }
