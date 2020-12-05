@@ -106,18 +106,18 @@ body {
 }
 
 .neumorphButton {
-    border-radius: 27px;
-    background: linear-gradient(145deg, #5817c2, #691be7);
-    box-shadow: 5px 5px 10px #5215b5, -5px -5px 10px #721dfb;
-    height: 30px;
-    width: 100px;
-    font-family: RalewaySmBold;
-    color: #F9F5FF;
-    opacity: .95;
+    border-radius: 12px;
+    background: #F3F0F7;
+    box-shadow: 7px 7px 12px #dddae1,
+        -7px -7px 12px #ffffff;
+    color: #000000;
+    opacity: .6;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    border-width: 0px;
+    padding: 10px;
 }
 
 .neumorphSection {
@@ -233,3 +233,10 @@ hr {
         inset -8px -8px 16px #ffffff;
 }
 
+
+.texteEtude {
+    padding: 20px;
+    max-width: 1000px;
+    border-left: 3px solid #31037c56;
+    border-radius: 2px;
+}
