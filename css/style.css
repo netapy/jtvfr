@@ -101,7 +101,7 @@ body {
     }
 
     100% {
-        top: 30vh;
+        top: 26vh;
     }
 }
 
@@ -262,14 +262,34 @@ hr {
 
 @keyframes clipMove {
     0% {
-        clip-path: polygon(90% 0,  63% 26%, 31% 36%, 0 53%, 0% 0%);
+        clip-path: polygon(90% 0, 63% 26%, 31% 36%, 0 53%, 0% 0%);
     }
 
     50% {
-        clip-path: polygon(88% 0,61% 27%, 27% 28%, 0 62%, 0% 0%);
+        clip-path: polygon(88% 0, 61% 27%, 27% 28%, 0 62%, 0% 0%);
     }
 
     100% {
         clip-path: polygon(90% 0, 63% 26%, 31% 36%, 0 53%, 0% 0%);
+    }
+}
+
+.catchPhraseJTV {
+    max-width: 900px;
+    position: absolute;
+    top: 80vh;
+    animation: revelationLogo 2s ease-in-out;
+    animation-fill-mode: forwards;
+    color: white;
+    font-size: 3rem;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
     }
 }
