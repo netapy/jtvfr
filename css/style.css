@@ -97,11 +97,11 @@ body {
 
 @keyframes revelationLogo {
     0% {
-        top: 80vh;
+        transform: translateY(80vh);
     }
 
     100% {
-        top: 26vh;
+        transform: translateY(0);
     }
 }
 
@@ -275,9 +275,6 @@ hr {
 }
 
 .catchPhraseJTV {
-    max-width: 900px;
-    position: absolute;
-    top: 80vh;
     animation: revelationLogo 2s ease-in-out;
     animation-fill-mode: forwards;
     color: white;
@@ -292,4 +289,9 @@ hr {
     100% {
         opacity: 100%;
     }
+}
+
+.meaJtv{
+    color: #6219D8;
+    font-weight: 500;
 }
