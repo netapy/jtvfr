@@ -146,6 +146,10 @@ body {
     position: absolute;
     right: 0px;
     bottom: -10%;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
 }
 
 .img-home {
@@ -291,7 +295,7 @@ hr {
     }
 }
 
-.meaJtv{
+.meaJtv {
     color: #6219D8;
     font-weight: 500;
 }

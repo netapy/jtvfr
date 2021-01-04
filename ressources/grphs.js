@@ -231,3 +231,44 @@ var chart = new Chart(ctxx, {
         },
     }
 });
+
+//graph ports
+var ctxx = document.getElementById('chart6_typePort').getContext('2d');
+var chart = new Chart(ctxx, {
+    type: 'doughnut',
+    data: {
+        labels: data_chart_type_port["index"],
+        datasets: [{
+            label: "Indice de popularité",
+            backgroundColor: ["#171123", "#6219D8", "#ABA8B2", "#FBFCFF", "#F3A712", "#DB2B39", "#DD99BB", "#6219D8"],
+            data: data_chart_type_port["data"].map(x => x[0])
+        }]
+    },
+    options: {
+        responsive: true,
+        title: {
+            display: true,
+            position: "bottom",
+            fontFamily: "Lexend Deca",
+            padding: 20,
+            fontSize: 14,
+            text: "Popularité cumulée des smartphones par port."
+        },
+        legend: {
+            position: "right",
+            align: "start",
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false
+        },
+        maintainAspectRatio: false,
+        plugins: {
+            deferred: {
+                xOffset: 150,
+                yOffset: '50%',
+                delay: 500
+            }
+        },
+    }
+});
