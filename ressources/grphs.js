@@ -196,7 +196,7 @@ var ctxx = document.getElementById('chart6_popcpu').getContext('2d');
 let data_cpu_brand = data_chart_cpu_brand["data"].map(b => [{
     "x": Math.round(b[0]),
     "y": b[1],
-    "r": Math.round(b[0]/60)
+    "r": Math.round(b[0] / 60)
 }][0]);
 let color_cpu = ["#171123", "#1B98E0", "#ABA8B2", "#FBFCFF", "#F3A712", "#DB2B39", "#DD99BB", "#6219D8"]
 var chart = new Chart(ctxx, {
@@ -241,7 +241,7 @@ var chart = new Chart(ctxx, {
         datasets: [{
             label: "Indice de popularité",
             backgroundColor: ["#171123", "#6219D8", "#ABA8B2", "#FBFCFF", "#F3A712", "#DB2B39", "#DD99BB", "#6219D8"],
-            data: data_chart_type_port["data"].map(x => x[0])
+            data: data_chart_type_port["data"].map(x => x[1])
         }]
     },
     options: {
@@ -257,6 +257,417 @@ var chart = new Chart(ctxx, {
         legend: {
             position: "right",
             align: "start",
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false
+        },
+        maintainAspectRatio: false,
+        plugins: {
+            deferred: {
+                xOffset: 150,
+                yOffset: '50%',
+                delay: 500
+            }
+        },
+    }
+});
+
+//graph battery
+var ctxx = document.getElementById('chart10_battery').getContext('2d');
+var chart = new Chart(ctxx, {
+    type: 'line',
+    data: {
+        labels: data_chart_battery["index"],
+        datasets: [{
+            label: "Indice de popularité",
+            backgroundColor: '#6219D8',
+            borderColor: '#6219D8',
+            fill: false,
+            data: data_chart_battery["data"].map(x => x[0])
+        }]
+    },
+    options: {
+        responsive: true,
+        title: {
+            display: true,
+            position: "bottom",
+            fontFamily: "Lexend Deca",
+            text: "Popularité cumulée des smartphones par capacité de la batterie (mAh)."
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false
+        },
+        maintainAspectRatio: false,
+        plugins: {
+            deferred: {
+                xOffset: 150,
+                yOffset: '50%',
+                delay: 500
+            }
+        },
+    }
+});
+
+//graph screen tech
+var ctxx = document.getElementById('chart7_techecran').getContext('2d');
+var chart = new Chart(ctxx, {
+    type: 'bar',
+    data: {
+        labels: data_chart_screen_tech["index"],
+        datasets: [{
+            label: "Indice de popularité",
+            backgroundColor: '#6219D8',
+            data: data_chart_screen_tech["data"].map(x => x[0])
+        }]
+    },
+    options: {
+        responsive: true,
+        title: {
+            display: true,
+            position: "bottom",
+            fontFamily: "Lexend Deca",
+            text: "Popularité cumulée des smartphones par matériaux."
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false
+        },
+        maintainAspectRatio: false,
+        plugins: {
+            deferred: {
+                xOffset: 150,
+                yOffset: '50%',
+                delay: 500
+            }
+        },
+    }
+});
+
+//graph screen size
+var ctxx = document.getElementById('chart8_tailleecran').getContext('2d');
+var chart = new Chart(ctxx, {
+    type: 'bar',
+    data: {
+        labels: data_chart_screen_sz["index"],
+        datasets: [{
+            label: "Indice de popularité",
+            backgroundColor: '#6219D8',
+            data: data_chart_screen_sz["data"].map(x => x[0])
+        }]
+    },
+    options: {
+        responsive: true,
+        title: {
+            display: true,
+            position: "bottom",
+            fontFamily: "Lexend Deca",
+            text: "Popularité cumulée des smartphones par taille d'écran (pouces)."
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false
+        },
+        maintainAspectRatio: false,
+        plugins: {
+            deferred: {
+                xOffset: 150,
+                yOffset: '50%',
+                delay: 500
+            }
+        },
+    }
+});
+
+//graph screen refresh
+var ctxx = document.getElementById('chart9_screenrefresh').getContext('2d');
+var chart = new Chart(ctxx, {
+    type: 'doughnut',
+    data: {
+        labels: data_chart_rfrsh_rate["index"],
+        datasets: [{
+            label: "Indice de popularité",
+            backgroundColor: ["#171123", "#6219D8", "#ABA8B2", "#FBFCFF", "#F3A712", "#DB2B39", "#DD99BB", "#6219D8"],
+            data: data_chart_rfrsh_rate["data"].map(x => x[1])
+        }]
+    },
+    options: {
+        responsive: true,
+        title: {
+            display: true,
+            position: "bottom",
+            fontFamily: "Lexend Deca",
+            padding: 20,
+            fontSize: 14,
+            text: "Popularité cumulée des smartphones par taux de rafraîchissement."
+        },
+        legend: {
+            position: "right",
+            align: "start",
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false
+        },
+        maintainAspectRatio: false,
+        plugins: {
+            deferred: {
+                xOffset: 150,
+                yOffset: '50%',
+                delay: 500
+            }
+        },
+    }
+});
+
+//graph memoire ROM
+var ctxx = document.getElementById('chart10_memROM').getContext('2d');
+var chart = new Chart(ctxx, {
+    type: 'bar',
+    data: {
+        labels: data_chart_rom["index"],
+        datasets: [{
+            label: "Indice de popularité",
+            backgroundColor: '#6219D8',
+            data: data_chart_rom["data"].map(x => x[1])
+        }]
+    },
+    options: {
+        responsive: true,
+        title: {
+            display: true,
+            position: "bottom",
+            fontFamily: "Lexend Deca",
+            text: "Popularité cumulée des smartphones par mémoire de stockage inerne."
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false
+        },
+        maintainAspectRatio: false,
+        plugins: {
+            deferred: {
+                xOffset: 150,
+                yOffset: '50%',
+                delay: 500
+            }
+        },
+    }
+});
+
+//graph memoire ROM
+var ctxx = document.getElementById('chart10_memROM').getContext('2d');
+var chart = new Chart(ctxx, {
+    type: 'bar',
+    data: {
+        labels: data_chart_rom["index"],
+        datasets: [{
+            label: "Indice de popularité",
+            backgroundColor: '#6219D8',
+            data: data_chart_rom["data"].map(x => x[1])
+        }]
+    },
+    options: {
+        responsive: true,
+        title: {
+            display: true,
+            position: "bottom",
+            fontFamily: "Lexend Deca",
+            text: "Popularité cumulée des smartphones par mémoire de stockage interne."
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false
+        },
+        maintainAspectRatio: false,
+        plugins: {
+            deferred: {
+                xOffset: 150,
+                yOffset: '50%',
+                delay: 500
+            }
+        },
+    }
+});
+
+//graph memoire RAM
+var ctxx = document.getElementById('chart11_memRAM').getContext('2d');
+var chart = new Chart(ctxx, {
+    type: 'bar',
+    data: {
+        labels: data_chart_ram["index"],
+        datasets: [{
+            label: "Indice de popularité",
+            backgroundColor: '#6219D8',
+            data: data_chart_ram["data"].map(x => x[1])
+        }]
+    },
+    options: {
+        responsive: true,
+        title: {
+            display: true,
+            position: "bottom",
+            fontFamily: "Lexend Deca",
+            text: "Popularité cumulée des smartphones par mémoire vive."
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false
+        },
+        maintainAspectRatio: false,
+        plugins: {
+            deferred: {
+                xOffset: 150,
+                yOffset: '50%',
+                delay: 500
+            }
+        },
+    }
+});
+
+//graph 5G
+var ctxx = document.getElementById('chart12_lacinqg').getContext('2d');
+var chart = new Chart(ctxx, {
+    type: 'doughnut',
+    data: {
+        labels: data_chart_5g["index"],
+        datasets: [{
+            label: "Indice de popularité",
+            backgroundColor: ["#6219D8", "#171123"],
+            data: data_chart_5g["data"].map(x => x[1])
+        }]
+    },
+    options: {
+        responsive: true,
+        title: {
+            display: true,
+            position: "bottom",
+            fontFamily: "Lexend Deca",
+            padding: 20,
+            fontSize: 14,
+            text: "Popularité cumulée des smartphones par port."
+        },
+        legend: {
+            position: "right",
+            align: "start",
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false
+        },
+        maintainAspectRatio: false,
+        plugins: {
+            deferred: {
+                xOffset: 150,
+                yOffset: '50%',
+                delay: 500
+            }
+        },
+    }
+});
+
+//graph NFC
+var ctxx = document.getElementById('chart13_nfc').getContext('2d');
+var chart = new Chart(ctxx, {
+    type: 'doughnut',
+    data: {
+        labels: data_chart_nfc["index"],
+        datasets: [{
+            label: "Indice de popularité",
+            backgroundColor: ["#6219D8", "#171123"],
+            data: data_chart_nfc["data"].map(x => x[1])
+        }]
+    },
+    options: {
+        responsive: true,
+        title: {
+            display: true,
+            position: "bottom",
+            fontFamily: "Lexend Deca",
+            padding: 20,
+            fontSize: 14,
+            text: "Popularité cumulée des smartphones par port."
+        },
+        legend: {
+            position: "right",
+            align: "start",
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false
+        },
+        maintainAspectRatio: false,
+        plugins: {
+            deferred: {
+                xOffset: 150,
+                yOffset: '50%',
+                delay: 500
+            }
+        },
+    }
+});
+
+//graph NBCAM
+var ctxx = document.getElementById('chart14_nbcam').getContext('2d');
+var chart = new Chart(ctxx, {
+    type: 'doughnut',
+    data: {
+        labels: data_chart_nb_cam["index"],
+        datasets: [{
+            label: "Indice de popularité",
+            backgroundColor: ["#6219D8", "#171123", "#EEEBF3", "#008EE0", "#F3A712"],
+            data: data_chart_nb_cam["data"].map(x => x[0])
+        }]
+    },
+    options: {
+        responsive: true,
+        title: {
+            display: true,
+            position: "bottom",
+            fontFamily: "Lexend Deca",
+            padding: 20,
+            fontSize: 14,
+            text: "Popularité cumulée des smartphones par port."
+        },
+        legend: {
+            position: "right",
+            align: "start",
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false
+        },
+        maintainAspectRatio: false,
+        plugins: {
+            deferred: {
+                xOffset: 150,
+                yOffset: '50%',
+                delay: 500
+            }
+        },
+    }
+});
+
+//graph cam quality
+var ctxx = document.getElementById('chart15_camqual').getContext('2d');
+var chart = new Chart(ctxx, {
+    type: 'bar',
+    data: {
+        labels: data_chart_cam_qual["index"],
+        datasets: [{
+            label: "Indice de popularité",
+            backgroundColor: '#6219D8',
+            data: data_chart_cam_qual["data"].map(x => x[1])
+        }]
+    },
+    options: {
+        responsive: true,
+        title: {
+            display: true,
+            position: "bottom",
+            fontFamily: "Lexend Deca",
+            text: "Popularité cumulée des smartphones par mémoire de stockage interne."
         },
         tooltips: {
             mode: 'index',
