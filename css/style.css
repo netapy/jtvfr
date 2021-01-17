@@ -282,7 +282,7 @@ hr {
     animation: revelationLogo 2s ease-in-out;
     animation-fill-mode: forwards;
     color: white;
-    font-size: 3rem;
+    font-size: 3.5rem;
 }
 
 @keyframes appear {
