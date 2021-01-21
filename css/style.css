@@ -139,7 +139,6 @@ body {
     transform: scale(1.02);
 }
 
-
 .shadow-bg-icon-right {
     height: 80%;
     opacity: .05;
@@ -298,4 +297,8 @@ hr {
 .meaJtv {
     color: #6219D8;
     font-weight: 500;
+}
+
+#introMethod{
+    transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
