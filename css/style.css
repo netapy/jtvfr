@@ -299,6 +299,9 @@ hr {
     font-weight: 500;
 }
 
-#introMethod{
-    transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+.techLogo {
+    width: 100%;
+    padding: 10px;
+    max-width: 120px;
+    opacity: .7;
 }
