@@ -28,8 +28,8 @@
         <div class="container text-center" style="position: relative; z-index: 1980; padding: 80px 15px">
             <div class="container-fluid text-center">
                 <img src="img/LOGO_JTV_ALT.svg" style="opacity: .05; position: absolute; top: 10px; max-width: 350px;">
-                <h1>Dashboard COVID en France.</h1><br>
-                <h3 class="fancyPhrase">Mis à jour en temps réel.</h3>
+                <h1>Vaccinations COVID en France.</h1><br>
+                <h3 class="fancyPhrase">Dashboard JeTeVois - Mis à jour quotidiennement.</h3>
             </div>
             <!-- <div id="container" style="position: relative; width: 500px; height: 300px;"></div>
             <script>
@@ -51,7 +51,7 @@
                 <div class="col-md-6">
                     <div class="container neumorphSection" data-aos="flip-down">
                         <div class="container text-center">
-                            <h4>Part de la population vaccinée en France.</h4>
+                            <h4>Part de la population vaccinée <br>en France.</h4>
                             <div class="col-sm" style="padding: 20px 0px;">
                                 <canvas id="chart7_partvax" style="min-height: 300px;"></canvas>
                             </div>
@@ -59,16 +59,23 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="container neumorphSection" data-aos="flip-down">
+                    <div class="container neumorphSection" data-aos="flip-down" data-aos-delay="100">
                         <div class="container text-center">
-                            <h4></h4>
+                            <h4>Les régions françaises les <br>plus/moins vaccinées.</h4>
                             <div class="col-sm" style="padding: 20px 0px;">
-                                <canvas id="chart8_partvax" style="min-height: 300px;"></canvas>
+                                <canvas id="chart9_regionVax" style="min-height: 300px;"></canvas>
                             </div>
                         </div>
                     </div>
                 </div>
-
+                <div class="container neumorphSection" data-aos="flip-down">
+                    <div class="container text-center">
+                        <h4>La France en comparaison des autres pays.</h4>
+                        <div class="col-sm" style="padding: 20px 0px;">
+                            <canvas id="chart10_VaxCompet" style="min-height: 300px;"></canvas>
+                        </div>
+                    </div>
+                </div>
             </div>
 
 
@@ -163,8 +170,11 @@
         <script>
             let dataTotalVacc,
                 labelsTV,
-                dataTV;
-            fetch("dashboard/suivi-vaccins-covid19-national.json")
+                dataTV,
+                dataPays = [];
+            fetch("dashboard/suivi-vaccins-covid19-national.json", {
+                    cache: "no-store"
+                })
                 .then(response => response.json())
                 .then(json => dataTotalVacc = json)
                 .then(() => {
@@ -202,7 +212,13 @@
                                 yAxes: [{
                                     stacked: true,
                                     ticks: {
-                                        stepSize: 250000
+                                        stepSize: 250000,
+                                        userCallback: function (value, index, values) {
+                                            value = value.toString();
+                                            value = value.split(/(?=(?:...)*$)/);
+                                            value = value.join(',');
+                                            return value;
+                                        }
                                     }
                                 }],
                                 xAxes: [{
@@ -270,6 +286,129 @@
                                 }
                             }
 
+                        }
+                    });
+                })
+
+            fetch("dashboard/vaccination-regional.json")
+                .then(response => response.json())
+                .then(json => {
+                    let codeRegion = json.map(e => e["code"]).filter((x, i, a) => a.indexOf(x) == i);
+                    let newJsonObj = [];
+                    for (code in codeRegion) {
+                        let listeduCode = json.filter(e => e.code == codeRegion[code])
+                        newJsonObj.push(listeduCode.sort((a, b) => a["totalVaccines"] < b["totalVaccines"] ? 1 : -
+                            1)[0])
+                        newJsonObj.sort((a, b) => a["totalVaccines"] < b["totalVaccines"] ? 1 : -1)
+                    };
+                    //graph vacc total
+                    var ctxRegions = document.querySelector('#chart9_regionVax').getContext('2d');
+                    var chart = new Chart(ctxRegions, {
+                        type: 'horizontalBar',
+                        data: {
+                            labels: newJsonObj.map(e => e["nom"]),
+                            datasets: [{
+                                label: "Nb de personnes vaccinée contre le COVID-19",
+                                backgroundColor: '#6219D8',
+                                data: newJsonObj.map(e => e["totalVaccines"])
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            legend: {
+                                display: false
+                            },
+                            title: {
+                                display: true,
+                                position: "bottom",
+                                fontFamily: "Lexend Deca",
+                                text: "Source : data.gouv.fr"
+                            },
+                            tooltips: {
+                                mode: 'index',
+                                intersect: false
+                            },
+                            scales: {
+                                yAxes: [{
+                                    gridLines: {
+                                        display: false
+                                    }
+                                }],
+                                xAxes: [{
+                                    stacked: true,
+                                    step: 5000,
+                                    ticks: {
+                                        userCallback: function (value, index, values) {
+                                            value = value.toString();
+                                            value = value.split(/(?=(?:...)*$)/);
+                                            value = value.join(',');
+                                            return value;
+                                        }
+                                    }
+                                }]
+                            },
+                            maintainAspectRatio: false,
+                            plugins: {
+                                deferred: {
+                                    xOffset: 150,
+                                    yOffset: '50%',
+                                    delay: 500
+                                }
+                            },
+                        }
+                    });
+                });
+
+
+            fetch(
+                    "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/latest/owid-covid-latest.json", {
+                        cache: "no-store"
+                    }
+                )
+                .then(response => response.json())
+                .then(json => {
+                    dataPays.push(json.FRA);
+                    dataPays.push(json.DEU);
+                    dataPays.push(json.CHN);
+                    dataPays.push(json.USA);
+                    dataPays.push(json.ISR);
+                    //USA & Chine & UK & Italy & Espagne & Russie & Inde & Afrique du Sud & Israel
+                    console.log(dataPays)
+                    var ctxCompet = document.querySelector("#chart10_VaxCompet").getContext('2d');
+                    var chart = new Chart(ctxCompet, {
+                        type: 'bubble',
+                        data: {
+                            datasets: dataPays.map(a => {
+                                return {
+                                    label: a["location"],
+                                    backgroundColor: "#6219D8",
+                                    data: [{
+                                        x: a["population"],
+                                        y: a["total_vaccinations_per_hundred"],
+                                        r: 6
+                                    }]
+                                }
+                            })
+                        },
+                        options: {
+                            responsive: true,
+                            title: {
+                                display: true,
+                                position: "bottom",
+                                fontFamily: "Lexend Deca",
+                                text: "Nb de cas."
+                            },
+                            tooltips: {
+                                intersect: false
+                            },
+                            maintainAspectRatio: false,
+                            plugins: {
+                                deferred: {
+                                    xOffset: 150,
+                                    yOffset: '50%',
+                                    delay: 500
+                                }
+                            },
                         }
                     });
                 })
