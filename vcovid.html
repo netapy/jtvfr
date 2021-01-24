@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <title>Dashboard Covid.</title>
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.ico" id="light-scheme-favicon" />
+    <link rel="icon" href="img/faviconBlanc.ico" id="dark-scheme-favicon" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-deferred@1"></script>
+
+    <!-- <script src="https://d3js.org/d3.v5.js"></script>
+    <script src="dashboard/mapdt/map.js"></script> -->
+</head>
+
+<body>
+
+    <div style="background-color: #FAF7FF; min-height: 100vh;">
+        <div class="container text-center" style="position: relative; z-index: 1980; padding: 80px 15px">
+            <div class="container-fluid text-center">
+                <img src="img/LOGO_JTV_ALT.svg" style="opacity: .05; position: absolute; top: 10px; max-width: 350px;">
+                <h1>Dashboard COVID en France.</h1><br>
+                <h3 class="fancyPhrase">Mis à jour en temps réel.</h3>
+            </div>
+            <!-- <div id="container" style="position: relative; width: 500px; height: 300px;"></div>
+            <script>
+                var map = new Datamap({
+                    element: document.getElementById('container'),
+                    scope: "fra"
+                });
+            </script> -->
+
+            <div class="container neumorphSection" data-aos="flip-down">
+                <div class="container text-center">
+                    <h4>Nombre de personnes vaccinées contre la Covid-19 en France.</h4>
+                    <div class="col-sm" style="padding: 20px 0px;">
+                        <canvas id="chart6_general_vacc" style="min-height: 300px;"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="container neumorphSection" data-aos="flip-down">
+                        <div class="container text-center">
+                            <h4>Part de la population vaccinée en France.</h4>
+                            <div class="col-sm" style="padding: 20px 0px;">
+                                <canvas id="chart7_partvax" style="min-height: 300px;"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="container neumorphSection" data-aos="flip-down">
+                        <div class="container text-center">
+                            <h4></h4>
+                            <div class="col-sm" style="padding: 20px 0px;">
+                                <canvas id="chart8_partvax" style="min-height: 300px;"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <script>
+            Chart.pluginService.register({
+                beforeDraw: function (chart) {
+                    if (chart.config.options.elements.center) {
+                        // Get ctx from string
+                        var ctx = chart.chart.ctx;
+
+                        // Get options from the center object in options
+                        var centerConfig = chart.config.options.elements.center;
+                        var fontStyle = centerConfig.fontStyle || 'Arial';
+                        var txt = centerConfig.text;
+                        var color = centerConfig.color || '#000';
+                        var maxFontSize = centerConfig.maxFontSize || 75;
+                        var sidePadding = centerConfig.sidePadding || 20;
+                        var sidePaddingCalculated = (sidePadding / 100) * (chart.innerRadius * 2)
+                        // Start with a base font of 30px
+                        ctx.font = "30px " + fontStyle;
+
+                        // Get the width of the string and also the width of the element minus 10 to give it 5px side padding
+                        var stringWidth = ctx.measureText(txt).width;
+                        var elementWidth = (chart.innerRadius * 2) - sidePaddingCalculated;
+
+                        // Find out how much the font can grow in width.
+                        var widthRatio = elementWidth / stringWidth;
+                        var newFontSize = Math.floor(30 * widthRatio);
+                        var elementHeight = (chart.innerRadius * 2);
+
+                        // Pick a new font size so it will not be larger than the height of label.
+                        var fontSizeToUse = Math.min(newFontSize, elementHeight, maxFontSize);
+                        var minFontSize = centerConfig.minFontSize;
+                        var lineHeight = centerConfig.lineHeight || 25;
+                        var wrapText = false;
+
+                        if (minFontSize === undefined) {
+                            minFontSize = 20;
+                        }
+
+                        if (minFontSize && fontSizeToUse < minFontSize) {
+                            fontSizeToUse = minFontSize;
+                            wrapText = true;
+                        }
+
+                        // Set font settings to draw it correctly.
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        var centerX = ((chart.chartArea.left + chart.chartArea.right) / 2);
+                        var centerY = ((chart.chartArea.top + chart.chartArea.bottom) / 2);
+                        ctx.font = fontSizeToUse + "px " + fontStyle;
+                        ctx.fillStyle = color;
+
+                        if (!wrapText) {
+                            ctx.fillText(txt, centerX, centerY);
+                            return;
+                        }
+
+                        var words = txt.split(' ');
+                        var line = '';
+                        var lines = [];
+
+                        // Break words up into multiple lines if necessary
+                        for (var n = 0; n < words.length; n++) {
+                            var testLine = line + words[n] + ' ';
+                            var metrics = ctx.measureText(testLine);
+                            var testWidth = metrics.width;
+                            if (testWidth > elementWidth && n > 0) {
+                                lines.push(line);
+                                line = words[n] + ' ';
+                            } else {
+                                line = testLine;
+                            }
+                        }
+
+                        // Move the center up depending on line height and number of lines
+                        centerY -= (lines.length / 2) * lineHeight;
+
+                        for (var n = 0; n < lines.length; n++) {
+                            ctx.fillText(lines[n], centerX, centerY);
+                            centerY += lineHeight;
+                        }
+                        //Draw text in center
+                        ctx.fillText(line, centerX, centerY);
+                    }
+                }
+            });
+        </script>
+
+        <script>
+            let dataTotalVacc,
+                labelsTV,
+                dataTV;
+            fetch("dashboard/suivi-vaccins-covid19-national.json")
+                .then(response => response.json())
+                .then(json => dataTotalVacc = json)
+                .then(() => {
+                    labelsTV = dataTotalVacc.map(e => e["date"])
+                    dataTV = dataTotalVacc.map(e => e["total_vaccines"])
+
+                    //graph vacc total
+                    var ctxx = document.querySelector('#chart6_general_vacc').getContext('2d');
+                    var chart = new Chart(ctxx, {
+                        type: 'bar',
+                        data: {
+                            labels: labelsTV,
+                            datasets: [{
+                                label: "Population vaccinée contre le COVID-19 en France.",
+                                backgroundColor: '#6219D8',
+                                data: dataTV
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            legend: {
+                                display: false
+                            },
+                            title: {
+                                display: true,
+                                position: "bottom",
+                                fontFamily: "Lexend Deca",
+                                text: "Source : data.gouv.fr"
+                            },
+                            tooltips: {
+                                mode: 'index',
+                                intersect: false
+                            },
+                            scales: {
+                                yAxes: [{
+                                    stacked: true,
+                                    ticks: {
+                                        stepSize: 250000
+                                    }
+                                }],
+                                xAxes: [{
+                                    gridLines: {
+                                        display: false
+                                    }
+                                }]
+                            },
+                            maintainAspectRatio: false,
+                            plugins: {
+                                deferred: {
+                                    xOffset: 150,
+                                    yOffset: '50%',
+                                    delay: 500
+                                }
+                            },
+                        }
+                    });
+
+                    var ctxpart = document.querySelector('#chart7_partvax').getContext('2d');
+                    var CTchart7_partvax = new Chart(ctxpart, {
+                        type: 'doughnut',
+                        data: {
+                            labels: ["Population non-vaccinée", "Population vaccinée"],
+                            datasets: [{
+                                label: "Indice de popularité",
+                                backgroundColor: ["#bebbc4", "#6219D8"],
+                                data: ["67400000", dataTV.slice(-1).pop()]
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            legend: {
+                                display: false
+                            },
+                            title: {
+                                display: true,
+                                position: "bottom",
+                                fontFamily: "Lexend Deca",
+                                padding: 20,
+                                fontSize: 14,
+                                text: "Source : data.gouv.fr"
+                            },
+                            tooltips: {
+                                mode: 'index',
+                                intersect: false
+                            },
+                            maintainAspectRatio: false,
+                            plugins: {
+                                deferred: {
+                                    xOffset: 150,
+                                    yOffset: '50%',
+                                    delay: 500
+                                }
+                            },
+                            elements: {
+                                center: {
+                                    text: String(Math.round(dataTV.slice(-1).pop() / 67400000 * 1000) /
+                                        10) + "%",
+                                    color: '#6219D8', // Default is #000000
+                                    fontStyle: 'Lexend Deca', // Default is Arial
+                                    sidePadding: 40, // Default is 20 (as a percentage)
+                                    minFontSize: 16, // Default is 20 (in px), set to false and text will not wrap.
+                                    lineHeight: 25 // Default is 25 (in px), used for when text wraps
+                                }
+                            }
+
+                        }
+                    });
+                })
+        </script>
+
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="ressources/gnrl.js"></script>
+        <script>
+            AOS.init();
+        </script>
+    </div>
+
+</body>
+
+</html>

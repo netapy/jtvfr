@@ -1,0 +1,54 @@
+[
+  {
+    "date": "2021-01-11",
+    "total_vaccines": 138477
+  },
+  {
+    "date": "2021-01-12",
+    "total_vaccines": 189834
+  },
+  {
+    "date": "2021-01-13",
+    "total_vaccines": 247166
+  },
+  {
+    "date": "2021-01-14",
+    "total_vaccines": 318216
+  },
+  {
+    "date": "2021-01-15",
+    "total_vaccines": 388730
+  },
+  {
+    "date": "2021-01-16",
+    "total_vaccines": 413046
+  },
+  {
+    "date": "2021-01-17",
+    "total_vaccines": 422127
+  },
+  {
+    "date": "2021-01-18",
+    "total_vaccines": 479873
+  },
+  {
+    "date": "2021-01-19",
+    "total_vaccines": 585664
+  },
+  {
+    "date": "2021-01-20",
+    "total_vaccines": 692777
+  },
+  {
+    "date": "2021-01-21",
+    "total_vaccines": 823567
+  },
+  {
+    "date": "2021-01-22",
+    "total_vaccines": 963139
+  },
+  {
+    "date": "2021-01-23",
+    "total_vaccines": 1008720
+  }
+]
