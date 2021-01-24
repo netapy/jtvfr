@@ -131,7 +131,7 @@ body {
     box-shadow: 20px 20px 35px #eeebf2,
         -20px -20px 35px #ffffff;
     padding: 40px 30px;
-    margin: 30px 0px;
+    margin: 45px 0px;
     transition: all .8s cubic-bezier(.25, .8, .25, 1);
 }
 
