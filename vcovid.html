@@ -360,7 +360,20 @@
                     });
                 });
 
-
+            let colorsBubbleCountry = {
+                "France": "#006CE0CC",
+                "Germany": "#CBA135CC",
+                "China": "#BC4749CC",
+                "Israel": "#65AFFFCC",
+                "United States": "#595959CC",
+                "Brazil": "#4B7F52CC",
+                "Canada": "#F97068CC",
+                "Spain": "#FADF63CC",
+                "India": "#F29E4CCC",
+                "Italy":"#69B578CC",
+                "Japan":"#D4D4D8CC",
+                "Russia":"#225281CC"
+            }
             fetch(
                     "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/latest/owid-covid-latest.json", {
                         cache: "no-store"
@@ -373,6 +386,13 @@
                     dataPays.push(json.CHN);
                     dataPays.push(json.USA);
                     dataPays.push(json.ISR);
+                    dataPays.push(json.BRA);
+                    dataPays.push(json.CAN);
+                    dataPays.push(json.ESP);
+                    dataPays.push(json.IND);
+                    dataPays.push(json.ITA);
+                    dataPays.push(json.JPN);
+                    dataPays.push(json.RUS);
                     //USA & Chine & UK & Italy & Espagne & Russie & Inde & Afrique du Sud & Israel
                     console.log(dataPays)
                     var ctxCompet = document.querySelector("#chart10_VaxCompet").getContext('2d');
@@ -382,11 +402,11 @@
                             datasets: dataPays.map(a => {
                                 return {
                                     label: a["location"],
-                                    backgroundColor: "#6219D8",
+                                    backgroundColor: colorsBubbleCountry[a["location"]],
                                     data: [{
-                                        x: a["new_cases_per_million"],
-                                        y: a["total_vaccinations_per_hundred"],
-                                        r: 6
+                                        y: a["new_cases_per_million"],
+                                        x: a["total_vaccinations_per_hundred"],
+                                        r: 8
                                     }]
                                 }
                             })
@@ -397,10 +417,24 @@
                                 display: true,
                                 position: "bottom",
                                 fontFamily: "Lexend Deca",
-                                text: "Nb de cas."
+                                text: "Source : OWID"
                             },
                             tooltips: {
                                 intersect: false
+                            },
+                            scales: {
+                                yAxes: [{
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: 'Nouveaux cas par million'
+                                    }
+                                }],
+                                xAxes: [{
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: '% total de la population vaccinnée'
+                                    }
+                                }]
                             },
                             maintainAspectRatio: false,
                             plugins: {
@@ -418,7 +452,7 @@
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script src="ressources/gnrl.js"></script>
         <script>
-            AOS.init();
+            AOS.init()
         </script>
     </div>
 
