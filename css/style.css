@@ -41,6 +41,10 @@ body {
     position: relative;
 }
 
+.jtvNavBtn{
+    margin: 6px;
+}
+
 ::-moz-selection {
     background-color: #444;
     color: #ffffff;
@@ -305,3 +309,6 @@ hr {
     max-width: 120px;
     opacity: .7;
 }
+
+
+

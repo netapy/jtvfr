@@ -1402,5 +1402,113 @@
     "code": "REG-94",
     "nom": "Corse",
     "totalVaccines": 5328
+  },
+  {
+    "date": "2021-01-24",
+    "code": "REG-01",
+    "nom": "Guadeloupe",
+    "totalVaccines": 1299
+  },
+  {
+    "date": "2021-01-24",
+    "code": "REG-02",
+    "nom": "Martinique",
+    "totalVaccines": 1643
+  },
+  {
+    "date": "2021-01-24",
+    "code": "REG-03",
+    "nom": "Guyane",
+    "totalVaccines": 1651
+  },
+  {
+    "date": "2021-01-24",
+    "code": "REG-04",
+    "nom": "La Réunion",
+    "totalVaccines": 2156
+  },
+  {
+    "date": "2021-01-24",
+    "code": "REG-06",
+    "nom": "Mayotte",
+    "totalVaccines": 0
+  },
+  {
+    "date": "2021-01-24",
+    "code": "REG-11",
+    "nom": "Île-de-France",
+    "totalVaccines": 169828
+  },
+  {
+    "date": "2021-01-24",
+    "code": "REG-24",
+    "nom": "Centre-Val de Loire",
+    "totalVaccines": 40652
+  },
+  {
+    "date": "2021-01-24",
+    "code": "REG-27",
+    "nom": "Bourgogne-Franche-Comté",
+    "totalVaccines": 63626
+  },
+  {
+    "date": "2021-01-24",
+    "code": "REG-28",
+    "nom": "Normandie",
+    "totalVaccines": 62056
+  },
+  {
+    "date": "2021-01-24",
+    "code": "REG-32",
+    "nom": "Hauts-de-France",
+    "totalVaccines": 83416
+  },
+  {
+    "date": "2021-01-24",
+    "code": "REG-44",
+    "nom": "Grand Est",
+    "totalVaccines": 88633
+  },
+  {
+    "date": "2021-01-24",
+    "code": "REG-52",
+    "nom": "Pays de la Loire",
+    "totalVaccines": 54279
+  },
+  {
+    "date": "2021-01-24",
+    "code": "REG-53",
+    "nom": "Bretagne",
+    "totalVaccines": 51086
+  },
+  {
+    "date": "2021-01-24",
+    "code": "REG-75",
+    "nom": "Nouvelle-Aquitaine",
+    "totalVaccines": 108913
+  },
+  {
+    "date": "2021-01-24",
+    "code": "REG-76",
+    "nom": "Occitanie",
+    "totalVaccines": 101316
+  },
+  {
+    "date": "2021-01-24",
+    "code": "REG-84",
+    "nom": "Auvergne-Rhône-Alpes",
+    "totalVaccines": 111416
+  },
+  {
+    "date": "2021-01-24",
+    "code": "REG-93",
+    "nom": "Provence-Alpes-Côte d'Azur",
+    "totalVaccines": 79573
+  },
+  {
+    "date": "2021-01-24",
+    "code": "REG-94",
+    "nom": "Corse",
+    "totalVaccines": 5328
   }
 ]
