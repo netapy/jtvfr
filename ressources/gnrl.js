@@ -15,6 +15,6 @@ function onUpdate() {
 }
 onUpdate();
 
-let navbarHtml = '<div class="fixed-bottom text-right" style="z-index: 9999;"> <button type="button" style="background-color: #6219D8; color: white; padding: 3px 20px; margin-right: 20px; border-radius: 10px; z-index: 99999;" onclick="window.open(\'index.html\',\'_self\')">Accueil</button></div> <nav class="navbar fixed-bottom navbar-light" style="background-color: #6219D8; height: 1px; z-index: 9999; padding: 5px;"> </nav>'
+let navbarHtml = '<div class="fixed-bottom text-right" style="z-index: 9999;"> <button type="button" style="background-color: #6219D8; color: white; padding: 3px 20px; margin-right: 20px; border-radius: 10px; z-index: 99999;border-color: transparent;" onclick="window.open(\'index.html\',\'_self\')">Accueil</button></div> <nav class="navbar fixed-bottom navbar-light" style="background-color: #6219D8; height: 1px; z-index: 9999; padding: 5px;"> </nav>'
 document.body.insertAdjacentHTML("beforeend", navbarHtml)
 
