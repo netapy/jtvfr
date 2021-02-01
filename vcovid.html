@@ -17,9 +17,7 @@
     <link rel="icon" href="img/faviconBlanc.ico" id="dark-scheme-favicon" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-deferred@1"></script>
-
-    <!-- <script src="https://d3js.org/d3.v5.js"></script>
-    <script src="dashboard/mapdt/map.js"></script> -->
+    <script src="ressources/papaparse.min.js"></script>
 </head>
 
 <body>
@@ -173,14 +171,15 @@
                 labelsTV,
                 dataTV,
                 dataPays = [];
-            fetch("dashboard/suivi-vaccins-covid19-national.json", {
-                    cache: "no-store"
-                })
-                .then(response => response.json())
-                .then(json => dataTotalVacc = json)
-                .then(() => {
-                    labelsTV = dataTotalVacc.map(e => e["date"])
-                    dataTV = dataTotalVacc.map(e => e["total_vaccines"])
+            Papa.parse("https://www.data.gouv.fr/fr/datasets/r/efe23314-67c4-45d3-89a2-3faef82fae90", {
+                download: true,
+                complete: function (results, file) {
+                    let newJsonObj = results.data;
+                    newJsonObj.shift();
+                    newJsonObj.pop();
+                    console.log(newJsonObj)
+                    labelsTV = newJsonObj.map(e => e[1])
+                    dataTV = newJsonObj.map(e => e[3])
 
                     //graph vacc total
                     var ctxx = document.querySelector('#chart6_general_vacc').getContext('2d');
@@ -225,6 +224,10 @@
                                 xAxes: [{
                                     gridLines: {
                                         display: false
+                                    },
+                                    ticks: {
+                                        autoSkip: true,
+                                        maxTicksLimit: 15
                                     }
                                 }]
                             },
@@ -277,41 +280,60 @@
                             },
                             elements: {
                                 center: {
-                                    text: String(Math.round(dataTV.slice(-1).pop() / 67400000 * 1000) /
+                                    text: String(Math.round(dataTV.slice(-1).pop() / 67400000 *
+                                            1000) /
                                         10) + "%",
-                                    color: '#6219D8', // Default is #000000
-                                    fontStyle: 'Lexend Deca', // Default is Arial
-                                    sidePadding: 40, // Default is 20 (as a percentage)
-                                    minFontSize: 16, // Default is 20 (in px), set to false and text will not wrap.
-                                    lineHeight: 25 // Default is 25 (in px), used for when text wraps
+                                    color: '#6219D8',
+                                    fontStyle: 'Lexend Deca',
+                                    sidePadding: 40, //  
+                                    minFontSize: 16, // 
+                                    lineHeight: 25 // 
                                 }
                             }
-
                         }
                     });
-                })
+                }
+            });
 
-            fetch("dashboard/vaccination-regional.json")
-                .then(response => response.json())
-                .then(json => {
-                    let codeRegion = json.map(e => e["code"]).filter((x, i, a) => a.indexOf(x) == i);
-                    let newJsonObj = [];
-                    for (code in codeRegion) {
-                        let listeduCode = json.filter(e => e.code == codeRegion[code])
-                        newJsonObj.push(listeduCode.sort((a, b) => a["totalVaccines"] < b["totalVaccines"] ? 1 : -
-                            1)[0])
-                        newJsonObj.sort((a, b) => a["totalVaccines"] < b["totalVaccines"] ? 1 : -1)
-                    };
+            let codeRegions = {
+                '01': 'Guadeloupe',
+                '02': 'Martinique',
+                '03': 'Guyane',
+                '04': 'La Reunion',
+                '06': 'Mayotte',
+                '07': 'Mayotte',
+                '11': 'Ile de France',
+                '24': 'Val de Loire',
+                '27': 'Bourgogne Franche Comte',
+                '28': 'Normandie',
+                '32': 'Hauts de France',
+                '44': 'Grand Est',
+                '52': 'Pays de la Loire',
+                '53': 'Bretagne',
+                '75': 'Nouvelle Aquitaine',
+                '76': 'Occitanie',
+                '84': 'Auvergne Rhone Alpes',
+                '93': 'Provence Alpes Cote d\'Azur',
+                '94': 'Corse'
+            }
+            Papa.parse("https://www.data.gouv.fr/fr/datasets/r/9b1e6c8c-7e1d-47f9-9eb9-f2eeaab60d99", {
+                download: true,
+                complete: function (results, file) {
+                    let newJsonObj = results.data;
+                    newJsonObj.shift();
+                    newJsonObj.sort((a, b) => parseInt(a[2]) < parseInt(b[2]) ? 1 : -1)
+                    newJsonObj.shift();
+                    console.log(newJsonObj)
                     //graph vacc total
                     var ctxRegions = document.querySelector('#chart9_regionVax').getContext('2d');
                     var chart = new Chart(ctxRegions, {
                         type: 'horizontalBar',
                         data: {
-                            labels: newJsonObj.map(e => e["nom"]),
+                            labels: newJsonObj.map(e => codeRegions[e[0]]),
                             datasets: [{
                                 label: "Nb de personnes vaccinée contre le COVID-19",
                                 backgroundColor: '#6219D8',
-                                data: newJsonObj.map(e => e["totalVaccines"])
+                                data: newJsonObj.map(e => e[2])
                             }]
                         },
                         options: {
@@ -358,7 +380,9 @@
                             },
                         }
                     });
-                });
+                }
+            })
+
 
             let colorsBubbleCountry = {
                 "France": "#006CE0CC",
@@ -370,9 +394,9 @@
                 "Canada": "#F97068CC",
                 "Spain": "#FADF63CC",
                 "India": "#F29E4CCC",
-                "Italy":"#69B578CC",
-                "Japan":"#D4D4D8CC",
-                "Russia":"#225281CC"
+                "Italy": "#69B578CC",
+                "Japan": "#D4D4D8CC",
+                "Russia": "#225281CC"
             }
             fetch(
                     "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/latest/owid-covid-latest.json", {
@@ -394,7 +418,7 @@
                     dataPays.push(json.JPN);
                     dataPays.push(json.RUS);
                     //USA & Chine & UK & Italy & Espagne & Russie & Inde & Afrique du Sud & Israel
-                    console.log(dataPays)
+                    //console.log(dataPays)
                     var ctxCompet = document.querySelector("#chart10_VaxCompet").getContext('2d');
                     var chart = new Chart(ctxCompet, {
                         type: 'bubble',
