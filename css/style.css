@@ -26,6 +26,16 @@ h5 {
     color: #333333;
 }
 
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.6rem !important;
+    }
+
+    h2 {
+        font-size: 2rem !important;
+    }
+}
+
 .fancyPhrase {
     font-size: 18px;
     font-family: RalewaySmBold;
@@ -153,7 +163,7 @@ body {
 }
 
 @media (min-width: 768px) {
-    .neumorphSection{
+    .neumorphSection {
         padding: 40px 35px;
     }
 }
@@ -236,7 +246,7 @@ body {
 }
 
 hr {
-    margin: 30px 20vw;
+    margin: 30px 5vw;
     border-width: 2px;
 }
 
@@ -262,14 +272,19 @@ hr {
 }
 
 .sectionContact {
-    padding: 15px; 
+    padding: 20px;
+    cursor: pointer;
+    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
     min-width: 40%;
-    border-radius: 15px;
+    border-radius: 18px;
     background: #FAF7FF;
-    box-shadow: inset 5px 5px 10px #e9e6ed, 
-                inset -5px -5px 10px #ffffff;
+    box-shadow: 7px 7px 14px #e9e6ed,
+        -7px -7px 14px #ffffff;
 }
 
+.sectionContact:hover {
+    transform: scale(1.02);
+}
 
 .texteEtude {
     padding: 20px;
