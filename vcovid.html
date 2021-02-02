@@ -28,27 +28,9 @@
             <div class="container-fluid text-center">
                 <img src="img/LOGO_JTV_ALT.svg" style="opacity: .05; position: absolute; top: 10px; max-width: 350px;">
                 <h1>Vaccinations COVID en France.</h1><br>
-                <h3 class="fancyPhrase">Un dashboard pour suivre l'avancée de la vaccination contre la Covid-19 en France.</h3>
+                <h3 class="fancyPhrase">Un dashboard pour suivre l'avancée de la vaccination contre la Covid-19 en
+                    France.</h3>
             </div>
-
-            <div class="container neumorphSection" data-aos="flip-down">
-                <div class="container text-left">
-                    <p>Combien de Francais ont recu au moins une dose du vaccin ? Comment la France s'en sort en comparaison avec le reste du monde ? Quelles sont les régions les plus vaccinées dans le pays ? Ce tableau de bord synthétise les principales données relatives à la vaccination.
-                        <br>
-                        <br>
-                        Mis à jour quotidiennement. Source : <span class="meaJtv">data.gouv.fr</span>.
-                    </p>
-                </div>
-            </div>
-
-            <!-- <div id="container" style="position: relative; width: 500px; height: 300px;"></div>
-            <script>
-                var map = new Datamap({
-                    element: document.getElementById('container'),
-                    scope: "fra"
-                });
-            </script> -->
-
 
             <div class="container neumorphSection" data-aos="flip-down">
                 <div class="container text-center">
@@ -91,18 +73,30 @@
 
             <div class="container neumorphSection" data-aos="flip-down">
                 <div class="container text-left">
-                    <h4>Pour aller plus loin.</h4>
-                    <br>
-                    <p>De nombreuses ressources permettent de suivre l'évolution de la pandémie dans le monde entier. Nous vous proposons une sélection des meilleurs d'entre eux :
-                        <ul>
-                            <li>Le tracker le plus complet : covidtracker.fr</li>
-                            <li>Cet article</li>
-                            <li>Cette vidéo</li>
-                            <li>Ce subreddit</li>
-                            <li>Ce compte Twitter</li>
-                            <li>La page wikipédia de Cédric Villani</li>
-                        </ul>
+                    <h4>Pour aller plus loin...</h4>
+                    <p>De nombreuses ressources permettent de suivre l'évolution de la pandémie dans le monde entier.
+                        <br>Nous vous proposons une sélection des meilleurs d'entre eux :
                     </p>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Covid Tracker</h5>
+                                    <p class="card-text">Le dashboard le plus complet pour suivre l'actualité COVID-19. Merci Guillaume Rozier!</p>
+                                    <a href="https://covidtracker.fr/" class="btn jtvBtn">Voir</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">TousAntiCovid</h5>
+                                    <p class="card-text">La meilleure application pour s'informer et se protéger du virus.</p>
+                                    <a href="https://www.gouvernement.fr/info-coronavirus/tousanticovid" class="btn jtvBtn">Voir</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -436,16 +430,16 @@
                 .then(json => {
                     dataPays.push(json.FRA);
                     dataPays.push(json.DEU);
-                    dataPays.push(json.CHN);
+                    dataPays.push(json.ESP);
+                    dataPays.push(json.ITA);
                     dataPays.push(json.USA);
+                    dataPays.push(json.CHN);
+                    dataPays.push(json.RUS);
+                    dataPays.push(json.JPN);
                     dataPays.push(json.ISR);
                     dataPays.push(json.BRA);
-                    dataPays.push(json.CAN);
-                    dataPays.push(json.ESP);
                     dataPays.push(json.IND);
-                    dataPays.push(json.ITA);
-                    dataPays.push(json.JPN);
-                    dataPays.push(json.RUS);
+                    dataPays.push(json.CAN);
                     //USA & Chine & UK & Italy & Espagne & Russie & Inde & Afrique du Sud & Israel
                     //console.log(dataPays)
                     var ctxCompet = document.querySelector("#chart10_VaxCompet").getContext('2d');
@@ -474,6 +468,10 @@
                             },
                             tooltips: {
                                 intersect: false
+                            },
+                            legend : {
+                                fullWidth: false,
+                                position: "right"
                             },
                             scales: {
                                 yAxes: [{

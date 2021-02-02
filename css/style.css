@@ -45,6 +45,19 @@ body {
     margin: 6px;
 }
 
+.jtvBtn {
+    background-color: #6219D8;
+    border-radius: 5px;
+    color: white;
+}
+
+.card {
+    background-color: #ffffff56;
+    border-radius: 10px;
+    border-style: dashed;
+    border-width: 1.5px;
+}
+
 ::-moz-selection {
     background-color: #444;
     color: #ffffff;
