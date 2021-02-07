@@ -45,7 +45,7 @@ var chart = new Chart(ctx, {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         }
     }
@@ -60,7 +60,13 @@ var chart = new Chart(ctxx, {
         datasets: [{
             label: "Indice de popularité",
             backgroundColor: '#6219D8',
-            data: data_chart_marques["data"].map(x => x[1])
+            data: data_chart_marques["data"].map(x => x[1]),
+            yAxisID: "y-axis-1",
+        }, {
+            label: "Prix moyen",
+            data: data_chart_marques["data"].map(x => x[0]),
+            type: "line",
+            yAxisID: "y-axis-2"
         }]
     },
     options: {
@@ -69,12 +75,40 @@ var chart = new Chart(ctxx, {
             mode: 'index',
             intersect: false
         },
+        scales: {
+            xAxes: [{
+                stacked: true,
+                gridLines: {
+                    display: false
+                }
+            }],
+            yAxes: [{
+                type: "linear",
+                display: true,
+                position: "left",
+                id: "y-axis-1",
+            }, {
+                type: "linear",
+                display: true,
+                position: "right",
+                id: "y-axis-2",
+                gridLines: {
+                    drawOnChartArea: false,
+                },
+                ticks: {
+                    callback: function (value, index, values) {
+                        return value + '€';
+                    },
+                    stepSize: 250
+                }
+            }],
+        },
         maintainAspectRatio: false,
         plugins: {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -89,7 +123,13 @@ var chart = new Chart(ctxx, {
         datasets: [{
             label: "Indice de popularité",
             backgroundColor: '#6219D8',
-            data: data_chart_materials["data"].map(x => x[1])
+            data: data_chart_materials["data"].map(x => x[1]),
+            yAxisID: "y-axis-1",
+        }, {
+            label: "Prix moyen",
+            data: data_chart_materials["data"].map(x => x[0]),
+            type: "line",
+            yAxisID: "y-axis-2",
         }]
     },
     options: {
@@ -104,12 +144,43 @@ var chart = new Chart(ctxx, {
             mode: 'index',
             intersect: false
         },
+        scales: {
+            xAxes: [{
+                stacked: true,
+                gridLines: {
+                    display: false
+                },
+            }],
+            yAxes: [{
+                type: "linear",
+                display: true,
+                position: "left",
+                id: "y-axis-1",
+                ticks: {
+                    stepSize: 20
+                }
+            }, {
+                type: "linear",
+                display: true,
+                position: "right",
+                id: "y-axis-2",
+                gridLines: {
+                    drawOnChartArea: false,
+                },
+                ticks: {
+                    callback: function (value, index, values) {
+                        return value + '€';
+                    },
+                    stepSize: 250
+                }
+            }],
+        },
         maintainAspectRatio: false,
         plugins: {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -150,7 +221,7 @@ var chart = new Chart(ctxx, {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -180,12 +251,25 @@ var chart = new Chart(ctxx, {
             mode: 'index',
             intersect: false
         },
+        scales: {
+            xAxes: [{
+                stacked: true,
+                gridLines: {
+                    display: false
+                }
+            }],
+            yAxes: [{
+                ticks: {
+                    stepSize: 5
+                }
+            }]
+        },
         maintainAspectRatio: false,
         plugins: {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -245,7 +329,7 @@ var chart = new Chart(ctxx, {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -286,7 +370,7 @@ var chart = new Chart(ctxx, {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -318,12 +402,25 @@ var chart = new Chart(ctxx, {
             mode: 'index',
             intersect: false
         },
+        scales: {
+            xAxes: [{
+                stacked: true,
+                gridLines: {
+                    display: false
+                }
+            }],
+            yAxes: [{
+                ticks: {
+                    stepSize: 5
+                }
+            }]
+        },
         maintainAspectRatio: false,
         plugins: {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -365,6 +462,9 @@ var chart = new Chart(ctxx, {
                 display: true,
                 position: "left",
                 id: "y-axis-1",
+                ticks: {
+                    stepSize: 25
+                }
             }, {
                 type: "linear",
                 display: true,
@@ -373,6 +473,18 @@ var chart = new Chart(ctxx, {
                 gridLines: {
                     drawOnChartArea: false,
                 },
+                ticks: {
+                    callback: function (value, index, values) {
+                        return value + '€';
+                    },
+                    stepSize: 500
+                }
+            }],
+            xAxes: [{
+                stacked: true,
+                gridLines: {
+                    display: false
+                },
             }],
         },
         maintainAspectRatio: false,
@@ -380,7 +492,7 @@ var chart = new Chart(ctxx, {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -410,12 +522,25 @@ var chart = new Chart(ctxx, {
             mode: 'index',
             intersect: false
         },
+        scales: {
+            xAxes: [{
+                stacked: true,
+                gridLines: {
+                    display: false
+                }
+            }],
+            yAxes: [{
+                ticks: {
+                    stepSize: 5
+                }
+            }]
+        },
         maintainAspectRatio: false,
         plugins: {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -456,7 +581,7 @@ var chart = new Chart(ctxx, {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -471,42 +596,13 @@ var chart = new Chart(ctxx, {
         datasets: [{
             label: "Indice de popularité",
             backgroundColor: '#6219D8',
-            data: data_chart_rom["data"].map(x => x[1])
-        }]
-    },
-    options: {
-        responsive: true,
-        title: {
-            display: true,
-            position: "bottom",
-            fontFamily: "Lexend Deca",
-            text: "Indice popularité des smartphones par mémoire de stockage inerne."
-        },
-        tooltips: {
-            mode: 'index',
-            intersect: false
-        },
-        maintainAspectRatio: false,
-        plugins: {
-            deferred: {
-                xOffset: 150,
-                yOffset: '50%',
-                delay: 500
-            }
-        },
-    }
-});
-
-//graph memoire ROM
-var ctxx = document.getElementById('chart10_memROM').getContext('2d');
-var chart = new Chart(ctxx, {
-    type: 'bar',
-    data: {
-        labels: data_chart_rom["index"],
-        datasets: [{
-            label: "Indice de popularité",
-            backgroundColor: '#6219D8',
-            data: data_chart_rom["data"].map(x => x[1])
+            data: data_chart_rom["data"].map(x => x[1]),
+            yAxisID: "y-axis-1",
+        }, {
+            label: "Prix moyen",
+            data: data_chart_rom["data"].map(x => x[0]),
+            type: "line",
+            yAxisID: "y-axis-2",
         }]
     },
     options: {
@@ -521,12 +617,43 @@ var chart = new Chart(ctxx, {
             mode: 'index',
             intersect: false
         },
+        scales: {
+            xAxes: [{
+                stacked: true,
+                gridLines: {
+                    display: false
+                }
+            }],
+            yAxes: [{
+                type: "linear",
+                display: true,
+                position: "left",
+                id: "y-axis-1",
+                ticks: {
+                    stepSize: 10
+                }
+            }, {
+                type: "linear",
+                display: true,
+                position: "right",
+                id: "y-axis-2",
+                gridLines: {
+                    drawOnChartArea: false,
+                },
+                ticks: {
+                    callback: function (value, index, values) {
+                        return value + '€';
+                    },
+                    stepSize: 250
+                }
+            }],
+        },
         maintainAspectRatio: false,
         plugins: {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -541,7 +668,13 @@ var chart = new Chart(ctxx, {
         datasets: [{
             label: "Indice de popularité",
             backgroundColor: '#6219D8',
-            data: data_chart_ram["data"].map(x => x[1])
+            data: data_chart_ram["data"].map(x => x[1]),
+            yAxisID: "y-axis-1",
+        }, {
+            label: "Indice de popularité",
+            data: data_chart_ram["data"].map(x => x[0]),
+            type: "line",
+            yAxisID: "y-axis-2",
         }]
     },
     options: {
@@ -556,12 +689,43 @@ var chart = new Chart(ctxx, {
             mode: 'index',
             intersect: false
         },
+        scales: {
+            xAxes: [{
+                stacked: true,
+                gridLines: {
+                    display: false
+                }
+            }],
+            yAxes: [{
+                type: "linear",
+                display: true,
+                position: "left",
+                id: "y-axis-1",
+                ticks: {
+                    stepSize: 10
+                }
+            }, {
+                type: "linear",
+                display: true,
+                position: "right",
+                id: "y-axis-2",
+                gridLines: {
+                    drawOnChartArea: false,
+                },
+                ticks: {
+                    callback: function (value, index, values) {
+                        return value + '€';
+                    },
+                    stepSize: 250
+                }
+            }],
+        },
         maintainAspectRatio: false,
         plugins: {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -602,7 +766,7 @@ var chart = new Chart(ctxx, {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -643,7 +807,7 @@ var chart = new Chart(ctxx, {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -684,7 +848,7 @@ var chart = new Chart(ctxx, {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -714,12 +878,25 @@ var chart = new Chart(ctxx, {
             mode: 'index',
             intersect: false
         },
+        scales: {
+            xAxes: [{
+                stacked: true,
+                gridLines: {
+                    display: false
+                }
+            }],
+            yAxes: [{
+                ticks: {
+                    stepSize: 10
+                }
+            }]
+        },
         maintainAspectRatio: false,
         plugins: {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
