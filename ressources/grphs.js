@@ -45,7 +45,7 @@ var chart = new Chart(ctx, {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         }
     }
@@ -56,11 +56,17 @@ var ctxx = document.getElementById('chart2_marques').getContext('2d');
 var chart = new Chart(ctxx, {
     type: 'bar',
     data: {
-        labels: data_chart_marques["index"],
+        labels: data_chart_marques["index"].map(day => day.charAt(0).toUpperCase() + day.slice(1).toLowerCase()),
         datasets: [{
             label: "Indice de popularité",
             backgroundColor: '#6219D8',
-            data: data_chart_marques["data"].map(x => x[0])
+            data: data_chart_marques["data"].map(x => x[1]),
+            yAxisID: "y-axis-1",
+        }, {
+            label: "Prix moyen",
+            data: data_chart_marques["data"].map(x => x[0]),
+            type: "line",
+            yAxisID: "y-axis-2"
         }]
     },
     options: {
@@ -69,12 +75,40 @@ var chart = new Chart(ctxx, {
             mode: 'index',
             intersect: false
         },
+        scales: {
+            xAxes: [{
+                stacked: true,
+                gridLines: {
+                    display: false
+                }
+            }],
+            yAxes: [{
+                type: "linear",
+                display: true,
+                position: "left",
+                id: "y-axis-1",
+            }, {
+                type: "linear",
+                display: true,
+                position: "right",
+                id: "y-axis-2",
+                gridLines: {
+                    drawOnChartArea: false,
+                },
+                ticks: {
+                    callback: function (value, index, values) {
+                        return value + '€';
+                    },
+                    stepSize: 250
+                }
+            }],
+        },
         maintainAspectRatio: false,
         plugins: {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -89,7 +123,13 @@ var chart = new Chart(ctxx, {
         datasets: [{
             label: "Indice de popularité",
             backgroundColor: '#6219D8',
-            data: data_chart_materials["data"].map(x => x[0])
+            data: data_chart_materials["data"].map(x => x[1]),
+            yAxisID: "y-axis-1",
+        }, {
+            label: "Prix moyen",
+            data: data_chart_materials["data"].map(x => x[0]),
+            type: "line",
+            yAxisID: "y-axis-2",
         }]
     },
     options: {
@@ -98,18 +138,49 @@ var chart = new Chart(ctxx, {
             display: true,
             position: "bottom",
             fontFamily: "Lexend Deca",
-            text: "Popularité cumulée des smartphones par matériaux."
+            text: "Indice popularité des smartphones par matériaux."
         },
         tooltips: {
             mode: 'index',
             intersect: false
+        },
+        scales: {
+            xAxes: [{
+                stacked: true,
+                gridLines: {
+                    display: false
+                },
+            }],
+            yAxes: [{
+                type: "linear",
+                display: true,
+                position: "left",
+                id: "y-axis-1",
+                ticks: {
+                    stepSize: 20
+                }
+            }, {
+                type: "linear",
+                display: true,
+                position: "right",
+                id: "y-axis-2",
+                gridLines: {
+                    drawOnChartArea: false,
+                },
+                ticks: {
+                    callback: function (value, index, values) {
+                        return value + '€';
+                    },
+                    stepSize: 250
+                }
+            }],
         },
         maintainAspectRatio: false,
         plugins: {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -124,7 +195,7 @@ var chart = new Chart(ctxx, {
         datasets: [{
             label: "Indice de popularité",
             backgroundColor: ["#171123", "#1B98E0", "#ABA8B2", "#FBFCFF", "#F3A712", "#DB2B39", "#DD99BB", "#6219D8"],
-            data: data_chart_couleurs["data"].map(x => x[0])
+            data: data_chart_couleurs["data"].map(x => x[1])
         }]
     },
     options: {
@@ -135,7 +206,7 @@ var chart = new Chart(ctxx, {
             fontFamily: "Lexend Deca",
             padding: 20,
             fontSize: 14,
-            text: "Popularité cumulée des smartphones par couleur."
+            text: "Indice popularité des smartphones par couleur."
         },
         legend: {
             position: "right",
@@ -150,7 +221,7 @@ var chart = new Chart(ctxx, {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -174,18 +245,31 @@ var chart = new Chart(ctxx, {
             display: true,
             position: "bottom",
             fontFamily: "Lexend Deca",
-            text: "Popularité cumulée des smartphones catégorie de prix."
+            text: "Indice popularité des smartphones catégorie de prix."
         },
         tooltips: {
             mode: 'index',
             intersect: false
+        },
+        scales: {
+            xAxes: [{
+                stacked: true,
+                gridLines: {
+                    display: false
+                }
+            }],
+            yAxes: [{
+                ticks: {
+                    stepSize: 5
+                }
+            }]
         },
         maintainAspectRatio: false,
         plugins: {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -216,17 +300,36 @@ var chart = new Chart(ctxx, {
             display: true,
             position: "bottom",
             fontFamily: "Lexend Deca",
-            text: "Popularité cumulée des ports de smartphones."
+            text: "Indice popularité des ports de smartphones."
         },
         tooltips: {
             intersect: false
+        },
+        scales: {
+            yAxes: [{
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Indice popularité'
+                }
+            }],
+            xAxes: [{
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Prix moyen'
+                },
+                ticks: {
+                    callback: function (value, index, values) {
+                        return value + '€';
+                    }
+                }
+            }]
         },
         maintainAspectRatio: false,
         plugins: {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -252,7 +355,7 @@ var chart = new Chart(ctxx, {
             fontFamily: "Lexend Deca",
             padding: 20,
             fontSize: 14,
-            text: "Popularité cumulée des smartphones par port."
+            text: "Indice popularité des smartphones par port."
         },
         legend: {
             position: "right",
@@ -267,7 +370,7 @@ var chart = new Chart(ctxx, {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -284,7 +387,7 @@ var chart = new Chart(ctxx, {
             backgroundColor: '#6219D8',
             borderColor: '#6219D8',
             fill: false,
-            data: data_chart_battery["data"].map(x => x[0])
+            data: data_chart_battery["data"].map(x => x[1])
         }]
     },
     options: {
@@ -293,18 +396,31 @@ var chart = new Chart(ctxx, {
             display: true,
             position: "bottom",
             fontFamily: "Lexend Deca",
-            text: "Popularité cumulée des smartphones par capacité de la batterie (mAh)."
+            text: "Indice popularité des smartphones par capacité de la batterie (mAh)."
         },
         tooltips: {
             mode: 'index',
             intersect: false
+        },
+        scales: {
+            xAxes: [{
+                stacked: true,
+                gridLines: {
+                    display: false
+                }
+            }],
+            yAxes: [{
+                ticks: {
+                    stepSize: 5
+                }
+            }]
         },
         maintainAspectRatio: false,
         plugins: {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -319,7 +435,13 @@ var chart = new Chart(ctxx, {
         datasets: [{
             label: "Indice de popularité",
             backgroundColor: '#6219D8',
-            data: data_chart_screen_tech["data"].map(x => x[0])
+            data: data_chart_screen_tech["data"].map(x => x[1]),
+            yAxisID: "y-axis-1",
+        }, {
+            label: "Prix moyen",
+            data: data_chart_screen_tech["data"].map(x => x[0]),
+            type: 'line',
+            yAxisID: "y-axis-2"
         }]
     },
     options: {
@@ -328,18 +450,49 @@ var chart = new Chart(ctxx, {
             display: true,
             position: "bottom",
             fontFamily: "Lexend Deca",
-            text: "Popularité cumulée des smartphones par matériaux."
+            text: "Indice popularité des smartphones par matériaux."
         },
         tooltips: {
             mode: 'index',
             intersect: false
+        },
+        scales: {
+            yAxes: [{
+                type: "linear",
+                display: true,
+                position: "left",
+                id: "y-axis-1",
+                ticks: {
+                    stepSize: 25
+                }
+            }, {
+                type: "linear",
+                display: true,
+                position: "right",
+                id: "y-axis-2",
+                gridLines: {
+                    drawOnChartArea: false,
+                },
+                ticks: {
+                    callback: function (value, index, values) {
+                        return value + '€';
+                    },
+                    stepSize: 500
+                }
+            }],
+            xAxes: [{
+                stacked: true,
+                gridLines: {
+                    display: false
+                },
+            }],
         },
         maintainAspectRatio: false,
         plugins: {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -363,18 +516,31 @@ var chart = new Chart(ctxx, {
             display: true,
             position: "bottom",
             fontFamily: "Lexend Deca",
-            text: "Popularité cumulée des smartphones par taille d'écran (pouces)."
+            text: "Indice popularité des smartphones par taille d'écran (pouces)."
         },
         tooltips: {
             mode: 'index',
             intersect: false
+        },
+        scales: {
+            xAxes: [{
+                stacked: true,
+                gridLines: {
+                    display: false
+                }
+            }],
+            yAxes: [{
+                ticks: {
+                    stepSize: 5
+                }
+            }]
         },
         maintainAspectRatio: false,
         plugins: {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -400,7 +566,7 @@ var chart = new Chart(ctxx, {
             fontFamily: "Lexend Deca",
             padding: 20,
             fontSize: 14,
-            text: "Popularité cumulée des smartphones par taux de rafraîchissement."
+            text: "Indice popularité des smartphones par taux de rafraîchissement."
         },
         legend: {
             position: "right",
@@ -415,7 +581,7 @@ var chart = new Chart(ctxx, {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -430,7 +596,13 @@ var chart = new Chart(ctxx, {
         datasets: [{
             label: "Indice de popularité",
             backgroundColor: '#6219D8',
-            data: data_chart_rom["data"].map(x => x[1])
+            data: data_chart_rom["data"].map(x => x[1]),
+            yAxisID: "y-axis-1",
+        }, {
+            label: "Prix moyen",
+            data: data_chart_rom["data"].map(x => x[0]),
+            type: "line",
+            yAxisID: "y-axis-2",
         }]
     },
     options: {
@@ -439,53 +611,49 @@ var chart = new Chart(ctxx, {
             display: true,
             position: "bottom",
             fontFamily: "Lexend Deca",
-            text: "Popularité cumulée des smartphones par mémoire de stockage inerne."
+            text: "Indice popularité des smartphones par mémoire de stockage interne."
         },
         tooltips: {
             mode: 'index',
             intersect: false
+        },
+        scales: {
+            xAxes: [{
+                stacked: true,
+                gridLines: {
+                    display: false
+                }
+            }],
+            yAxes: [{
+                type: "linear",
+                display: true,
+                position: "left",
+                id: "y-axis-1",
+                ticks: {
+                    stepSize: 10
+                }
+            }, {
+                type: "linear",
+                display: true,
+                position: "right",
+                id: "y-axis-2",
+                gridLines: {
+                    drawOnChartArea: false,
+                },
+                ticks: {
+                    callback: function (value, index, values) {
+                        return value + '€';
+                    },
+                    stepSize: 250
+                }
+            }],
         },
         maintainAspectRatio: false,
         plugins: {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
-            }
-        },
-    }
-});
-
-//graph memoire ROM
-var ctxx = document.getElementById('chart10_memROM').getContext('2d');
-var chart = new Chart(ctxx, {
-    type: 'bar',
-    data: {
-        labels: data_chart_rom["index"],
-        datasets: [{
-            label: "Indice de popularité",
-            backgroundColor: '#6219D8',
-            data: data_chart_rom["data"].map(x => x[1])
-        }]
-    },
-    options: {
-        responsive: true,
-        title: {
-            display: true,
-            position: "bottom",
-            fontFamily: "Lexend Deca",
-            text: "Popularité cumulée des smartphones par mémoire de stockage interne."
-        },
-        tooltips: {
-            mode: 'index',
-            intersect: false
-        },
-        maintainAspectRatio: false,
-        plugins: {
-            deferred: {
-                xOffset: 150,
-                yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -500,7 +668,13 @@ var chart = new Chart(ctxx, {
         datasets: [{
             label: "Indice de popularité",
             backgroundColor: '#6219D8',
-            data: data_chart_ram["data"].map(x => x[1])
+            data: data_chart_ram["data"].map(x => x[1]),
+            yAxisID: "y-axis-1",
+        }, {
+            label: "Indice de popularité",
+            data: data_chart_ram["data"].map(x => x[0]),
+            type: "line",
+            yAxisID: "y-axis-2",
         }]
     },
     options: {
@@ -509,18 +683,49 @@ var chart = new Chart(ctxx, {
             display: true,
             position: "bottom",
             fontFamily: "Lexend Deca",
-            text: "Popularité cumulée des smartphones par mémoire vive."
+            text: "Indice popularité des smartphones par mémoire vive."
         },
         tooltips: {
             mode: 'index',
             intersect: false
+        },
+        scales: {
+            xAxes: [{
+                stacked: true,
+                gridLines: {
+                    display: false
+                }
+            }],
+            yAxes: [{
+                type: "linear",
+                display: true,
+                position: "left",
+                id: "y-axis-1",
+                ticks: {
+                    stepSize: 10
+                }
+            }, {
+                type: "linear",
+                display: true,
+                position: "right",
+                id: "y-axis-2",
+                gridLines: {
+                    drawOnChartArea: false,
+                },
+                ticks: {
+                    callback: function (value, index, values) {
+                        return value + '€';
+                    },
+                    stepSize: 250
+                }
+            }],
         },
         maintainAspectRatio: false,
         plugins: {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -546,7 +751,7 @@ var chart = new Chart(ctxx, {
             fontFamily: "Lexend Deca",
             padding: 20,
             fontSize: 14,
-            text: "Popularité cumulée des smartphones par port."
+            text: "Indice popularité des smartphones par port."
         },
         legend: {
             position: "right",
@@ -561,7 +766,7 @@ var chart = new Chart(ctxx, {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -587,7 +792,7 @@ var chart = new Chart(ctxx, {
             fontFamily: "Lexend Deca",
             padding: 20,
             fontSize: 14,
-            text: "Popularité cumulée des smartphones par port."
+            text: "Indice popularité des smartphones par port."
         },
         legend: {
             position: "right",
@@ -602,7 +807,7 @@ var chart = new Chart(ctxx, {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -628,7 +833,7 @@ var chart = new Chart(ctxx, {
             fontFamily: "Lexend Deca",
             padding: 20,
             fontSize: 14,
-            text: "Popularité cumulée des smartphones par port."
+            text: "Indice popularité des smartphones par port."
         },
         legend: {
             position: "right",
@@ -643,7 +848,7 @@ var chart = new Chart(ctxx, {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
@@ -667,18 +872,31 @@ var chart = new Chart(ctxx, {
             display: true,
             position: "bottom",
             fontFamily: "Lexend Deca",
-            text: "Popularité cumulée des smartphones par mémoire de stockage interne."
+            text: "Indice popularité des smartphones par mémoire de stockage interne."
         },
         tooltips: {
             mode: 'index',
             intersect: false
+        },
+        scales: {
+            xAxes: [{
+                stacked: true,
+                gridLines: {
+                    display: false
+                }
+            }],
+            yAxes: [{
+                ticks: {
+                    stepSize: 10
+                }
+            }]
         },
         maintainAspectRatio: false,
         plugins: {
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
-                delay: 500
+                delay: 300
             }
         },
     }
