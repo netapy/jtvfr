@@ -119,7 +119,7 @@ var ctxx = document.getElementById('chart3_materio').getContext('2d');
 var chart = new Chart(ctxx, {
     type: 'bar',
     data: {
-        labels: data_chart_materials["index"],
+        labels: data_chart_materials["index"].map(x => x.replace("Glass", "Verre").replace("Plastic", "Plastique").replace("Aluminum", "Aluminium").replace("Ceramic", "Ceramique")),
         datasets: [{
             label: "Indice de popularité",
             backgroundColor: '#6219D8',
@@ -187,6 +187,7 @@ var chart = new Chart(ctxx, {
 });
 
 //graph colors
+console.log(data_chart_couleurs["index"])
 var ctxx = document.getElementById('chart4_color').getContext('2d');
 var chart = new Chart(ctxx, {
     type: 'doughnut',
@@ -194,7 +195,7 @@ var chart = new Chart(ctxx, {
         labels: data_chart_couleurs["index"],
         datasets: [{
             label: "Indice de popularité",
-            backgroundColor: ["#171123", "#1B98E0", "#ABA8B2", "#FBFCFF", "#F3A712", "#DB2B39", "#DD99BB", "#6219D8"],
+            backgroundColor: ["#171123", "#1B98E0", "#ABA8B2", "#FBFCFF", "#DB2B39", "#F3A712", "#6219D8", "#DD99BB"],
             data: data_chart_couleurs["data"].map(x => x[1])
         }]
     },
