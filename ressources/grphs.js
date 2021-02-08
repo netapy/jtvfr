@@ -187,7 +187,6 @@ var chart = new Chart(ctxx, {
 });
 
 //graph colors
-console.log(data_chart_couleurs["index"])
 var ctxx = document.getElementById('chart4_color').getContext('2d');
 var chart = new Chart(ctxx, {
     type: 'doughnut',
