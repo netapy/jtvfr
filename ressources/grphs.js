@@ -671,7 +671,7 @@ var chart = new Chart(ctxx, {
             data: data_chart_ram["data"].map(x => x[1]),
             yAxisID: "y-axis-1",
         }, {
-            label: "Indice de popularité",
+            label: "Prix moyen",
             data: data_chart_ram["data"].map(x => x[0]),
             type: "line",
             yAxisID: "y-axis-2",
