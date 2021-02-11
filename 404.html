@@ -16,8 +16,11 @@
   <link rel="icon" href="img/favicon.ico" />
 </head>
 <script>
-  let source = String(window.location.href) + ".html"
-  window.location.href = source;
+  if (localStorage.getItem("404") != "1") {
+    let source = String(window.location.href) + ".html"
+    window.location.href = source;
+    localStorage.setItem("404", "1")
+  }
 </script>
 
 <body style='background-color: #dddddd;'>

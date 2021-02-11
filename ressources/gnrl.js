@@ -15,7 +15,6 @@ function onUpdate() {
 }
 onUpdate();
 
-
 let cguandcoHtml = ' <footer class="my-5 pt-5 text-muted text-center text-small"> <p class="mb-1">© 2020-2021 - Je te vois.</p><ul class="list-inline"> <li class="list-inline-item"><a href="docs/JTV-Confidentialite.pdf"><span class="meaJtv">Confidentialité</span></a></li><li class="list-inline-item"><a href="docs/JTV-CGU.pdf"><span class="meaJtv">Conditions</span></a></li><li class="list-inline-item"><a href="mailto:bonjour@jetevois.fr"><span class="meaJtv">Support</span></a></li></ul> </footer>'
 document.body.querySelector("div").insertAdjacentHTML("beforeend", cguandcoHtml)
 
@@ -27,3 +26,6 @@ try {
     var link = String(window.location.href).split('.html')[0];
     window.history.replaceState( null, null, link );    
 } catch(e) {console.log("Local launch.")}
+//on remet à 0 le compteur 404 car on a  trouvé une page
+localStorage.setItem("404", "0")
+
