@@ -282,11 +282,11 @@ let data_cpu_brand = data_chart_cpu_brand["data"].map(b => [{
     "y": b[1],
     "r": Math.round(b[0] / 60)
 }][0]);
-let color_cpu = ["#171123", "#1B98E0", "#ABA8B2", "#FBFCFF", "#F3A712", "#DB2B39", "#DD99BB", "#6219D8"]
+let color_cpu = ["#171123", "#1B98E0", "#ABA8B2", "#6219D8", "#F3A712", "#DB2B39"]
 var chart = new Chart(ctxx, {
     type: 'bubble',
     data: {
-        datasets: Array.from(Array(8).keys()).map(a => {
+        datasets: Array.from(Array(6).keys()).map(a => {
             return {
                 label: data_chart_cpu_brand["index"][a],
                 backgroundColor: color_cpu[a],
