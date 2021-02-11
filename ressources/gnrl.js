@@ -21,3 +21,9 @@ document.body.querySelector("div").insertAdjacentHTML("beforeend", cguandcoHtml)
 
 let navbarHtml = '<div class="fixed-bottom text-right" style="z-index: 9999;"> <button type="button" class="btnFlottantJtv" onclick="window.open(\'index.html\',\'_self\')">Accueil</button></div> <nav class="navbar fixed-bottom navbar-light" style="background-color: #6219D8; height: 1px; z-index: 9999; padding: 5px;"> </nav>'
 document.body.insertAdjacentHTML("beforeend", navbarHtml)
+
+//remove .html in link
+try {
+    var link = String(window.location.href).split('.html')[0];
+    window.history.replaceState( null, null, link );    
+} catch(e) {console.log("Local launch.")}

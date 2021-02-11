@@ -16,9 +16,8 @@
   <link rel="icon" href="img/favicon.ico" />
 </head>
 <script>
-  let source = String(window.location.href).split('/').pop()
-  if (source == "covid") window.location.href = 'vcovid.html';
-  if (source == "smartphone") window.location.href = 'e_gsm.html'
+  let source = String(window.location.href) + ".html"
+  window.location.href = source;
 </script>
 
 <body style='background-color: #dddddd;'>
