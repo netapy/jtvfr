@@ -22,7 +22,13 @@ var chart = new Chart(ctx, {
         responsive: true,
         tooltips: {
             mode: 'index',
-            intersect: false
+            intersect: false,
+            callbacks: {
+                label: function (tooltipItems, data) {
+                    var label = data.datasets[tooltipItems.datasetIndex].label + " : " + tooltipItems.yLabel + "%";
+                    return label;
+                }
+            }
         },
         maintainAspectRatio: false,
         scales: {
@@ -64,7 +70,7 @@ var chart = new Chart(ctxx, {
             yAxisID: "y-axis-1",
         }, {
             label: "Prix moyen",
-            data: data_chart_marques["data"].map(x => x[0]),
+            data: data_chart_marques["data"].map(x => Math.round(x[0] * 100) / 100),
             type: "line",
             yAxisID: "y-axis-2"
         }]
@@ -73,7 +79,14 @@ var chart = new Chart(ctxx, {
         responsive: true,
         tooltips: {
             mode: 'index',
-            intersect: false
+            intersect: false,
+            callbacks: {
+                label: function (tooltipItems, data) {
+                    var label = data.datasets[tooltipItems.datasetIndex].label + " : " + tooltipItems.yLabel;
+                    if (label.split(" : ")[0] == "Prix moyen") label += " €";
+                    return label;
+                }
+            }
         },
         scales: {
             xAxes: [{
@@ -127,7 +140,7 @@ var chart = new Chart(ctxx, {
             yAxisID: "y-axis-1",
         }, {
             label: "Prix moyen",
-            data: data_chart_materials["data"].map(x => x[0]),
+            data: data_chart_materials["data"].map(x => Math.round(x[0] * 100) / 100),
             type: "line",
             yAxisID: "y-axis-2",
         }]
@@ -142,7 +155,14 @@ var chart = new Chart(ctxx, {
         },
         tooltips: {
             mode: 'index',
-            intersect: false
+            intersect: false,
+            callbacks: {
+                label: function (tooltipItems, data) {
+                    var label = data.datasets[tooltipItems.datasetIndex].label + " : " + tooltipItems.yLabel;
+                    if (label.split(" : ")[0] == "Prix moyen") label += " €";
+                    return label;
+                }
+            }
         },
         scales: {
             xAxes: [{
@@ -439,7 +459,7 @@ var chart = new Chart(ctxx, {
             yAxisID: "y-axis-1",
         }, {
             label: "Prix moyen",
-            data: data_chart_screen_tech["data"].map(x => x[0]),
+            data: data_chart_screen_tech["data"].map(x => Math.round(x[0] * 100) / 100),
             type: 'line',
             yAxisID: "y-axis-2"
         }]
@@ -454,7 +474,14 @@ var chart = new Chart(ctxx, {
         },
         tooltips: {
             mode: 'index',
-            intersect: false
+            intersect: false,
+            callbacks: {
+                label: function (tooltipItems, data) {
+                    var label = data.datasets[tooltipItems.datasetIndex].label + " : " + tooltipItems.yLabel;
+                    if (label.split(" : ")[0] == "Prix moyen") label += " €";
+                    return label;
+                }
+            }
         },
         scales: {
             yAxes: [{
@@ -600,7 +627,7 @@ var chart = new Chart(ctxx, {
             yAxisID: "y-axis-1",
         }, {
             label: "Prix moyen",
-            data: data_chart_rom["data"].map(x => x[0]),
+            data: data_chart_rom["data"].map(x => Math.round(x[0] * 100) / 100),
             type: "line",
             yAxisID: "y-axis-2",
         }]
@@ -615,13 +642,25 @@ var chart = new Chart(ctxx, {
         },
         tooltips: {
             mode: 'index',
-            intersect: false
+            intersect: false,
+            callbacks: {
+                label: function (tooltipItems, data) {
+                    var label = data.datasets[tooltipItems.datasetIndex].label + " : " + tooltipItems.yLabel;
+                    if (label.split(" : ")[0] == "Prix moyen") label += " €";
+                    return label;
+                }
+            }
         },
         scales: {
             xAxes: [{
                 stacked: true,
                 gridLines: {
                     display: false
+                },
+                ticks: {
+                    callback: function (value, index, values) {
+                        return value + 'Go';
+                    }
                 }
             }],
             yAxes: [{
@@ -672,7 +711,7 @@ var chart = new Chart(ctxx, {
             yAxisID: "y-axis-1",
         }, {
             label: "Prix moyen",
-            data: data_chart_ram["data"].map(x => x[0]),
+            data: data_chart_ram["data"].map(x => Math.round(x[0] * 100) / 100),
             type: "line",
             yAxisID: "y-axis-2",
         }]
@@ -687,13 +726,25 @@ var chart = new Chart(ctxx, {
         },
         tooltips: {
             mode: 'index',
-            intersect: false
+            intersect: false,
+            callbacks: {
+                label: function (tooltipItems, data) {
+                    var label = data.datasets[tooltipItems.datasetIndex].label + " : " + tooltipItems.yLabel;
+                    if (label.split(" : ")[0] == "Prix moyen") label += " €";
+                    return label;
+                }
+            }
         },
         scales: {
             xAxes: [{
                 stacked: true,
                 gridLines: {
                     display: false
+                },
+                ticks: {
+                    callback: function (value, index, values) {
+                        return value.split("GB")[0] + 'Go';
+                    }
                 }
             }],
             yAxes: [{
@@ -883,7 +934,7 @@ var chart = new Chart(ctxx, {
                 stacked: true,
                 gridLines: {
                     display: false
-                }
+                },
             }],
             yAxes: [{
                 ticks: {
