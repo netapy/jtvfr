@@ -343,7 +343,7 @@ var chart = new Chart(ctxx, {
         labels: data_chart_type_port["index"],
         datasets: [{
             label: "Indice de popularité",
-            backgroundColor: ["#171123", "#6219D8", "#ABA8B2", "#FBFCFF", "#F3A712", "#DB2B39", "#DD99BB", "#6219D8"],
+            backgroundColor: ["#6219D8", "#171123", "#ABA8B2", "#FBFCFF", "#F3A712", "#DB2B39", "#DD99BB", "#6219D8"],
             data: data_chart_type_port["data"].map(x => x[1])
         }]
     },
@@ -351,14 +351,14 @@ var chart = new Chart(ctxx, {
         responsive: true,
         title: {
             display: true,
-            position: "bottom",
+            position: "top",
             fontFamily: "Lexend Deca",
             padding: 20,
             fontSize: 14,
             text: "Indice popularité des smartphones par port."
         },
         legend: {
-            position: "right",
+            position: "bottom",
             align: "start",
         },
         tooltips: {
@@ -554,7 +554,7 @@ var chart = new Chart(ctxx, {
         labels: data_chart_rfrsh_rate["index"],
         datasets: [{
             label: "Indice de popularité",
-            backgroundColor: ["#171123", "#6219D8", "#ABA8B2", "#FBFCFF", "#F3A712", "#DB2B39", "#DD99BB", "#6219D8"],
+            backgroundColor: ["#6219D8", "#171123", "#ABA8B2", "#FBFCFF", "#F3A712", "#DB2B39", "#DD99BB", "#6219D8"],
             data: data_chart_rfrsh_rate["data"].map(x => x[1])
         }]
     },
