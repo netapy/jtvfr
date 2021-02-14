@@ -29,7 +29,7 @@ h5 {
 
 @media (max-width: 600px) {
     h1 {
-        font-size: 2.6rem !important;
+        font-size: 2.5rem !important;
     }
 
     h2 {
@@ -130,6 +130,20 @@ body {
 
     100% {
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .nuageMob11 {
+        top: 32vh!important;
+    }
+
+    .nuageMob22 {
+        top: 40vh!important;
+    }
+
+    .PlanMob11{
+        height: 55vh!important
     }
 }
 
