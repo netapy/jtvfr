@@ -320,7 +320,7 @@ var chart = new Chart(ctxx, {
             display: true,
             position: "bottom",
             fontFamily: "Lexend Deca",
-            text: "Indice popularité des ports de smartphones."
+            text: "Indice de popularité et prix moyen par CPU."
         },
         tooltips: {
             intersect: false
@@ -371,14 +371,14 @@ var chart = new Chart(ctxx, {
         responsive: true,
         title: {
             display: true,
-            position: "top",
+            position: "bottom",
             fontFamily: "Lexend Deca",
             padding: 20,
             fontSize: 14,
             text: "Indice popularité des smartphones par port."
         },
         legend: {
-            position: "bottom",
+            position: "left",
             align: "start",
         },
         tooltips: {
@@ -802,10 +802,10 @@ var chart = new Chart(ctxx, {
             fontFamily: "Lexend Deca",
             padding: 20,
             fontSize: 14,
-            text: "Indice popularité des smartphones par port."
+            text: "Indice popularité des smartphones avec 5G."
         },
         legend: {
-            position: "right",
+            position: "left",
             align: "start",
         },
         tooltips: {
@@ -843,7 +843,7 @@ var chart = new Chart(ctxx, {
             fontFamily: "Lexend Deca",
             padding: 20,
             fontSize: 14,
-            text: "Indice popularité des smartphones par port."
+            text: "Indice popularité des smartphones avec NFC."
         },
         legend: {
             position: "right",
@@ -884,10 +884,10 @@ var chart = new Chart(ctxx, {
             fontFamily: "Lexend Deca",
             padding: 20,
             fontSize: 14,
-            text: "Indice popularité des smartphones par port."
+            text: "Indice popularité des smartphones par nombre de caméras."
         },
         legend: {
-            position: "right",
+            position: "left",
             align: "start",
         },
         tooltips: {
