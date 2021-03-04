@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>  en bas on teste le module "deferred"-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-deferred@1"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <title>Etudes.</title>
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.ico" id="light-scheme-favicon" />
+    <link rel="icon" href="img/faviconBlanc.ico" id="dark-scheme-favicon" />
+
+</head>
+
+<body style="background-color: #FAF7FF;">
+    <div style="background-color: #FAF7FF;">
+        <div class="container-fluid d-flex align-items-center justify-content-center flex-column PlanMob11"
+            style="height: 45vh; min-height: 400px; width: 100vw; background-color: #6219D8; overflow-x: hidden; z-index: -232;">
+            <div>
+                <img class="nuage flotte2 nuageMob11" src="img/header/Fichier 2.svg"
+                    style="width: 120%; position: absolute; top: 22vh; left: -50px; min-width: 1350px; overflow: hidden;">
+            </div>
+            <div class="container text-center h-100" style="margin-top: 30px; z-index: 9999;">
+                <img src="img/LOGO_JTV_ALT_wht.svg" style="height: 120px;animation: float 8s ease-in-out infinite;">
+                <h1 style="color: white;">L'égalité en France.</h1>
+                <h3 class="fancyPhrase" style="color: white;">L'égalité homme-femme dans le milieu professionnel
+                    français.</h3>
+            </div>
+            <div style="height: 20vh;"></div>
+            <div>
+                <img class="nuage flotte1 nuageMob22" src="img/header/Fichier 5.svg"
+                    style="width: 120%; position: absolute; top: 30vh;  min-width: 1510px; margin-left: auto;margin-right: auto;left: -100px;right: 0;overflow: hidden;">
+            </div>
+        </div>
+        <div class="container text-center" style="position: relative; z-index: 1980; padding: 80px 15px">
+            <div class="container-fluid ">
+            </div>
+
+            <div class="container neumorphSection" data-aos="flip-down">
+                <div class="container text-center">
+                    <h4>L'indice d'égalité moyen par secteur dans le SBF120</h4>
+                    <div class="col-sm" style="padding: 20px 0px;">
+                        <canvas id="chart1_sbf120_secteurs" style="min-height: 500px;"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container neumorphSection" data-aos="flip-down">
+                <div class="row">
+                    <div class="col-sm">
+                        <canvas id="chart1_parts_de_marche" style="min-height: 250px;"></canvas>
+                    </div>
+                    <div class="col-sm text-left d-flex align-items-center" style="padding: 25px 20px;">
+                        <div>
+                            <h4>Android occupe 76% du marché</h4>
+                            <p class="text-justify">Le marché des systèmes d'exploitations pour smartphones est un
+                                duopole: deux sociétés, Google (Android) et Apple (iOS) se le partagent. Notons
+                                qu'Android est plus populaire que jamais en 2020, profitant des appareils de nombreux
+                                constructeurs fonctionnant sous Android, tandis qu'iOS est seulement réservé aux
+                                iPhones.</p>
+                            <img class="shadow-bg-icon-right" src="img/android_lgo.svg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container neumorphSection" data-aos="flip-down">
+                <div class="row">
+                    <div class="col-sm text-left d-flex align-items-center" style="padding: 25px 20px;">
+                        <div>
+                            <h4>Samsung en tête des classements</h4>
+                            <p class="text-justify">De nombreux constructeurs se partagent le marché du smartphone, avec
+                                des prix extrêmement hétérogènes. Néanmoins, quatre d'entre eux se démarquent bien des
+                                autres : Samsung, Apple, Xiaomi et Huawei. Ce peloton de tête est d'ailleurs le même au
+                                niveau mondial, dans des proportions similaires.
+                            </p>
+                            <img class="shadow-bg-icon-right" src="img/stonks.svg">
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <canvas id="chart2_marques" style="min-height: 250px;"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container neumorphSection" data-aos="flip-down">
+                <div class="container text-left">
+                    <img class="shadow-bg-icon-right" style="right: 100px; top: 10px;" src="img/architecture-24px.svg">
+                    <div id='introMethod'>
+                        <h4>Introduction.</h4>
+                        <ul>
+                            <li>Cette étude a pour objectif de <span class="meaJtv">visualiser les caractéristiques des
+                                    smartphones les plus vendus en France</span> : marques, prix, matériaux utilisés,
+                                taille des batteries, etc. En analysant ces données, nous pouvons établir quels sont les
+                                attributs relatifs aux smartpones préférés des Francais.
+                            </li><br>
+                            <li>Afin d'établir l'échantillon le plus représentatif possible, les données ont été
+                                constituées à partir des ventes des plus grands acteurs de l'<span
+                                    class="meaJtv">e-commerce</span> français en produits électroniques neufs.
+                            </li><br>
+                            <li>Nous avons défini un score, appelé <span class="meaJtv">Indice de popularité</span>,
+                                pour rendre compte précisemment de la popularité d'un smartphone. Cet indice permet de
+                                fusionner les informations des différents sites étudiés pondérés selon leur
+                                fréquentation respective.
+                            </li>
+                        </ul>
+                    </div>
+                    <br>
+                    <button class="neumorphButton" onclick="window.open('e_gsm_met.html')">
+                        <img src="img/architecture-24px.svg"> Lire la méthodologie complète.
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <script src="etudes/egalite/dt_egalite.js"></script>
+        <script src="etudes/egalite/grph_egalite.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="ressources/gnrl.js"></script>
+        <script>
+            AOS.init();
+        </script>
+    </div>
+
+</body>
+
+</html>
