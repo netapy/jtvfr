@@ -356,7 +356,7 @@ hr {
     width: 100%;
     padding: 10px;
     max-width: 120px;
-    opacity: .7;
+    filter: invert(48%) sepia(13%) saturate(3207%) hue-rotate(130deg) brightness(95%) contrast(3%);
 }
 
 .btnFlottantJtv {
