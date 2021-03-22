@@ -22,12 +22,12 @@
 
 <body style="background-color: #FAF7FF;">
     <div style="background-color: #FAF7FF; min-height: 100vh;">
-        <div style="position: absolute ;height: 150px; width: 35vw ;top: 0px; background-color: #6219D8;">
+        <div style="position: absolute ;height: 150px; width: 35vw ;top: 0px; background-color: #6219D8">
             <img src="img/header/Fichier 6.svg" style="width: 1000px; position: absolute; top: 0px; right: -50px">
         </div>
         <div class="container text-center" style="position: relative; z-index: 1980; padding: 80px 15px 0px 15px">
             <div class="container-fluid text-center">
-                <img src="img/LOGO_JTV_ALT.svg" style="opacity: .05; position: absolute; top: 10px; max-width: 350px;">
+                <img src="img/LOGO_JTV_ALT.svg" style="opacity: .05; position: absolute; top: 20px; max-width: 350px; margin-right: 20px;">
                 <h1>Vaccinations COVID en France</h1><br>
                 <h5>Un tableau de bord <span class="meaJtv">en temps réel </span>pour suivre l'avancée de
                     la vaccination contre la Covid-19 en
@@ -266,7 +266,7 @@
                                 yAxes: [{
                                     stacked: true,
                                     ticks: {
-                                        stepSize: 1000000,
+                                        stepSize: 2000000,
                                         userCallback: function (value, index, values) {
                                             value = value.toString();
                                             value = value.split(/(?=(?:...)*$)/);

@@ -135,15 +135,15 @@ body {
 
 @media (max-width: 600px) {
     .nuageMob11 {
-        top: 32vh!important;
+        top: 32vh !important;
     }
 
     .nuageMob22 {
-        top: 40vh!important;
+        top: 40vh !important;
     }
 
-    .PlanMob11{
-        height: 55vh!important
+    .PlanMob11 {
+        height: 55vh !important
     }
 }
 
@@ -277,6 +277,12 @@ hr {
 .panneauEtude:hover {
     box-shadow: 0 7px 20px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
 }
+
+.panneauEtudeNoHov:hover {
+    box-shadow: 5px 5px 9px #e1dee6,
+        -5px -5px 9px #ffffff;
+}
+
 
 .soustitrePanneau {
     font-size: 16px;
