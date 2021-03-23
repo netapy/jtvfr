@@ -22,6 +22,7 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QSTY073PT9"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
+
         function gtag() {
             dataLayer.push(arguments);
         }
@@ -321,7 +322,9 @@
                             datasets: [{
                                 label: "Indice de popularité",
                                 backgroundColor: ["#bebbc4", "#6219D8"],
-                                data: ["67400000", dataTV.slice(-1).pop()]
+                                data: [67400000 - dataTV.slice(-1).pop(), dataTV.slice(-1)
+                                    .pop()
+                                ]
                             }]
                         },
                         options: {
@@ -384,7 +387,9 @@
                             datasets: [{
                                 label: "Indice de popularité",
                                 backgroundColor: ["#bebbc4", "#6219D8"],
-                                data: [2223000, dataTV.slice(-1).pop()]
+                                data: [2223000 - dataTV.slice(-1).pop(), dataTV.slice(-1)
+                                    .pop()
+                                ]
                             }]
                         },
                         options: {
@@ -551,7 +556,6 @@
                     dataPays.push(json.BRA);
                     dataPays.push(json.IND);
                     dataPays.push(json.CAN);
-                    //USA & Chine & UK & Italy & Espagne & Russie & Inde & Afrique du Sud & Israel
                     var ctxCompet = document.querySelector("#chart10_VaxCompet").getContext('2d');
                     var chart = new Chart(ctxCompet, {
                         type: 'bubble',
@@ -581,7 +585,7 @@
                             },
                             legend: {
                                 fullWidth: false,
-                                position: "right"
+                                position: "top"
                             },
                             scales: {
                                 yAxes: [{

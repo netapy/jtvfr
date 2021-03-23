@@ -375,3 +375,28 @@ hr {
     z-index: 99999;
     border-color: transparent;
 }
+
+.socialIcon {
+    width: 30px;
+    display: inline-block;
+    opacity: .5;
+}
+
+.growBtn {
+    transition: all .2s ease-in-out;
+}
+
+.growBtn:hover {
+    transform: scale(1.02);
+}
+
+.btnRetour {
+    font-weight: 400;
+    color: #8f8f8f;
+    border-radius: 25px;
+    background: #FAF7FF;
+    box-shadow: 5px 5px 10px #eeebf2,
+        -5px -5px 10px #ffffff;
+    border-width: 0px;
+    padding: 10px;
+}
