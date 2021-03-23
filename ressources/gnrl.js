@@ -17,9 +17,8 @@ onUpdate();
 
 
 
-analyticsCode = '<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-QSTY073PT9"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag("js", new Date());  gtag("config", "G-QSTY073PT9");</script>'
-
-//document.getElementsByTagName('head')[0].appendChild(analyticsCode);
+analyticsCode = '<!-- Global site tag (gtag.js) - Google Analytics -->    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QSTY073PT9"></script><script>window.dataLayer = window.dataLayer || [];function gtag() {dataLayer.push(arguments);}gtag("js", new Date());gtag("config", "G-QSTY073PT9");</script>'
+document.getElementsByTagName('head')[0].appendChild(analyticsCode);
 
 let cguandcoHtml = ' <footer class="my-5 pt-5 text-muted text-center text-small"> <p class="mb-1">© 2020-2021 • bonjour@jetevois.fr</p><ul class="list-inline"> <li class="list-inline-item"><a href="docs/JTV-Confidentialite.pdf"><span class="meaJtv">Confidentialité</span></a></li><li class="list-inline-item"><a href="docs/JTV-CGU.pdf"><span class="meaJtv">Conditions</span></a></li><li class="list-inline-item"><a href="mailto:bonjour@jetevois.fr"><span class="meaJtv">Support</span></a></li></ul> </footer>'
 document.body.querySelector("div").insertAdjacentHTML("beforeend", cguandcoHtml)
