@@ -377,7 +377,7 @@ hr {
 }
 
 .socialIcon {
-    width: 30px;
+    width: 24px;
     display: inline-block;
     opacity: .5;
 }
@@ -399,4 +399,19 @@ hr {
         -5px -5px 10px #ffffff;
     border-width: 0px;
     padding: 10px;
+}
+
+.ConteneurGsmRobot {
+    padding: 10px 2px;
+}
+
+.titreGsmRobot {
+    font-size: 25px;
+    padding-bottom: 2px;
+    padding-top: 10px;
+}
+
+.texteGsmRobot {
+    font-size: 14px;
+    opacity: .8;
 }
