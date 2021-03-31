@@ -3,19 +3,19 @@ var ctx = document.getElementById('chart1_parts_de_marche').getContext('2d');
 var chart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Sept 2015', 'Jun 2016', 'Jun 2017', 'Jun 2018', 'Sept 2020'],
+        labels: ['Sept 2015', 'Jun 2016', 'Jun 2017', 'Jun 2018', 'Jun 2019', 'Sept 2020'],
         datasets: [{
             label: 'Android',
             backgroundColor: '#6219D8',
-            data: [66.77, 69.68, 73.52, 76.61, 76.24, 74.44]
+            data: [66.77, 69.68, 73.52, 76.61, 76.24, 78.3, 74.44]
         }, {
             label: 'iOS',
             backgroundColor: '#7F67F1',
-            data: [18.14, 19.38, 19.37, 20.66, 22.48, 24.98]
+            data: [18.14, 19.38, 19.37, 20.66, 22.48, 21.5, 24.98]
         }, {
             label: 'Windows Phone',
             backgroundColor: '#777EF2',
-            data: [2.22, 1.63, 0.77, 0.37, 0.17, 0.03]
+            data: [2.22, 1.63, 0.77, 0.37, 0.17, 0.1, 0.03]
         }]
     },
     options: {
