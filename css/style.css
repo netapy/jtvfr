@@ -411,6 +411,15 @@ hr {
     padding-top: 10px;
 }
 
+@media (max-width: 767px) {
+    .titreGsmRobot {
+        padding-left: 10px;
+    }    
+    .texteGsmRobot {
+        padding-left: 10px;
+    }    
+}
+
 .texteGsmRobot {
     font-size: 14px;
     opacity: .8;
