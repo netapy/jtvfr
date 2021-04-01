@@ -618,6 +618,9 @@
         <script src="ressources/gnrl.js"></script>
         <script>
             AOS.init()
+            document.querySelector(".navbar").insertAdjacentHTML("beforebegin",
+                '<div class="fixed-bottom text-left" style="z-index: 9999;"> <button type="button" class="btnFlottantJtv" onclick="window.open(\'index.html\',\'_self\')">Accueil</button></div>'
+            );
         </script>
     </div>
 

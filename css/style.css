@@ -352,6 +352,7 @@ hr {
         opacity: 100%;
     }
 }
+
 @keyframes appear2 {
     0% {
         opacity: 0;
@@ -361,6 +362,7 @@ hr {
         opacity: .05;
     }
 }
+
 .meaJtv {
     color: #6219D8;
     font-weight: 500;
@@ -376,10 +378,10 @@ hr {
 .btnFlottantJtv {
     background-color: #6219D8;
     color: white;
-    padding: 2px 15px;
+    padding: 2px 12px 0px 5px;
     margin-right: 20px;
-    margin-bottom: 2px;
-    border-radius: 10px;
+    margin-bottom: 0px;
+    border-radius: 0px 10px 0px 0px;
     z-index: 99999;
     border-color: transparent;
 }
@@ -422,13 +424,29 @@ hr {
 @media (max-width: 767px) {
     .titreGsmRobot {
         padding-left: 10px;
-    }    
+    }
+
     .texteGsmRobot {
         padding-left: 10px;
-    }    
+    }
 }
 
 .texteGsmRobot {
     font-size: 14px;
     opacity: .8;
+}
+
+.encadreMethodo {
+    font-size: 12px;
+    border-width: 0px 0px 0px 2px;
+    border-style: solid;
+    max-width: 500px;
+    margin: auto;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.encadreMethodo mjx-container {
+    margin: 10px !important;
+    text-align: left;
 }

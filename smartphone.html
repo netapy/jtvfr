@@ -96,7 +96,8 @@
                             <h4 class="titreGsmRobot"><span class="d-md-none">• </span>De marque Samsung</h4>
                             <p class="texteGsmRobot">Samsung est en tete de notre classement des constructeurs les plus
                                 populaires, suivi de près par Apple et Xiaomi.</p>
-                            <h4 class="titreGsmRobot"><span class="d-md-none">• </span>Un prix compris entre 100 et 300€</h4>
+                            <h4 class="titreGsmRobot"><span class="d-md-none">• </span>Un prix compris entre 100 et 300€
+                            </h4>
                             <p class="texteGsmRobot">Les smartphones abordables sont les plus populaires</p>
                             <h4 class="titreGsmRobot"><span class="d-md-none">• </span>En verre</h4>
                             <p class="texteGsmRobot">Le verre est un matériau privilégié pour la construction des
@@ -640,6 +641,9 @@
         <script src="ressources/gnrl.js"></script>
         <script>
             AOS.init();
+            document.querySelector(".navbar").insertAdjacentHTML("beforebegin",
+                '<div class="fixed-bottom text-left" style="z-index: 9999;"> <button type="button" class="btnFlottantJtv" onclick="window.open(\'index.html\',\'_self\')">Accueil</button></div>'
+                );
         </script>
     </div>
 
