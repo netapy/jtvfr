@@ -352,7 +352,15 @@ hr {
         opacity: 100%;
     }
 }
+@keyframes appear2 {
+    0% {
+        opacity: 0;
+    }
 
+    100% {
+        opacity: .05;
+    }
+}
 .meaJtv {
     color: #6219D8;
     font-weight: 500;
