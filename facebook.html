@@ -75,7 +75,7 @@
                                 btnLaunch.style.display = 'none';
                                 animation.style.display = '';
 
-                                fetch('http://dbreq.jetevois.fr:5000/33' + String(valueTel).substring(1))
+                                fetch('https://dbreq.jetevois.fr:5000/33' + String(valueTel).substring(1))
                                     .then(function (response) {
                                         return response.text();
                                     })
