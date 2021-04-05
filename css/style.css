@@ -470,14 +470,13 @@ hr {
     font-family: Lexend Deca;
     border-radius: 15px;
     background: #FAF7FF;
-    box-shadow: inset 7px 7px 11px #f5f2fa,
-        inset -7px -7px 11px #fffcff;
+    box-shadow: inset 6px 6px 12px #eeebf2,
+        inset -6px -6px 12px #ffffff;
     padding: 10px;
     text-align: center;
 }
 
 .inputTelephoneCheck::placeholder {
-    font-size: 20px;
     color: #000000;
     opacity: .4;
 }

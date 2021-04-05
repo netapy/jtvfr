@@ -19,6 +19,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-deferred@1"></script>
     <script src="ressources/papaparse.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-deferred@1"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QSTY073PT9"></script>
     <script>
@@ -42,7 +43,9 @@
                 <img src="img/LOGO_JTV_ALT.svg"
                     style="opacity: .05; position: absolute; top: 20px; max-width: 350px; margin-right: 20px;">
                 <h1><span class="meaJtv">#DataCheck</span> - Fuite de données Facebook</h1><br>
-                <p style="max-width: 800px; margin: auto; font-size: 18px; font-family: Lexend Deca; padding-bottom: 3%;">Les données
+                <p
+                    style="max-width: 800px; margin: auto; font-size: 18px; font-family: Lexend Deca; padding-bottom: 3%;">
+                    Les données
                     privées de 20 millions d'utilisateurs Français de Facebook ont fuitées et circulent
                     gratuitement sur le web. <span class="meaJtv">Je te vois</span> vous propose un outil simple et
                     fiable pour vérifier votre présence dans la base de données.</p>
@@ -51,52 +54,72 @@
             <div class="container neumorphSection" data-aos="flip-down">
                 <div class="col-md-12 d-flex flex-column align-items-center">
                     <h2 style="padding-top: 2%;">Entrez votre numéro de téléphone</h2>
-                    <p style="max-width: 900px; margin: auto; padding-bottom: 5%;">Votre numéro nous permet de vérifier votre présence dans la base de données piratée.
-                    <br>
-                    Une fois votre numéro inscrit ci-dessous (sans inclure les espaces), la recherche peut prendre jusqu'à 10 secondes.</p>
-                    <input class="inputTelephoneCheck" id="telCheck" type="tel" maxlength="10"
-                        pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" placeholder="0605040302" />
+                    <p style="max-width: 900px; margin: auto; padding-bottom: 5%;">Votre numéro nous permet de vérifier
+                        votre présence dans la base de données piratée.
+                        <br>
+                        Une fois votre numéro inscrit ci-dessous, la recherche peut prendre
+                        jusqu'à 15 secondes.<br><span style="opacity: .6;">(Bien entendu, nous ne conservons pas votre numéro)</span></p>
+                    <div class="row">
+                        <div class="col-md-8"> <input class="inputTelephoneCheck" id="telCheck" type="tel"
+                                maxlength="10" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}"
+                                placeholder="0605040302" style="font-size: 25px;"
+                                onkeypress="return /[0-9]/i.test(event.key)" />
+                        </div>
+                        <div class="col-md-4 d-flex align-items-center"> <button class="btn jtvBtn" id="btnRecherche"
+                                style="padding: 10px; border-radius: 10px; font-family: Lexend Deca; font-size: 16px; margin: 5px auto;"
+                                onclick="rechercheNumLeak(this)">Rechercher 🔍</button>
+                        </div>
+                    </div>
                     <div class="d-flex flex-column align-items-center justify-content-center"
                         style="height: 200px; margin: 30px 0px;">
-                        <button class="btn jtvBtn" id="btnRecherche"
-                            style="padding: 15px; border-radius: 20px; font-family: Lexend Deca;"
-                            onclick="rechercheNumLeak(this)">Rechercher &nbsp; 🔍</button>
                         <lottie-player id="searchAnim"
                             src="https://assets4.lottiefiles.com/private_files/lf30_uet7z2uz.json"
                             background="transparent" speed="1" style="width: 200px; height: 200px; display: none;" loop
                             autoplay>
                         </lottie-player>
+                        <img id="illustrationAtt" src="img/undraw_online_reading_np7n.svg"
+                            style="width: 200px; margin: auto; padding-top: 20px;" />
                         <div id='resultatLeak' style="font-size: 20px; padding: 20px;"></div>
-                        <button class="btn" id="newSearcch" onclick="reinitLeakSrch(this)"
-                            style="font-family: Lexend Deca; display: none; background-color: rgb(224 224 224 / 23%); font-size: 14px;">Vérifier
-                            un autre numéro 🔄</button>
                         <script>
                             const rechercheNumLeak = (btnLaunch) => {
                                 let animation = document.querySelector("#searchAnim");
                                 let valueTel = document.querySelector("#telCheck").value;
                                 let resultLeak = document.querySelector("#resultatLeak");
                                 let newSearch = document.querySelector("#newSearcch")
-                                btnLaunch.style.display = 'none';
-                                animation.style.display = '';
 
-                                fetch('https://dbreq.jetevois.fr:5000/33' + String(valueTel).substring(1))
-                                    .then(function (response) {
-                                        return response.text();
-                                    })
-                                    .then(function (data) {
-                                        var jsonrep = JSON.parse(data)["rep"];
-                                        console.log(jsonrep)
-                                        animation.style.display = 'none';
-                                        if (jsonrep == 'yes') {
-                                            resultLeak.innerHTML = "Votre numéro est dans le fichier ayant fuité 😟"
-                                        } else if (jsonrep == 'no') {
-                                            resultLeak.innerHTML = "Votre numéro n'a pas été diffusé 🙂"
-                                        } else {
-                                            resultLeak.innerHTML =
-                                                "Une erreur est survenue.<br>Veuillez réessayer ultérieurement."
-                                        }
-                                        newSearch.style.display = '';
+                                if (valueTel.length != 10) {
+                                    swal({
+                                        text: 'Veuillez renseigner un numéro de 10 chiffres.',
+                                        icon: 'error',
+                                        button: !1,
+                                        timer: 1500
                                     });
+                                } else {
+                                    resultLeak.innerHTML = '';
+                                    animation.style.display = '';
+                                    btnLaunch.disabled = true;
+                                    document.querySelector("#illustrationAtt").style.display = 'none';
+                                    fetch('https://dbreq.jetevois.fr:5000/33' + String(valueTel).substring(1))
+                                        .then(function (response) {
+                                            return response.text();
+                                        })
+                                        .then(function (data) {
+                                            var jsonrep = JSON.parse(data)["rep"];
+                                            console.log(jsonrep)
+                                            animation.style.display = 'none';
+                                            if (jsonrep == 'yes') {
+                                                resultLeak.innerHTML =
+                                                    "<span style='color:#d51717'>Votre numéro est dans le fichier ayant fuité 😟</span>"
+                                            } else if (jsonrep == 'no') {
+                                                resultLeak.innerHTML =
+                                                    "<span style='color:#329732'>Votre numéro n'a pas été diffusé 🙂</span>"
+                                            } else {
+                                                resultLeak.innerHTML =
+                                                    "Une erreur est survenue.<br>Veuillez réessayer ultérieurement."
+                                            }
+                                            btnLaunch.disabled = false;
+                                        });
+                                }
                             }
 
                             const reinitLeakSrch = (elem) => {
@@ -115,7 +138,42 @@
                 <div class="col-md-6">
                     <div class="container neumorphSection" data-aos="flip-down">
                         <div class="container text-center">
-                            <h4>Localisation des comptes Français leakés</h4>
+                            <h4>Quelques chiffres sur la fuite</h4>
+                            <div class="col-sm" style="padding: 20px 0px;">
+                                <table class="table table-hover" style="font-size: 17px;">
+                                    <tbody>
+                                        <tr style="padding:15px 0px">
+                                            <td>Ce vol de données date de <span class="meaJtv">2019</span>.</td>
+                                        </tr>
+                                        <tr style="padding:15px 0px">
+                                            <td>Le <span class="meaJtv">3 avril 2021</span>, il a été diffusé en masse
+                                                sur des forums de hacking.</td>
+                                        </tr>
+                                        <tr style="padding:15px 0px">
+                                            <td><span class="meaJtv">19,848,559</span> comptes
+                                                français ont fuités.</td>
+                                        </tr>
+                                        <tr style="padding:15px 0px">
+                                            <td><span class="meaJtv">49%</span> de ces comptes appartiennent à des
+                                                femmes.</td>
+                                        </tr>
+                                        <tr style="padding:15px 0px">
+                                            <td><span class="meaJtv">0,6%</span> des comptes ont leaké avec leur adresse
+                                                mail.</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="height: 2px; padding: 0px;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="container neumorphSection" data-aos="flip-down" data-aos-delay="100">
+                        <div class="container text-center">
+                            <h4>Localisation des comptes Français présents dans la fuite</h4>
                             <div class="col-sm" style="padding: 20px 0px;">
                                 <canvas id="chart1_leakzone" style="min-height: 300px;"></canvas>
                                 <script>
@@ -181,16 +239,6 @@
                                         }
                                     });
                                 </script>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="container neumorphSection" data-aos="flip-down" data-aos-delay="100">
-                        <div class="container text-center">
-                            <h4>Blablabla</h4>
-                            <div class="col-sm" style="padding: 20px 0px;">
-                                <canvas id="chart8_persoSante" style="min-height: 300px;"></canvas>
                             </div>
                         </div>
                     </div>
