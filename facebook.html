@@ -11,7 +11,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
-    <title>#DonnéesCheck - Fuite de données Facebook</title>
+    <title>#DataCheck - Fuite de données Facebook</title>
     <!-- Favicon -->
     <link rel="icon" href="img/favicon.ico" id="light-scheme-favicon" />
     <link rel="icon" href="img/faviconBlanc.ico" id="dark-scheme-favicon" />
@@ -40,8 +40,8 @@
             <div class="container-fluid text-center">
                 <img src="img/LOGO_JTV_ALT.svg"
                     style="opacity: .05; position: absolute; top: 20px; max-width: 350px; margin-right: 20px;">
-                <h1><span class="meaJtv">#DonnéesCheck</span> - Fuite de données Facebook</h1><br>
-                <p style="max-width: 800px; margin: auto; font-size: 18px; font-family: Lexend Deca;">Les données
+                <h1><span class="meaJtv">#DataCheck</span> - Fuite de données Facebook</h1><br>
+                <p style="max-width: 800px; margin: auto; font-size: 18px; font-family: Lexend Deca; padding-bottom: 3%;">Les données
                     privées de 20 millions d'utilisateurs Français de Facebook ont fuitées et circulent
                     gratuitement sur le web. <span class="meaJtv">Je te vois</span> vous propose un outil simple et
                     fiable pour vérifier votre présence dans la base de données.</p>
@@ -49,14 +49,17 @@
 
             <div class="container neumorphSection" data-aos="flip-down">
                 <div class="col-md-12 d-flex flex-column align-items-center">
-                    <h2>Ton numéro de téléphone :</h2>
+                    <h2 style="padding-top: 2%;">Entrez votre numéro de téléphone</h2>
+                    <p style="max-width: 900px; margin: auto; padding-bottom: 5%;">Votre numéro nous permet de vérifier votre présence dans la base de données piratée.
+                    <br>
+                    Une fois votre numéro inscrit ci-dessous (sans inclure les espaces), la recherche peut prendre jusqu'à 10 secondes.</p>
                     <input class="inputTelephoneCheck" id="telCheck" type="tel" maxlength="10"
-                        pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" placeholder="06 05 04 03 02" />
+                        pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" placeholder="0605040302" />
                     <div class="d-flex flex-column align-items-center justify-content-center"
                         style="height: 200px; margin: 30px 0px;">
                         <button class="btn jtvBtn" id="btnRecherche"
                             style="padding: 15px; border-radius: 20px; font-family: Lexend Deca;"
-                            onclick="rechercheNumLeak(this)">Rechercher 🔍</button>
+                            onclick="rechercheNumLeak(this)">Rechercher &nbsp; 🔍</button>
                         <lottie-player id="searchAnim"
                             src="https://assets4.lottiefiles.com/private_files/lf30_uet7z2uz.json"
                             background="transparent" speed="1" style="width: 200px; height: 200px; display: none;" loop
@@ -84,9 +87,9 @@
                                         console.log(jsonrep)
                                         animation.style.display = 'none';
                                         if (jsonrep == 'yes') {
-                                            resultLeak.innerHTML = "Ton numéro est dans le leak Facebook 😥"
+                                            resultLeak.innerHTML = "Votre numéro est dans le fichier ayant fuité 😟"
                                         } else if (jsonrep == 'no') {
-                                            resultLeak.innerHTML = "Ton numéro n'a pas été diffusé 🤗"
+                                            resultLeak.innerHTML = "Votre numéro n'a pas été diffusé 🙂 <br>"
                                         } else {
                                             resultLeak.innerHTML =
                                                 "Une erreur est survenue.<br>Veuillez réessayer ultérieurement."
