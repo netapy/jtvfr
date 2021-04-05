@@ -18,6 +18,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-deferred@1"></script>
     <script src="ressources/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-deferred@1"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QSTY073PT9"></script>
     <script>
@@ -106,6 +107,93 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="container neumorphSection" data-aos="flip-down">
+                        <div class="container text-center">
+                            <h4>Localisation des comptes Français leakés</h4>
+                            <div class="col-sm" style="padding: 20px 0px;">
+                                <canvas id="chart1_leakzone" style="min-height: 300px;"></canvas>
+                                <script>
+                                    var ctxx1 = document.querySelector('#chart1_leakzone').getContext('2d');
+                                    var chart1 = new Chart(ctxx1, {
+                                        type: 'bar',
+                                        data: {
+                                            labels: ["Paris", "Lyon", "Marseille", "Toulouse", "Bordeaux",
+                                                "Nice", "Lille", "Nantes", "Montpellier", "Strasbourg",
+                                                "Rennes", "Grenoble", "Rouen", "Tours"
+                                            ],
+                                            datasets: [{
+                                                label: "Nb de personnes leakés",
+                                                backgroundColor: '#6219D8',
+                                                data: [1157356, 210206, 191447, 150870, 116307, 90303,
+                                                    86307, 85961, 82338, 75008, 55850, 49508, 42265,
+                                                    37078
+                                                ]
+                                            }]
+                                        },
+                                        options: {
+                                            responsive: true,
+                                            legend: {
+                                                display: false
+                                            },
+                                            title: {
+                                                display: true,
+                                                position: "bottom",
+                                                fontFamily: "Lexend Deca",
+                                                text: "Source : jetevois.fr"
+                                            },
+                                            tooltips: {
+                                                mode: 'index',
+                                                intersect: false
+                                            },
+                                            scales: {
+                                                yAxes: [{
+                                                    stacked: true,
+                                                    ticks: {
+                                                        stepSize: 300000,
+                                                        userCallback: function (value, index, values) {
+                                                            value = value.toString();
+                                                            value = value.split(/(?=(?:...)*$)/);
+                                                            value = value.join(',');
+                                                            return value;
+                                                        }
+                                                    }
+                                                }],
+                                                xAxes: [{
+                                                    gridLines: {
+                                                        display: false
+                                                    }
+                                                }]
+                                            },
+                                            maintainAspectRatio: false,
+                                            plugins: {
+                                                deferred: {
+                                                    xOffset: 150,
+                                                    yOffset: '50%',
+                                                    delay: 500
+                                                }
+                                            },
+                                        }
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="container neumorphSection" data-aos="flip-down" data-aos-delay="100">
+                        <div class="container text-center">
+                            <h4>Blablabla</h4>
+                            <div class="col-sm" style="padding: 20px 0px;">
+                                <canvas id="chart8_persoSante" style="min-height: 300px;"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
             <div class="container neumorphSection" data-aos="flip-down">
                 <div class="container text-left">
