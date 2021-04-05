@@ -17,7 +17,7 @@
 </head>
 <script>
   if (localStorage.getItem("404") != "1") {
-    let source = String(window.location.href) + ".html"
+    let source = String(window.location.href).toLowerCase() + ".html"
     window.location.href = source;
     localStorage.setItem("404", "1")
   }
