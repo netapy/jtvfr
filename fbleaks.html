@@ -105,7 +105,10 @@
                                     animation.style.display = '';
                                     btnLaunch.disabled = true;
                                     document.querySelector("#illustrationAtt").style.display = 'none';
-                                    fetch('https://dbreq.jetevois.fr:5000/33' + String(valueTel).substring(1))
+
+                                    function fetchAnswer() {
+                                        console.log("fetching...")
+                                        fetch('https://dbreq.jetevois.fr:5000/33' + String(valueTel).substring(1))
                                         .then(function (response) {
                                             return response.text();
                                         })
@@ -124,7 +127,14 @@
                                                     "Une erreur est survenue.<br>Veuillez réessayer ultérieurement."
                                             }
                                             btnLaunch.disabled = false;
-                                        });
+                                        })
+                                        .catch((error) => {
+                                            console.log("attente...")
+                                            fetchAnswer();
+                                        })
+                                    };
+
+                                    fetchAnswer();
                                 }
                             }
 
