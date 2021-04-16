@@ -248,7 +248,7 @@ body {
 
 .spacing-homepage {
     padding: 15px 30px;
-    margin: 80px 0px;
+    margin: 50px 0px;
 }
 
 .thumbnail-etudes {
@@ -277,7 +277,6 @@ hr {
 }
 
 .panneauEtude {
-    width: 250px;
     border-radius: 18px;
     background: #FAF7FF;
     box-shadow: 5px 5px 9px #e1dee6,
