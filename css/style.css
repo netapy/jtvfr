@@ -195,7 +195,7 @@ body {
     border-width: 0px;
     padding: 10px;
     transition: all .8s cubic-bezier(.25, .8, .25, 1);
-    margin-top: 8px;
+    margin-top: 12px;
 }
 
 .neumorphSection {
@@ -496,4 +496,8 @@ hr {
 .inputTelephoneCheck::placeholder {
     color: #000000;
     opacity: .4;
+}
+
+.imgEtude{
+    max-height: 150px;
 }
