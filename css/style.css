@@ -160,6 +160,7 @@ body {
 }
 
 .neumorphButton {
+    width: fit-content;
     border-radius: 12px;
     background: #F3F0F7;
     box-shadow: 7px 7px 12px #dddae1,
@@ -177,6 +178,24 @@ body {
 
 .neumorphButton:hover {
     transform: scale(1.05);
+}
+
+.neumorphButtonDecouvr {
+    font-family: Lexend Deca;
+    width: fit-content;
+    border-radius: 12px;
+    background: #FAF7FF;
+    box-shadow: 6px 6px 12px #ebe8f0,
+        -6px -6px 12px #ffffff;
+    color: #6219D8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-width: 0px;
+    padding: 10px;
+    transition: all .8s cubic-bezier(.25, .8, .25, 1);
+    margin-top: 12px;
 }
 
 .neumorphSection {
@@ -248,7 +267,7 @@ body {
 
 .spacing-homepage {
     padding: 15px 30px;
-    margin: 80px 0px;
+    margin: 50px 0px;
 }
 
 .thumbnail-etudes {
@@ -277,7 +296,6 @@ hr {
 }
 
 .panneauEtude {
-    width: 250px;
     border-radius: 18px;
     background: #FAF7FF;
     box-shadow: 5px 5px 9px #e1dee6,
@@ -294,7 +312,6 @@ hr {
     box-shadow: 5px 5px 9px #e1dee6,
         -5px -5px 9px #ffffff;
 }
-
 
 .soustitrePanneau {
     font-size: 16px;
@@ -479,4 +496,8 @@ hr {
 .inputTelephoneCheck::placeholder {
     color: #000000;
     opacity: .4;
+}
+
+.imgEtude{
+    max-height: 150px;
 }
