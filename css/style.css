@@ -137,10 +137,12 @@ body {
 
 @keyframes revelationLogo {
     0% {
-        transform: translateY(80vh);
+        transform: translateY(10vh);
+        opacity: 0;
     }
 
     100% {
+        opacity: 1;
         transform: translateY(0);
     }
 }
@@ -366,7 +368,7 @@ hr {
 }
 
 .catchPhraseJTV {
-    animation: revelationLogo 2s ease-in-out;
+    animation: revelationLogo .8s ease-out;
     animation-fill-mode: forwards;
     color: white;
     font-size: 4rem;
