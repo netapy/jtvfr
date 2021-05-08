@@ -56,65 +56,104 @@
 
             <div class="container neumorphSection" data-aos="flip-down">
                 <div class="container text-center">
-                    <h4>Nombre de français vaccinés contre la Covid-19</h4>
+                    <h4>Panorama des médias en France</h4>
                     <div class="col-sm" style="padding: 20px 0px;">
                         <div id="chartMediasUn"></div>
 
                         <script type="text/javascript">
-                            // create an array with nodes
-                            var nodes = new vis.DataSet([{
-                                    id: 1,
-                                    label: 'Node 1'
-                                },
-                                {
-                                    id: 2,
-                                    label: 'Node 2'
-                                },
-                                {
-                                    id: 3,
-                                    label: 'Node 3'
-                                },
-                                {
-                                    id: 4,
-                                    label: 'Node 4'
-                                },
-                                {
-                                    id: 5,
-                                    label: 'Node 5'
-                                }
-                            ]);
-
-                            // create an array with edges
-                            var edges = new vis.DataSet([{
-                                    from: 1,
-                                    to: 3
-                                },
-                                {
-                                    from: 1,
-                                    to: 2
-                                },
-                                {
-                                    from: 2,
-                                    to: 4
-                                },
-                                {
-                                    from: 2,
-                                    to: 5
-                                }
-                            ]);
-
-                            // create a network
-                            var container = document.getElementById('chartMediasUn');
-
-                            // provide the data in the vis format
-                            var data = {
-                                nodes: nodes,
-                                edges: edges
+                            function renameKey(obj, oldKey, newKey) {
+                                obj[newKey] = obj[oldKey];
+                                delete obj[oldKey];
                             };
-                            var options = {};
 
-                            // initialize your network!
-                            var network = new vis.Network(container, data, options);
+                            function getKeyByValue(object, value) {
+                                return Object.keys(object).find(key => object[key] === value);
+                            }
+                            //getKeyByValue(map,"2");
+                            let dataActeurs;
+                            let dataLiens;
+
+                            Papa.parse(
+                                "https://raw.githubusercontent.com/mdiplo/Medias_francais/master/medias_francais.tsv", {
+                                    download: true,
+                                    header: true,
+                                    complete: function (results, file) {
+                                        dataActeurs = results.data;
+                                        dataActeurs.forEach(obj => renameKey(obj, 'nom', 'label'));
+                                        dataActeurs.forEach(obj => {
+                                            if (obj.typeLibelle == "Personne physique") {
+                                                obj.color = "#6219D8";
+                                                obj.font = {
+                                                    color: "#FFFFFF",
+                                                    size: 20
+                                                };
+                                                obj.shape = "box";
+                                            } else {
+                                                obj.shape = "box"
+                                            }
+                                        });
+                                        dataActeurs.splice(-1);
+                                        dataActeurs[dataActeurs.length - 1].id = 334;
+                                        console.log(dataActeurs)
+                                        var nodes = new vis.DataSet(dataActeurs);
+
+                                        Papa.parse(
+                                            "https://raw.githubusercontent.com/mdiplo/Medias_francais/master/relations_medias_francais.tsv", {
+                                                download: true,
+                                                header: true,
+                                                complete: function (results, file) {
+                                                    dataLiens = results.data;
+
+                                                    for (ii in dataLiens) {
+                                                        dataLiens[ii]["to2"] = dataActeurs.find(obj => {
+                                                            return obj['label'] === dataLiens[
+                                                                ii]["cible"];
+                                                        });
+                                                        dataLiens[ii]["arrows"] = "to";
+                                                        if (dataLiens[ii]["to2"] == undefined) {
+                                                            dataLiens[ii]["to"] = 2;
+                                                        } else {
+                                                            dataLiens[ii]["to"] = dataLiens[ii]["to2"]
+                                                                .id
+                                                        }
+                                                        delete dataLiens[ii].to2
+                                                    };
+                                                    dataLiens.forEach(obj => renameKey(obj, 'id',
+                                                        'from'));
+                                                    dataLiens.forEach(obj => renameKey(obj, 'valeur',
+                                                        'label'));
+
+                                                    console.log(dataLiens);
+
+                                                    var edges = new vis.DataSet(dataLiens);
+
+                                                    // create a network
+                                                    var container = document.getElementById(
+                                                        'chartMediasUn');
+
+                                                    // provide the data in the vis format
+                                                    var data = {
+                                                        nodes: nodes,
+                                                        edges: edges
+                                                    };
+                                                    var options = {
+                                                        physics: {
+                                                            stabilization: false
+                                                        },
+                                                        nodes: {
+                                                            shapeProperties: {
+                                                                interpolation: false // 'true' for intensive zooming
+                                                            }
+                                                        }
+
+                                                    }
+                                                    // initialize your network!
+                                                    var network = new vis.Network(container, data,
+                                                        options);
+                                                }
+                                            });
+                                    }
+                                });
                         </script>
                     </div>
                 </div>
