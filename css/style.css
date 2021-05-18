@@ -300,10 +300,9 @@ hr {
 .panneauEtude {
     border-radius: 18px;
     background: #FAF7FF;
+    transition: all .3s ease-in-out;
     box-shadow: 5px 5px 9px #e1dee6,
         -5px -5px 9px #ffffff;
-    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-    cursor: pointer;
 }
 
 .panneauEtude:hover {

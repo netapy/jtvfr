@@ -50,7 +50,7 @@ var chart = new Chart(ctxx, {
         labels: data_top_pot_sbf['index'].slice(0, 10),
         datasets: [{
             label: "Indice égalité",
-            backgroundColor: '#6219D8',
+            backgroundColor: '#2ECC71',
             data: data_top_pot_sbf["data"].slice(0, 10).map(x => x[0]),
         }]
     },
@@ -106,8 +106,8 @@ var chart = new Chart(ctxx, {
         labels: data_top_pot_sbf['index'].slice(10).reverse(),
         datasets: [{
             label: "Indice égalité",
-            backgroundColor: '#6219D8',
-            data: data_top_pot_sbf["data"].slice(10).reverse().map(x => x[0] * -1),
+            backgroundColor: '#E74C3C',
+            data: data_top_pot_sbf["data"].slice(10).reverse().map(x => x[0]),
             borderRadius: 20
         }]
     },
@@ -125,21 +125,10 @@ var chart = new Chart(ctxx, {
         tooltips: {
             mode: 'index',
             intersect: false,
-            callbacks: {
-                label: function (tooltipItem, data) {
-                    var label = data.datasets[tooltipItem.datasetIndex].label || '';
-                    if (label) {
-                        label += ': ';
-                    }
-                    label += tooltipItem.xLabel * -1;
-                    return label;
-                }
-            }
         },
         scales: {
             yAxes: [{
                 stacked: true,
-                position: 'right',
                 gridLines: {
                     display: false
                 },
@@ -150,12 +139,9 @@ var chart = new Chart(ctxx, {
                     display: false
                 },
                 ticks: {
-                    min: -60,
-                    max: -90,
-                    stepSize: -20,
-                    callback: function (value, index, values) {
-                        return value * -1;
-                    }
+                    min: 60,
+                    max: 90,
+                    stepSize: 20,
                 }
             }]
         },
