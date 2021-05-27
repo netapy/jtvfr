@@ -19,6 +19,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-deferred@1"></script>
     <script src="ressources/papaparse.min.js"></script>
     <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <script type="text/javascript" src="etudes/medias/dt.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QSTY073PT9"></script>
     <script>
@@ -69,91 +70,85 @@
                             function getKeyByValue(object, value) {
                                 return Object.keys(object).find(key => object[key] === value);
                             }
-                            //getKeyByValue(map,"2");
+
                             let dataActeurs;
                             let dataLiens;
 
-                            Papa.parse(
-                                "https://raw.githubusercontent.com/mdiplo/Medias_francais/master/medias_francais.tsv", {
-                                    download: true,
-                                    header: true,
-                                    complete: function (results, file) {
-                                        dataActeurs = results.data;
-                                        dataActeurs.forEach(obj => renameKey(obj, 'nom', 'label'));
-                                        dataActeurs.forEach(obj => {
-                                            if (obj.typeLibelle == "Personne physique") {
-                                                obj.color = "#6219D8";
-                                                obj.font = {
-                                                    color: "#FFFFFF",
-                                                    size: 20
-                                                };
-                                                obj.shape = "box";
-                                            } else {
-                                                obj.shape = "box"
-                                            }
-                                        });
-                                        dataActeurs.splice(-1);
-                                        dataActeurs[dataActeurs.length - 1].id = 334;
-                                        console.log(dataActeurs)
-                                        var nodes = new vis.DataSet(dataActeurs);
+                            dataActeurs = acteursUniques;
+                            dataActeurs.forEach(obj => renameKey(obj, 'nom', 'label'));
+                            dataActeurs.forEach(obj => {
+                                if (obj.Appartenance == "non") {
+                                    obj.color = "#6219D8";
+                                    obj.font = {
+                                        color: "#FFFFFF",
+                                        size: 20
+                                    };
+                                    obj.shape = "box";
+                                } else if (obj.typeLibelle == "Média") {
+                                    obj.color = "#FAF7FF";
+                                } else {
+                                    obj.shape = "box";
+                                    obj.color = "#8792FD";
+                                }
+                            });
+                            dataActeurs.splice(-1);
+                            dataActeurs[dataActeurs.length - 1].id = 334;
+                            console.log(dataActeurs)
 
-                                        Papa.parse(
-                                            "https://raw.githubusercontent.com/mdiplo/Medias_francais/master/relations_medias_francais.tsv", {
-                                                download: true,
-                                                header: true,
-                                                complete: function (results, file) {
-                                                    dataLiens = results.data;
+                            dataLiens = liensActeurs;
 
-                                                    for (ii in dataLiens) {
-                                                        dataLiens[ii]["to2"] = dataActeurs.find(obj => {
-                                                            return obj['label'] === dataLiens[
-                                                                ii]["cible"];
-                                                        });
-                                                        dataLiens[ii]["arrows"] = "to";
-                                                        if (dataLiens[ii]["to2"] == undefined) {
-                                                            dataLiens[ii]["to"] = 2;
-                                                        } else {
-                                                            dataLiens[ii]["to"] = dataLiens[ii]["to2"]
-                                                                .id
-                                                        }
-                                                        delete dataLiens[ii].to2
-                                                    };
-                                                    dataLiens.forEach(obj => renameKey(obj, 'id',
-                                                        'from'));
-                                                    dataLiens.forEach(obj => renameKey(obj, 'valeur',
-                                                        'label'));
+                            dataActeurs.forEach(obj => {
+                                if (obj.Appartenance == "non") dataLiens.push({
+                                    "id": 999,
+                                    "origine": "France",
+                                    "valeur": 2,
+                                    "id_cible": obj.id,
+                                })
+                            });
+                            console.log(dataLiens)
+                            for (ii in dataLiens) {
+                                dataLiens[ii]["arrows"] = "to";
+                            };
+                            dataLiens.forEach(obj => renameKey(obj, 'id',
+                                'from'));
+                            dataLiens.forEach(obj => renameKey(obj, 'valeur',
+                                'label'));
+                            dataLiens.forEach(obj => renameKey(obj, 'id_cible',
+                                'to'));
 
-                                                    console.log(dataLiens);
+                            console.log(dataLiens);
 
-                                                    var edges = new vis.DataSet(dataLiens);
+                            var edges = new vis.DataSet(dataLiens);
+                            var nodes = new vis.DataSet(dataActeurs);
 
-                                                    // create a network
-                                                    var container = document.getElementById(
-                                                        'chartMediasUn');
+                            // create a network
+                            var container = document.getElementById(
+                                'chartMediasUn');
 
-                                                    // provide the data in the vis format
-                                                    var data = {
-                                                        nodes: nodes,
-                                                        edges: edges
-                                                    };
-                                                    var options = {
-                                                        physics: {
-                                                            stabilization: false
-                                                        },
-                                                        nodes: {
-                                                            shapeProperties: {
-                                                                interpolation: false // 'true' for intensive zooming
-                                                            }
-                                                        }
-
-                                                    }
-                                                    // initialize your network!
-                                                    var network = new vis.Network(container, data,
-                                                        options);
-                                                }
-                                            });
+                            // provide the data in the vis format
+                            var data = {
+                                nodes: nodes,
+                                edges: edges
+                            };
+                            var options = {
+                                physics: {
+                                    stabilization: false
+                                },
+                                layout: {
+                                    clusterThreshold: 1000
+                                },
+                                nodes: {
+                                    shapeProperties: {
+                                        interpolation: false // 'true' for intensive zooming
                                     }
-                                });
+                                }
+
+                            }
+                            // initialize your network!
+                            var network = new vis.Network(container, data,
+                                options);;
+
+                            ;
                         </script>
                     </div>
                 </div>
