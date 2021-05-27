@@ -502,3 +502,10 @@ hr {
 .imgEtude{
     max-height: 150px;
 }
+
+.logoFlotte{
+    cursor: pointer;
+    
+}
+
+.logoFlotte:hover()
