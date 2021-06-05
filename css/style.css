@@ -508,4 +508,15 @@ hr {
     
 }
 
-.logoFlotte:hover()
+.offreProPrice{
+    font-size: 36px;
+    font-weight: bolder;
+    margin: 5px 0px;
+    color: white;
+}
+
+.offreProDesc{
+    font-size: 20px;
+    color: white;
+    margin: 5px 0px;
+}
