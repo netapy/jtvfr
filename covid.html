@@ -54,8 +54,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="container neumorphSection" data-aos="flip-down">
                         <div class="container text-center">
                             <h4>Part de la population française vaccinée</h4>
@@ -65,17 +64,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="container neumorphSection" data-aos="flip-down" data-aos-delay="100">
-                        <div class="container text-center">
-                            <h4>Part du personnel de santé français vacciné</h4>
-                            <div class="col-sm" style="padding: 20px 0px;">
-                                <canvas id="chart8_persoSante" style="min-height: 300px;"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="container neumorphSection" data-aos="flip-down">
                 <div class="container text-center">
                     <h4>La vaccination selon les régions</h4>
@@ -284,7 +272,7 @@
                                 yAxes: [{
                                     stacked: true,
                                     ticks: {
-                                        stepSize: 2000000,
+                                        stepSize: 10000000,
                                         userCallback: function (value, index, values) {
                                             value = value.toString();
                                             value = value.split(/(?=(?:...)*$)/);
@@ -369,72 +357,6 @@
                 }
             });
 
-
-            Papa.parse("https://www.data.gouv.fr/fr/datasets/r/e720df1a-78db-4c46-ab5b-2a417c2ff06c", {
-                download: true,
-                complete: function (results, file) {
-                    let newJsonObj = results.data;
-                    newJsonObj.shift();
-                    newJsonObj.pop();
-                    labelsTV = newJsonObj.map(e => e[1])
-                    dataTV = newJsonObj.map(e => e[2])
-                    //graph vacc perso santé
-                    var ctxpart = document.querySelector('#chart8_persoSante').getContext('2d');
-                    var chart8_persoSante = new Chart(ctxpart, {
-                        type: 'doughnut',
-                        data: {
-                            labels: ["Population non-vaccinée", "Population vaccinée"],
-                            datasets: [{
-                                label: "Indice de popularité",
-                                backgroundColor: ["#bebbc4", "#6219D8"],
-                                data: [2223000 - dataTV.slice(-1).pop(), dataTV.slice(-1)
-                                    .pop()
-                                ]
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            legend: {
-                                display: false
-                            },
-                            title: {
-                                display: true,
-                                position: "bottom",
-                                fontFamily: "Lexend Deca",
-                                padding: 20,
-                                fontSize: 14,
-                                text: "Source : data.gouv.fr"
-                            },
-                            tooltips: {
-                                mode: 'index',
-                                intersect: false
-                            },
-                            maintainAspectRatio: false,
-                            plugins: {
-                                deferred: {
-                                    xOffset: 150,
-                                    yOffset: '50%',
-                                    delay: 500
-                                }
-                            },
-                            elements: {
-                                center: {
-                                    text: String(Math.round(dataTV.slice(-1).pop() / 2223000 *
-                                            1000) /
-                                        10) + "%",
-                                    color: '#6219D8',
-                                    fontStyle: 'Lexend Deca',
-                                    sidePadding: 40, //  
-                                    minFontSize: 16, // 
-                                    lineHeight: 25 // 
-                                }
-                            }
-                        }
-                    });
-                }
-            });
-
-
             let codeRegions = {
                 '01': 'Guadeloupe',
                 '02': 'Martinique',
@@ -494,7 +416,7 @@
                                 yAxes: [{
                                     stacked: true,
                                     ticks: {
-                                        stepSize: 250000,
+                                        stepSize: 2500000,
                                         userCallback: function (value, index, values) {
                                             value = value.toString();
                                             value = value.split(/(?=(?:...)*$)/);

@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <title>Je te vois - Medias en France</title>
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.ico" id="light-scheme-favicon" />
+    <link rel="icon" href="img/faviconBlanc.ico" id="dark-scheme-favicon" />
+    <script src="https://unpkg.com/d3@6.7.0/dist/d3.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QSTY073PT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "G-QSTY073PT9");
+    </script>
+</head>
+<style type="text/css">
+    #chartMediasUn {
+        width: 100%;
+        height: 600px;
+        border: 1px solid lightgray;
+        margin: auto;
+    }
+</style>
+
+<body style="background-color: #FAF7FF;">
+    <div style="background-color: #FAF7FF; min-height: 100vh;">
+        <div style="position: absolute ;height: 150px; width: 35vw ;top: 0px; background-color: #6219D8">
+            <img src="img/header/Fichier 6.svg" style="width: 1000px; position: absolute; top: 0px; right: -50px">
+        </div>
+        <div class="container text-center" style="position: relative; z-index: 1980; padding: 80px 15px 0px 15px">
+            <div class="container-fluid text-center">
+                <img src="img/LOGO_JTV_ALT.svg"
+                    style="opacity: .05; position: absolute; top: 20px; max-width: 350px; margin-right: 20px;">
+                <h1>Les medias en France</h1><br>
+                <h5>Un tableau de bord <span class="meaJtv">en temps réel </span>pour visualiser le paysage médiatique
+                    et les liens entre ses différents acteurs en France.</h5>
+            </div>
+
+            <div class="container neumorphSection" data-aos="flip-down">
+                <div class="container text-center">
+                    <h4>Panorama des médias en France</h4>
+                    <div class="col-sm" style="padding: 20px 0px;">
+                        <svg id="plandeviz" width="100%" height="400px"></svg>
+
+
+                        <script>
+                            var svg = d3.select("svg"),
+                                width = +svg.attr("width"),
+                                height = +svg.attr("height");
+
+                            var simulation = d3.forceSimulation()
+                                .force("link", d3.forceLink().id(function (d) {
+                                    return d.id;
+                                }))
+                                .force("charge", d3.forceManyBody().strength(-400))
+                                .force("center", d3.forceCenter(width / 2, height / 2));
+
+
+                            d3.json("etudes/medias/dt.json", function (error, graph) {
+                                if (error) throw error;
+                                console.log(graph);
+
+                                graph.links.forEach(function (d) {
+                                    d.source = d.source_id;
+                                    d.target = d.target_id;
+                                });
+
+                                var link = svg.append("g")
+                                    .style("stroke", "#aaa")
+                                    .selectAll("line")
+                                    .data(graph.links)
+                                    .enter().append("line");
+
+                                var node = svg.append("g")
+                                    .attr("class", "nodes")
+                                    .selectAll("circle")
+                                    .data(graph.nodes)
+                                    .enter().append("circle")
+                                    .attr("r", 6)
+                                    .call(d3.drag()
+                                        .on("start", dragstarted)
+                                        .on("drag", dragged)
+                                        .on("end", dragended));
+
+                                var label = svg.append("g")
+                                    .attr("class", "labels")
+                                    .selectAll("text")
+                                    .data(graph.nodes)
+                                    .enter().append("text")
+                                    .attr("class", "label")
+                                    .text(function (d) {
+                                        return d.name;
+                                    });
+
+                                simulation
+                                    .nodes(graph.nodes)
+                                    .on("tick", ticked);
+
+                                simulation.force("link")
+                                    .links(graph.links);
+
+                                function ticked() {
+                                    link
+                                        .attr("x1", function (d) {
+                                            return d.source.x;
+                                        })
+                                        .attr("y1", function (d) {
+                                            return d.source.y;
+                                        })
+                                        .attr("x2", function (d) {
+                                            return d.target.x;
+                                        })
+                                        .attr("y2", function (d) {
+                                            return d.target.y;
+                                        });
+
+                                    node
+                                        .attr("r", 20)
+                                        .style("fill", "#d9d9d9")
+                                        .style("stroke", "#969696")
+                                        .style("stroke-width", "1px")
+                                        .attr("cx", function (d) {
+                                            return d.x + 6;
+                                        })
+                                        .attr("cy", function (d) {
+                                            return d.y - 6;
+                                        });
+
+                                    label
+                                        .attr("x", function (d) {
+                                            return d.x;
+                                        })
+                                        .attr("y", function (d) {
+                                            return d.y;
+                                        })
+                                        .style("font-size", "20px").style("fill", "#4393c3");
+                                }
+                            });
+
+                            function dragstarted(d) {
+                                if (!d3.event.active) simulation.alphaTarget(0.3).restart()
+                                simulation.fix(d);
+                            }
+
+                            function dragged(d) {
+                                simulation.fix(d, d3.event.x, d3.event.y);
+                            }
+
+                            function dragended(d) {
+                                if (!d3.event.active) simulation.alphaTarget(0);
+                                simulation.unfix(d);
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <!-- <script src="ressources/gnrl.js"></script> -->
+        <script>
+            AOS.init()
+            //document.querySelector(".navbar").insertAdjacentHTML("beforebegin",
+            //    '<div class="fixed-bottom text-left" style="z-index: 9999;"> <button type="button" class="btnFlottantJtv" onclick="window.open(\'index.html\',\'_self\')">Accueil</button></div>'
+            //);
+        </script>
+    </div>
+
+</body>
+
+</html>
