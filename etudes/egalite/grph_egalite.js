@@ -1,3 +1,59 @@
+var ctxx = document.querySelector('#chart0_secteurs_nat').getContext('2d');
+
+var chart0nat = new Chart(ctxx, {
+    type: 'horizontalBar',
+    data: {
+        labels: data_sect_2018['index'],
+        datasets: [{
+            label: "Indice égalité",
+            backgroundColor: '#6219D8',
+            data: data_sect_2018["data"].map(x => x[0])
+        }]
+    },
+    options: {
+        responsive: true,
+        legend: {
+            display: false
+        },
+        title: {
+            display: true,
+            position: "bottom",
+            fontFamily: "Lexend Deca",
+            text: "Source : Ministère du Travail"
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false
+        },
+        scales: {
+            yAxes: [{
+                stacked: true,
+                gridLines: {
+                    display: false
+                },
+            }]
+        },
+        maintainAspectRatio: false,
+        plugins: {
+            deferred: {
+                xOffset: 150,
+                yOffset: '50%',
+                delay: 500
+            }
+        },
+    }
+});
+
+const c0_evol = (elem) => {
+    chart0nat.data.labels = elem['index'];
+    chart0nat.data.datasets = [{
+        label: "Indice égalité",
+        backgroundColor: '#6219D8',
+        data: data_sect_2020["data"].map(x => x[0])
+    }];
+    chart0nat.update();
+}
+
 var ctxx = document.querySelector('#chart1_sbf120_secteurs').getContext('2d');
 var chart = new Chart(ctxx, {
     type: 'horizontalBar',
