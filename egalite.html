@@ -62,13 +62,39 @@
             <div class="container neumorphSection" data-aos="flip-down">
                 <div class="container text-center">
                     <h4>L'indice d'égalité moyen par secteur</h4>
-                    <p>Voici les secteurs avec le meilleure score égalité, balblabla.... Oui je sais c'est très moche pour l'instant tkt </p>
-                    <div class="row" style="max-width: 200px; margin: auto;">
-                        <div class="col-4"><button onclick="c0_evol(data_sect_2018)">2018</button></div>
-                        <div class="col-4"><button onclick="c0_evol(data_sect_2019)">2019</button></div>
-                        <div class="col-4"><button onclick="c0_evol(data_sect_2020)">2020</button></div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+
+                    <div class="radiogroup">
+
+                      </div>
+                      
+
+
+                    <div class="row" style="max-width: 320px; margin: auto; margin-top: 30px;">
+                        <div class="col-4">
+                            <input class="state" type="radio" name="app" id="a" value="a">
+                            <label class="label" for="a" onclick="c0_evol(2)">
+                              <div class="indicator"></div>
+                              <span class="text">2018</span>
+                            </label>
+                          </div>
+                          <div class="col-4">
+                            <input class="state" type="radio" name="app" id="b" value="b">
+                            <label class="label" for="b" onclick="c0_evol(1)">
+                              <div class="indicator"></div>
+                              <span class="text">2019</span>
+                            </label>
+                          </div>
+                          <div class="col-4">
+                            <input class="state" type="radio" name="app" id="c" value="c" checked>
+                            <label class="label" for="c" onclick="c0_evol(0)">
+                              <div class="indicator"></div>
+                              <span class="text">2020</span>
+                            </label>
+                          </div>
                     </div>
-                    <div class="col-sm" style="padding: 20px 0px;">
+                    <div class="col-sm" style="padding: 10px 0px;">
                         <canvas id="chart0_secteurs_nat" style="min-height: 500px;"></canvas>
                     </div>
                 </div>

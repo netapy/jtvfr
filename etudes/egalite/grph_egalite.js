@@ -3,14 +3,15 @@ var ctxx = document.querySelector('#chart0_secteurs_nat').getContext('2d');
 var chart0nat = new Chart(ctxx, {
     type: 'horizontalBar',
     data: {
-        labels: data_sect_2018['index'],
+        labels: data_sect_181920['index'],
         datasets: [{
             label: "Indice égalité",
-            backgroundColor: '#6219D8',
-            data: data_sect_2018["data"].map(x => x[0])
+            backgroundColor: '#8792FD',
+            data: data_sect_181920["data"].map(x => x[0][0])
         }]
     },
     options: {
+        barValueSpacing: 20,
         responsive: true,
         legend: {
             display: false
@@ -27,7 +28,7 @@ var chart0nat = new Chart(ctxx, {
         },
         scales: {
             yAxes: [{
-                stacked: true,
+                stacked: false,
                 gridLines: {
                     display: false
                 },
@@ -39,18 +40,31 @@ var chart0nat = new Chart(ctxx, {
                 xOffset: 150,
                 yOffset: '50%',
                 delay: 500
+            },
+            legend:{
+                onClick : ([event, legendItem, legend]) =>{
+                    var index = legendItem.datasetIndex;
+                    if (index > 1) {
+                        // Do the original logic
+                        defaultLegendClickHandler(e, legendItem, legend);
+                    } else {
+                        let ci = legend.chart;
+                        [
+                            ci.getDatasetMeta(0),
+                            ci.getDatasetMeta(1)
+                        ].forEach(function(meta) {
+                            meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
+                        });
+                        ci.update();
+                    }                                    
+                }
             }
         },
     }
 });
 
 const c0_evol = (elem) => {
-    chart0nat.data.labels = elem['index'];
-    chart0nat.data.datasets = [{
-        label: "Indice égalité",
-        backgroundColor: '#6219D8',
-        data: data_sect_2020["data"].map(x => x[0])
-    }];
+    chart0nat.data.datasets[0].data = data_sect_181920["data"].map(x => x[0][elem]);
     chart0nat.update();
 }
 
