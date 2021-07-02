@@ -220,6 +220,12 @@ body {
     transform: scale(1.02);
 }
 
+.neuViolet {
+    background: #FAF7FF;
+    box-shadow: 20px 20px 35px #5315b8,
+        -20px -20px 35px #711df8 !important;
+}
+
 .shadow-bg-icon-right {
     height: 80%;
     opacity: .03;
@@ -499,51 +505,52 @@ hr {
     opacity: .4;
 }
 
-.imgEtude{
+.imgEtude {
     max-height: 150px;
 }
 
-.logoFlotte{
+.logoFlotte {
     cursor: pointer;
-    
+
 }
 
 
 
 
-  
-  .state {
+
+.state {
     position: absolute;
     top: 0;
     right: 0;
     opacity: 1e-5;
     pointer-events: none;
-  }
-  
-  .label {
+}
+
+.label {
     display: inline-flex;
     align-items: center;
     cursor: pointer;
     color: #394a56;
-  }
-  .label .text{
+}
+
+.label .text {
     transition: all .25s ease-in-out;
-  }
-  
-  .indicator {
+}
+
+.indicator {
     content: '2018';
     position: relative;
     border-radius: 50%;
     height: 30px;
     width: 30px;
-    box-shadow:  4px 4px 8px #ebe8f0,
-    -4px -4px 8px #ffffff;
+    box-shadow: 4px 4px 8px #ebe8f0,
+        -4px -4px 8px #ffffff;
     overflow: hidden;
     margin-right: 12px;
-  }
-  
-  .indicator::before,
-  .indicator::after {
+}
+
+.indicator::before,
+.indicator::after {
     content: '';
     position: absolute;
     top: 10%;
@@ -552,32 +559,40 @@ hr {
     width: 80%;
     border-radius: 50%;
     margin-right: 20px;
-  }
-  
-  .indicator::before {
+}
+
+.indicator::before {
     box-shadow:
-      -4px -2px 4px 0px #eeebf2,
-      4px 2px 8px 0px #fff;
-  }
-  
-  .indicator::after {
+        -4px -2px 4px 0px #eeebf2,
+        4px 2px 8px 0px #fff;
+}
+
+.indicator::after {
     background-color: #FAF7FF;
     box-shadow:
-      -4px -2px 4px 0px #fff,
-      4px 2px 8px 0px #eeebf2;
+        -4px -2px 4px 0px #fff,
+        4px 2px 8px 0px #eeebf2;
     transform: scale3d(1, 1, 1);
     transition: opacity .25s ease-in-out, transform .25s ease-in-out;
-  }
-  
-  .state:checked ~ .label .indicator::after {
+}
+
+.state:checked~.label .indicator::after {
     transform: scale3d(.975, .975, 1) translate3d(0, 10%, 0);
     opacity: 0;
-  }
+}
 
-  .state:checked ~ .label .text {
+.state:checked~.label .text {
     transform: scale(1.1);
     font-weight: 900;
     opacity: 1;
     padding-left: 5px;
     text-decoration: underline;
-  }
+}
+
+.rotateimg180 {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}

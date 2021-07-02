@@ -72,11 +72,11 @@ var ctxx = document.querySelector('#chart1_sbf120_secteurs').getContext('2d');
 var chart = new Chart(ctxx, {
     type: 'horizontalBar',
     data: {
-        labels: data_score_secteurs['index'],
+        labels: data_sbf_secteurs['index'],
         datasets: [{
             label: "Indice égalité",
             backgroundColor: '#6219D8',
-            data: data_score_secteurs["data"].map(x => x[0])
+            data: data_sbf_secteurs["data"].map(x => x[0])
         }]
     },
     options: {
