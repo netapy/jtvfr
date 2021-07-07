@@ -9,11 +9,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>  en bas on teste le module "deferred"-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-deferred@1"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.4.1/chart.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
     <title>Je te vois - Egalité H/F</title>
     <!-- Favicon -->
@@ -64,7 +63,7 @@
                 </div>
             </div>
 
-            <div class="container neumorphSection" data-aos="flip-down">
+            <div class="container neumorphSection" data-aos="flip-down" data-aos-id="super-duper">
                 <div class="container text-center">
                     <h4>L'indice d'égalité moyen par secteur</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -348,12 +347,22 @@
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script src="ressources/gnrl.js"></script>
         <script>
-            AOS.init();
             document.querySelector(".navbar").insertAdjacentHTML("beforebegin",
                 '<div class="fixed-bottom text-left" style="z-index: 9999;"> <button type="button" class="btnFlottantJtv" onclick="window.open(\'index.html\',\'_self\')">Accueil</button></div>'
             );
         </script>
     </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        document.addEventListener('aos:in', ({
+            detail
+        }) => {
+            console.log('animated in', detail.querySelector("canvas"));
+            appearChart(detail.querySelector("canvas").id)
+        });
+    </script>
 
 </body>
 

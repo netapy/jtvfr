@@ -1,67 +1,62 @@
-var ctxx = document.querySelector('#chart0_secteurs_nat').getContext('2d');
-
-var chart0nat = new Chart(ctxx, {
-    type: 'horizontalBar',
-    data: {
-        labels: data_sect_181920['index'],
-        datasets: [{
-            label: "Indice égalité",
-            backgroundColor: '#8792FD',
-            data: data_sect_181920["data"].map(x => x[0][0])
-        }]
-    },
-    options: {
-        barValueSpacing: 20,
-        responsive: true,
-        legend: {
-            display: false
-        },
-        title: {
-            display: true,
-            position: "bottom",
-            fontFamily: "Lexend Deca",
-            text: "Source : Ministère du Travail"
-        },
-        tooltips: {
-            mode: 'index',
-            intersect: false
-        },
-        scales: {
-            yAxes: [{
-                stacked: false,
-                gridLines: {
-                    display: false
-                },
+const appearChart = (elementId) => {
+    var ctxx0nat = document.querySelector('#' + String(elementId)).getContext('2d');
+    var chart0nat = new Chart(ctxx0nat, {
+        type: 'bar',
+        data: {
+            labels: data_sect_181920['index'],
+            datasets: [{
+                label: "Indice égalité",
+                backgroundColor: '#6219D8',
+                data: data_sect_181920["data"].map(x => x[0][0]),
+                borderRadius: 5
             }]
         },
-        maintainAspectRatio: false,
-        plugins: {
-            deferred: {
-                xOffset: 150,
-                yOffset: '50%',
-                delay: 500
+        options: {
+            indexAxis: 'y',
+            barValueSpacing: 20,
+            responsive: true,
+            legend: {
+                display: false
             },
-            legend:{
-                onClick : ([event, legendItem, legend]) =>{
-                    var index = legendItem.datasetIndex;
-                    if (index > 1) {
-                        // Do the original logic
-                        defaultLegendClickHandler(e, legendItem, legend);
-                    } else {
-                        let ci = legend.chart;
-                        [
-                            ci.getDatasetMeta(0),
-                            ci.getDatasetMeta(1)
-                        ].forEach(function(meta) {
-                            meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
-                        });
-                        ci.update();
-                    }                                    
+            title: {
+                display: true,
+                position: "bottom",
+                fontFamily: "Lexend Deca",
+                text: "Source : Ministère du Travail"
+            },
+            tooltips: {
+                mode: 'index',
+                intersect: false
+            },
+            scales: {
+                x: {
+                    min: 60
                 }
-            }
-        },
-    }
-});
+            },
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    onClick: ([event, legendItem, legend]) => {
+                        var index = legendItem.datasetIndex;
+                        if (index > 1) {
+                            // Do the original logic
+                            defaultLegendClickHandler(e, legendItem, legend);
+                        } else {
+                            let ci = legend.chart;
+                            [
+                                ci.getDatasetMeta(0),
+                                ci.getDatasetMeta(1)
+                            ].forEach(function (meta) {
+                                meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
+                            });
+                            ci.update();
+                        }
+                    }
+                }
+            },
+        }
+    });
+}
 
 const c0_evol = (elem) => {
     chart0nat.data.datasets[0].data = data_sect_181920["data"].map(x => x[0][elem]);
