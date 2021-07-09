@@ -116,13 +116,15 @@
                         <br><span style="opacity: .6;">(Bien entendu, aucune information de recherche n'est
                             conservée)</span></p>
                     <div class="row">
-                        <div class="col-md-8"> <input class="inputTelephoneCheck" id="entCheck" type="text"
-                                maxlength="20" placeholder="CapGemini" style="font-size: 25px;"
-                                onkeypress="return /[0-9]/i.test(event.key)" />
+                        <div class="col-md-8">
+                            <input class="inputTelephoneCheck" list="entFrancaises" id="entCheck" type="text"
+                                maxlength="50" placeholder="DXC Technology" style="font-size: 25px;"
+                                autocomplete="off" />
+                            <datalist id="entFrancaises"></datalist>
                         </div>
                         <div class="col-md-4 d-flex align-items-center"> <button class="btn jtvBtn" id="btnRecherche"
                                 style="padding: 10px; border-radius: 10px; font-family: Lexend Deca; font-size: 16px; margin: 5px auto;"
-                                onclick="rechercheNumLeak(this)">Rechercher 🔍</button>
+                                onclick="rechercheEntSx(this)">Rechercher 🔍</button>
                         </div>
                     </div>
                     <!-- <div class="col-md-12">
@@ -140,54 +142,43 @@
                             style="width: 200px; margin: auto; padding-top: 20px;" />
                         <div id='resultatLeak' style="font-size: 20px; padding: 20px;"></div>
                         <script>
-                            const rechercheNumLeak = (btnLaunch) => {
+                            const rechercheEntSx = (btnLaunch) => {
                                 let animation = document.querySelector("#searchAnim");
                                 let valueTel = document.querySelector("#entCheck").value;
                                 let resultLeak = document.querySelector("#resultatLeak");
                                 let newSearch = document.querySelector("#newSearcch")
 
-                                if (valueTel.length != 10) {
-                                    swal({
-                                        text: 'Veuillez renseigner un numéro de 10 chiffres.',
-                                        icon: 'error',
-                                        button: !1,
-                                        timer: 1500
-                                    });
-                                } else {
-                                    resultLeak.innerHTML = '';
-                                    animation.style.display = '';
-                                    btnLaunch.disabled = true;
-                                    document.querySelector("#illustrationAtt").style.display = 'none';
+                                resultLeak.innerHTML = '';
+                                animation.style.display = '';
+                                btnLaunch.disabled = true;
+                                document.querySelector("#illustrationAtt").style.display = 'none';
 
-                                    function fetchAnswer() {
-                                        console.log("fetching...")
-                                        fetch('https://dbreq.jetevois.fr:5000/33' + String(valueTel).substring(1))
-                                            .then(function (response) {
-                                                return response.text();
-                                            })
-                                            .then(function (data) {
-                                                var jsonrep = JSON.parse(data)["rep"];
-                                                console.log(jsonrep)
-                                                animation.style.display = 'none';
-                                                if (jsonrep == 'yes') {
-                                                    resultLeak.innerHTML =
-                                                        "<span style='color:#d51717'>Votre numéro est dans le fichier ayant fuité 😟 <br> <br> Scrollez en bas de notre page pour en savoir plus !</span>"
-                                                } else if (jsonrep == 'no') {
-                                                    resultLeak.innerHTML =
-                                                        "<span style='color:#329732'>Votre numéro n'a pas été diffusé 🙂</span>"
-                                                } else {
-                                                    resultLeak.innerHTML =
-                                                        "Une erreur est survenue.<br>Veuillez réessayer ultérieurement."
-                                                }
-                                                btnLaunch.disabled = false;
-                                            })
-                                            .catch((error) => {
-                                                console.log("attente...")
-                                                fetchAnswer();
-                                            })
-                                    };
-                                    fetchAnswer();
-                                }
+                                function fetchAnswer() {
+                                    console.log("fetching...")
+                                    fetch('https://dbreq.jetevois.fr:5000/' + String(valueTel).replace(' ', '_'))
+                                        .then(function (response) {
+                                            return response.text();
+                                        })
+                                        .then(function (data) {
+                                            var jsonrep = JSON.parse(data);
+                                            console.log(jsonrep)
+                                            animation.style.display = 'none';
+                                            if (jsonrep == "Non trouve") {
+                                                resultLeak.innerHTML =
+                                                    "La raison sociale renseignée n'est pas referencée. <br>Veuillez en renseigner une nouvelle."
+                                            } else {
+                                                resultLeak.innerHTML =
+                                                    "<div>En <span class='txtEnAv'>"+ jsonrep['annee'] + "</span>, <span class='txtEnAv'>" + jsonrep['ent'] + "</span> avait un index d'égalité professionnelle s'élevant à <span class='txtEnAv'>" + jsonrep['note'] + "</span>. <br>Elle se trouve parmi les <span class='txtEnAv'>" + jsonrep['decile'] + "</span> des boites ayant le meilleur score dans son secteur : <span class='txtEnAv'>" + jsonrep['secteur'] + "</span>."
+                                            }
+                                            btnLaunch.disabled = false;
+                                        })
+                                        .catch((error) => {
+                                            console.log("attente...")
+                                            setTimeout(fetchAnswer(), 5000)
+                                        });
+                                };
+                                fetchAnswer();
+
                             }
 
                             const reinitLeakSrch = (elem) => {
@@ -353,6 +344,17 @@
                 '<div class="fixed-bottom text-left" style="z-index: 9999;"> <button type="button" class="btnFlottantJtv" onclick="window.open(\'index.html\',\'_self\')">Accueil</button></div>'
             );
         </script>
+        <script src="etudes/egalite/autocomplete.js"></script>
+        <script>
+            let frag = document.createDocumentFragment();
+            for (var key in autocomplete_company) {
+                let option = document.createElement("OPTION");
+                option.value = autocomplete_company[key];
+                frag.appendChild(option);
+            }
+            document.querySelector('#entFrancaises').appendChild(frag);
+        </script>
+
     </div>
 
 </body>

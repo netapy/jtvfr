@@ -596,3 +596,8 @@ hr {
     -o-transform: rotate(180deg);
     transform: rotate(180deg);
 }
+
+.txtEnAv{
+    color: #6219D8;
+    font-weight: bold;
+}
