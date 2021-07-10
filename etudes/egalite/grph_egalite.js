@@ -6,7 +6,7 @@ var chart0nat = new Chart(ctxx, {
         labels: data_sect_181920['index'],
         datasets: [{
             label: "Indice égalité",
-            backgroundColor: '#8792FD',
+            backgroundColor: '#6219D8',
             data: data_sect_181920["data"].map(x => x[0][0])
         }]
     },

@@ -140,7 +140,9 @@
                         </lottie-player>
                         <img id="illustrationAtt" src="img/undraw_online_reading_np7n.svg"
                             style="width: 200px; margin: auto; padding-top: 20px;" />
-                        <div id='resultatLeak' style="font-size: 20px; padding: 20px;"></div>
+                        <div id='resultatLeak'
+                            style="font-size: 20px; padding: 20px; background-color: #6219d80a; padding: 10px 0px; border-radius: 10px;">
+                        </div>
                         <script>
                             const rechercheEntSx = (btnLaunch) => {
                                 let animation = document.querySelector("#searchAnim");
@@ -168,7 +170,14 @@
                                                     "La raison sociale renseignée n'est pas referencée. <br>Veuillez en renseigner une nouvelle."
                                             } else {
                                                 resultLeak.innerHTML =
-                                                    "<div>En <span class='txtEnAv'>"+ jsonrep['annee'] + "</span>, <span class='txtEnAv'>" + jsonrep['ent'] + "</span> avait un index d'égalité professionnelle s'élevant à <span class='txtEnAv'>" + jsonrep['note'] + "</span>. <br>Elle se trouve dans le top <span class='txtEnAv'>" + jsonrep['decile'] + "</span> des boites ayant le meilleur score dans son secteur : <span class='txtEnAv'>" + jsonrep['secteur'] + "</span>."
+                                                    "<div>En <span class='txtEnAv'>" + jsonrep['annee'] +
+                                                    "</span>, <span class='txtEnAv'>" + jsonrep['ent'] +
+                                                    "</span> avait un index d'égalité professionnelle s'élevant à <span class='txtEnAv'>" +
+                                                    jsonrep['note'] +
+                                                    "</span>. <br>Elle se trouve dans le top <span class='txtEnAv'>" +
+                                                    jsonrep['decile'] +
+                                                    "</span> des entreprises ayant le meilleur score dans son secteur : <span class='txtEnAv'>" +
+                                                    jsonrep['secteur'] + "</span>."
                                             }
                                             btnLaunch.disabled = false;
                                         })
