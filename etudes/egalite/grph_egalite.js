@@ -1,5 +1,4 @@
 var ctxx = document.querySelector('#chart0_secteurs_nat').getContext('2d');
-
 var chart0nat = new Chart(ctxx, {
     type: 'horizontalBar',
     data: {
@@ -41,8 +40,8 @@ var chart0nat = new Chart(ctxx, {
                 yOffset: '50%',
                 delay: 500
             },
-            legend:{
-                onClick : ([event, legendItem, legend]) =>{
+            legend: {
+                onClick: ([event, legendItem, legend]) => {
                     var index = legendItem.datasetIndex;
                     if (index > 1) {
                         // Do the original logic
@@ -52,11 +51,11 @@ var chart0nat = new Chart(ctxx, {
                         [
                             ci.getDatasetMeta(0),
                             ci.getDatasetMeta(1)
-                        ].forEach(function(meta) {
+                        ].forEach(function (meta) {
                             meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
                         });
                         ci.update();
-                    }                                    
+                    }
                 }
             }
         },
@@ -67,6 +66,57 @@ const c0_evol = (elem) => {
     chart0nat.data.datasets[0].data = data_sect_181920["data"].map(x => x[0][elem]);
     chart0nat.update();
 }
+
+//Graphique carte departements
+let dataDepartements;
+let laCarte = document.querySelector('#complete_map');
+let legendeCarte = document.querySelector("#legendCarte").querySelectorAll("td");
+var lesRegionsSvg = Array.from(laCarte.querySelectorAll("path"));
+let chromaF = chroma.scale(['white', 'white', '6219D8']).domain([0, 70, 95]);
+
+const fonctionHoverDep = (elem) => {
+    elem.style.opacity = .3;
+    document.querySelector('#dtCarteTerritoire').innerHTML = elem.dataset.label
+    document.querySelector('#dtCarteMoyenne').innerHTML = Math.round(dataParDeps.Note[elem.dataset.label] * 10) / 10
+}
+const fonctionUnHoverDep = (elem) => {
+    elem.style.opacity = 1;
+    document.querySelector('#dtCarteTerritoire').innerHTML = "France"
+    document.querySelector('#dtCarteMoyenne').innerHTML = 84
+}
+
+
+for (var ii in lesRegionsSvg) {
+    if (String(typeof (lesRegionsSvg[ii])) == "object") {
+        lesRegionsSvg[ii].style.fill = chromaF(dataParDeps.Note[lesRegionsSvg[ii].dataset.label]);
+        let element = lesRegionsSvg[ii]
+        lesRegionsSvg[ii].onmouseover = () => fonctionHoverDep(element);
+        lesRegionsSvg[ii].onmouseout = () => fonctionUnHoverDep(element);
+    }
+}
+console.log(legendeCarte)
+for (ii in legendeCarte) {
+    if (String(typeof (legendeCarte[ii])) == "object") {
+        legendeCarte[ii].style.backgroundColor = chromaF(legendeCarte[ii].innerHTML)
+    }
+}
+
+// CODE POUR COLLER LES NOMS DE DEPARTEMENTS AUX SVG DES DEPARTEMENTS
+//fetch("https://www.data.gouv.fr/fr/datasets/r/7b4bc207-4e66-49d2-b1a5-26653e369b66")
+//    .then(response => response.json())
+//    .then((dataDepsImport) => {
+//        console.log(dataDepsImport)
+//        for (ii in lesRegionsSvg) {
+//            console.log("")
+//            console.log(lesRegionsSvg[ii].dataset.num)
+//            console.log(dataDepsImport.find(el => el.num_dep == lesRegionsSvg[ii].dataset.num))
+//            lesRegionsSvg[ii].dataset.label = dataDepsImport.find(el => el.num_dep == lesRegionsSvg[ii].dataset.num).dep_name
+//        }
+//    })
+
+
+
+
 
 var ctxx = document.querySelector('#chart1_sbf120_secteurs').getContext('2d');
 var chart = new Chart(ctxx, {

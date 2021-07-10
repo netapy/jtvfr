@@ -601,3 +601,19 @@ hr {
     color: #6219D8;
     font-weight: bold;
 }
+
+#legendCarte {
+    border: #dddddd 1px solid; 
+}
+@media (max-width: 968px) {
+    #legendCarte {
+        transform: scale(.7);
+    }
+    .departement {
+        padding-right: 60px;
+    }
+}
+
+#legendCarte td {
+    padding: 5px 10px;
+}
