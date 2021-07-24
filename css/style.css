@@ -597,7 +597,7 @@ hr {
     transform: rotate(180deg);
 }
 
-.txtEnAv{
+.txtEnAv {
     color: #6219D8;
     font-weight: bold;
 }
@@ -610,6 +610,7 @@ hr {
     #legendCarte {
         transform: scale(.7);
     }
+
     .departement {
         padding-right: 60px;
     }
@@ -617,4 +618,17 @@ hr {
 
 #legendCarte td {
     padding: 5px 10px;
+}
+
+.catchLineJtv {
+    line-height: 50px;
+    opacity: .9;
+    font-size: 35px;
+}
+
+@media (max-width: 464px) {
+    .catchLineJtv {
+        line-height: 40px;
+        font-size: 26px !important;
+    }
 }
