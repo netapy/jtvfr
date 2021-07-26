@@ -268,7 +268,7 @@ body {
 }
 
 .spacing-homepage {
-    padding: 15px 30px;
+    padding: 15px 5px;
     margin: 50px 0px;
 }
 
@@ -533,7 +533,13 @@ hr {
     text-align: left;
     margin-top: 19px;
     color: white;
+    line-height: 20px;
 }
 
 .offreProDesc ul {
+    padding-left: 25px;
+}
+
+.offreProDesc ul li {
+    padding-bottom: 10px;
 }
