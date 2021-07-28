@@ -529,7 +529,7 @@ hr {
     font-weight: bold;
 }
 
-.offreProDesc{
+.offreProDesc {
     text-align: left;
     margin-top: 19px;
     color: white;
@@ -542,4 +542,13 @@ hr {
 
 .offreProDesc ul li {
     padding-bottom: 10px;
+}
+
+.exPresta {
+    border-radius: 5px;
+    padding: 10px;
+    font-size: .72em;
+    text-align: center;
+    line-height: 1.5em;
+    min-height: 5em;
 }
