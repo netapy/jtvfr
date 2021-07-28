@@ -623,7 +623,7 @@ hr {
 .catchLineJtv {
     line-height: 50px;
     opacity: .9;
-    font-size: 35px;
+    font-size: 34px;
 }
 
 @media (max-width: 464px) {
