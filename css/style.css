@@ -274,7 +274,7 @@ body {
 }
 
 .spacing-homepage {
-    padding: 15px 30px;
+    padding: 15px 5px;
     margin: 50px 0px;
 }
 
@@ -631,4 +631,51 @@ hr {
         line-height: 40px;
         font-size: 26px !important;
     }
+    cursor: pointer;
+
+}
+
+.offreProPrice {
+    font-size: 36px;
+    font-weight: bolder;
+    margin: 5px 0px;
+    color: white;
+    line-height: 26px;
+}
+
+.aPartirDe {
+    font-size: 11px;
+    font-weight: 200;
+}
+
+.offreProTitre {
+    font-size: 20px;
+    color: white;
+    margin: 5px 0px;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+.offreProDesc {
+    text-align: left;
+    margin-top: 19px;
+    color: white;
+    line-height: 20px;
+}
+
+.offreProDesc ul {
+    padding-left: 25px;
+}
+
+.offreProDesc ul li {
+    padding-bottom: 10px;
+}
+
+.exPresta {
+    border-radius: 5px;
+    padding: 10px;
+    font-size: .7em;
+    text-align: center;
+    line-height: 1.5em;
+    min-height: 5em;
 }
