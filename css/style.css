@@ -309,6 +309,7 @@ hr {
     transition: all .3s ease-in-out;
     box-shadow: 5px 5px 9px #e1dee6,
         -5px -5px 9px #ffffff;
+    min-width: 280px;
 }
 
 .panneauEtude:hover {
