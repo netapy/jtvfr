@@ -9,11 +9,14 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/micromodal.css">
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>  en bas on teste le module "deferred"-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-deferred@1"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
     <title>Je te vois - Egalité H/F</title>
     <!-- Favicon -->
@@ -48,7 +51,8 @@
             <div class="container neumorphSection" data-aos="flip-down">
                 <div class="container text-left">
                     <h4>Introduction</h4>
-                    <p>En France, une loi oblige les entreprises d’au moins 50 salariés à calculer et communiquer leur Index de l’égalité femmes-hommes. Celui-ci, sur 100 points, se calcule à partir de
+                    <p>En France, une loi oblige les entreprises d’au moins 50 salariés à calculer et communiquer leur
+                        Index de l’égalité femmes-hommes. Celui-ci, sur 100 points, se calcule à partir de
                         5 indicateurs :
                         <lI>L’écart de rémunération femmes-hommes,</lI>
                         <lI> L’écart de répartition des augmentations individuelles,</lI>
@@ -57,103 +61,118 @@
                         <lI>Le nombre de salariées augmentées à leur retour de congé de maternité,</lI>
                         <lI>La parité parmi les 10 plus hautes rémunérations..</lI>
                         <br>
-                        Nous avons récupéré ces données pour XXXXXX entreprises et vous proposons de découvrir l'état des lieux de l'égalité homme-femme dans le milieu profesionnel français.
+                        Nous avons récupéré ces données pour XXXXXX entreprises et vous proposons de découvrir l'état
+                        des lieux de l'égalité homme-femme dans le milieu profesionnel français.
                     </p>
                 </div>
             </div>
 
-        ICI - Mettre 4 cards avec des gros chiffres dedans : l'indice moyen en france, le nombre d'entreprises qui ont communiqué leur chiffre, X% des entreprises sont au dessus de X% et X% des entreprises sont en dessous de X%
+            ICI - Mettre 4 cards avec des gros chiffres dedans : l'indice moyen en france, le nombre d'entreprises qui
+            ont communiqué leur chiffre, X% des entreprises sont au dessus de X% et X% des entreprises sont en dessous
+            de X%
 
             <div class="container neumorphSection" data-aos="flip-down">
                 <div class="col-md-12 d-flex flex-column align-items-center">
                     <h2 style="padding-top: 2%;">Le moteur de recherche 🔎</h2>
-                    <p style="max-width: 900px; margin: auto; padding-bottom: 5%;">Découvrez l'index d'une entreprise en saisissant sa dénomination sociale ou son code SIREN
-                    <br>
-                    <span style="opacity: .35;">Attention, une entreprise peut-être rattachée à un groupe ou comporter de sous-entités</span>
+                    <p style="max-width: 900px; margin: auto; padding-bottom: 5%;">Découvrez l'index d'une entreprise en
+                        saisissant sa dénomination sociale ou son code SIREN
+                        <br>
+                        <span style="opacity: .35;">Attention, une entreprise peut-être rattachée à un groupe ou
+                            comporter de sous-entités</span>
                         <div class="row">
-                        <div class="col-md-8" style="margin-bottom: 10px;">
-                            <input class="inputTelephoneCheck" list="entFrancaises" id="entCheck" type="text"
-                                maxlength="50" placeholder="Arcelormittal France" style="font-size: 20px;"
-                                autocomplete="off" />
-                            <datalist id="entFrancaises"></datalist>
+                            <div class="col-md-8" style="margin-bottom: 10px;">
+                                <input class="inputTelephoneCheck" list="entFrancaises" id="entCheck" type="text"
+                                    maxlength="50" placeholder="Arcelormittal France" style="font-size: 20px;"
+                                    autocomplete="off" />
+                                <datalist id="entFrancaises"></datalist>
+                            </div>
+                            <div class="col-md-4 d-flex align-items-center" style="margin-bottom: 10px;"> <button
+                                    class="btn jtvBtn" id="btnRecherche"
+                                    style="padding: 10px; border-radius: 10px; font-family: Lexend Deca; font-size: 16px; margin: 0px auto; width: 180px;"
+                                    onclick="rechercheEntSx(this)">▶️ Rechercher</button>
+                            </div>
                         </div>
-                        <div class="col-md-4 d-flex align-items-center" style="margin-bottom: 10px;"> <button class="btn jtvBtn" id="btnRecherche"
-                                style="padding: 10px; border-radius: 10px; font-family: Lexend Deca; font-size: 16px; margin: 0px auto; width: 180px;"
-                                onclick="rechercheEntSx(this)">▶️ Rechercher</button>
-                        </div>
-                    </div>
-                    <!-- <div class="col-md-12">
+                        <!-- <div class="col-md-12">
                         <p style="opacity: .8; font-size: 12px; padding-top: 5px;">Vous êtes trop nombreux! Notre service est ralenti, un changement de serveur est en cours 😉</p>
                     </div> -->
 
-                    <div class="d-flex flex-column align-items-center justify-content-center"
-                        style="height: 200px; margin: 30px 0px;">
-                        <lottie-player id="searchAnim"
-                            src="https://assets4.lottiefiles.com/private_files/lf30_uet7z2uz.json"
-                            background="transparent" speed="1" style="width: 200px; height: 200px; display: none;" loop
-                            autoplay>
-                        </lottie-player>
-                        <img id="illustrationAtt" src="img/undraw_Web_search_re_efla-jtvstyle.png"
-                            style="width: 200px; margin: auto; padding-top: 20px;" />
-                        <div id='resultatLeak'
-                            style="font-size: 20px; padding: 20px; background-color: #6219d80a; padding: 10px 0px; border-radius: 10px;">
+                        <div class="d-flex flex-column align-items-center justify-content-center"
+                            style="height: 200px; margin: 30px 0px;">
+                            <lottie-player id="searchAnim"
+                                src="https://assets4.lottiefiles.com/private_files/lf30_uet7z2uz.json"
+                                background="transparent" speed="1" style="width: 200px; height: 200px; display: none;"
+                                loop autoplay>
+                            </lottie-player>
+                            <img id="illustrationAtt" src="img/undraw_Web_search_re_efla-jtvstyle.png"
+                                style="width: 200px; margin: auto; padding-top: 20px;" />
+                            <div id='resultatLeak'
+                                style="font-size: 20px; padding: 20px; background-color: #6219d80a; padding: 10px 0px; border-radius: 10px;">
+                            </div>
+                            <script>
+                                const rechercheEntSx = (btnLaunch) => {
+                                    let animation = document.querySelector("#searchAnim");
+                                    let valueTel = document.querySelector("#entCheck").value;
+                                    let resultLeak = document.querySelector("#resultatLeak");
+                                    let newSearch = document.querySelector("#newSearcch")
+
+
+                                    function fetchAnswer() {
+                                        console.log("fetching...")
+                                        fetch('https://dbreq.jetevois.fr:5000/' + String(valueTel).replace(' ',
+                                                '_'))
+                                            .then(function (response) {
+                                                return response.text();
+                                            })
+                                            .then(function (data) {
+                                                var jsonrep = JSON.parse(data);
+                                                console.log(jsonrep)
+                                                animation.style.display = 'none';
+                                                if (jsonrep == "Non trouve") {
+                                                    resultLeak.innerHTML =
+                                                        "La dénomination sociale renseignée n'est pas referencée. <br>Veuillez en renseigner une nouvelle."
+                                                } else {
+                                                    resultLeak.innerHTML =
+                                                        "<div>En <span class='txtEnAv'>" + jsonrep['annee'] +
+                                                        "</span>, <span class='txtEnAv'>" + jsonrep['ent'] +
+                                                        "</span> avait un index d'égalité professionnelle s'élevant à <span class='txtEnAv'>" +
+                                                        jsonrep['note'] +
+                                                        "</span>. <br>Elle se trouve dans le top <span class='txtEnAv'>" +
+                                                        jsonrep['decile'] +
+                                                        "</span> des entreprises ayant le meilleur score dans son secteur (<span class='txtEnAv'>" +
+                                                        jsonrep['secteur'] + "</span>)."
+                                                }
+                                                btnLaunch.disabled = false;
+                                            })
+                                            .catch((error) => {
+                                                console.log("attente...")
+                                                setTimeout(fetchAnswer(), 5000)
+                                            });
+                                    };
+
+                                    console.log(valueTel.trim())
+                                    if (valueTel.trim() == "") {
+                                        document.querySelector("#illustrationAtt").style.display = 'none';
+                                        resultLeak.innerHTML = "Veuillez saisir le nom d'une entreprise.";
+                                        reinitLeakSrch();
+                                    } else {
+                                        document.querySelector("#illustrationAtt").style.display = 'none';
+                                        btnLaunch.disabled = true;
+                                        resultLeak.innerHTML = '';
+                                        animation.style.display = '';
+                                        fetchAnswer();
+                                    }
+
+                                }
+
+                                const reinitLeakSrch = (elem) => {
+                                    elem.style.display = 'none';
+                                    document.querySelector("#entCheck").value = "";
+                                    document.querySelector("#btnRecherche").style.display = '';
+                                    document.querySelector("#searchAnim").style.display = 'none';
+                                    document.querySelector("#resultatLeak").innerHTML = '';
+                                }
+                            </script>
                         </div>
-                        <script>
-                            const rechercheEntSx = (btnLaunch) => {
-                                let animation = document.querySelector("#searchAnim");
-                                let valueTel = document.querySelector("#entCheck").value;
-                                let resultLeak = document.querySelector("#resultatLeak");
-                                let newSearch = document.querySelector("#newSearcch")
-
-                                resultLeak.innerHTML = '';
-                                animation.style.display = '';
-                                btnLaunch.disabled = true;
-                                document.querySelector("#illustrationAtt").style.display = 'none';
-
-                                function fetchAnswer() {
-                                    console.log("fetching...")
-                                    fetch('https://dbreq.jetevois.fr:5000/' + String(valueTel).replace(' ', '_'))
-                                        .then(function (response) {
-                                            return response.text();
-                                        })
-                                        .then(function (data) {
-                                            var jsonrep = JSON.parse(data);
-                                            console.log(jsonrep)
-                                            animation.style.display = 'none';
-                                            if (jsonrep == "Non trouve") {
-                                                resultLeak.innerHTML =
-                                                    "La dénomination sociale renseignée n'est pas referencée. <br>Veuillez en renseigner une nouvelle."
-                                            } else {
-                                                resultLeak.innerHTML =
-                                                    "<div>En <span class='txtEnAv'>" + jsonrep['annee'] +
-                                                    "</span>, <span class='txtEnAv'>" + jsonrep['ent'] +
-                                                    "</span> avait un index d'égalité professionnelle s'élevant à <span class='txtEnAv'>" +
-                                                    jsonrep['note'] +
-                                                    "</span>. <br>Elle se trouve dans le top <span class='txtEnAv'>" +
-                                                    jsonrep['decile'] +
-                                                    "</span> des entreprises ayant le meilleur score dans son secteur (<span class='txtEnAv'>" +
-                                                    jsonrep['secteur'] + "</span>)."
-                                            }
-                                            btnLaunch.disabled = false;
-                                        })
-                                        .catch((error) => {
-                                            console.log("attente...")
-                                            setTimeout(fetchAnswer(), 5000)
-                                        });
-                                };
-                                fetchAnswer();
-
-                            }
-
-                            const reinitLeakSrch = (elem) => {
-                                elem.style.display = 'none';
-                                document.querySelector("#entCheck").value = "";
-                                document.querySelector("#btnRecherche").style.display = '';
-                                document.querySelector("#searchAnim").style.display = 'none';
-                                document.querySelector("#resultatLeak").innerHTML = '';
-                            }
-                        </script>
-                    </div>
                 </div>
             </div>
 
@@ -678,7 +697,6 @@
 
 
             <div style="padding: 80px;">
-                <hr>
             </div>
 
             <div class="etudeSectionZoom" style="position: relative;">
@@ -693,104 +711,12 @@
 
                 <div class="contenuZoom" style="padding:100px 0px;">
                     <h1 style="color: white; font-size: 60px;">Zoom sur le SBF 120 </h1>
-                    le SBF 120 est blabalbla
-                    <div class="container neumorphSection neuViolet" data-aos="flip-down">
-                        <div class="container text-center">
-                            <h4>L'index d'égalité moyen par secteur dans le SBF120</h4>
-                            <p>Voici les secteurs avec le meilleure score égalité, balblabla....</p>
-                            <div class="col-sm" style="padding: 20px 0px;">
-                                <canvas id="chart1_sbf120_secteurs" style="min-height: 500px;"></canvas>
-                            </div>
-                        </div>
-                    </div>
 
-
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="container neumorphSection neuViolet" data-aos="flip-down" data-aos-delay="100">
-                                <div class="container text-center">
-                                    <h4>11 femmes à la tête du SBF120</h4>
-                                    <div class="col-sm" style="padding: 20px 0px;">
-                                        <canvas id="chart5_partHFSbf" style="min-height: 300px;"></canvas>
-                                        <script>
-                                            var ctxx = document.getElementById('chart5_partHFSbf').getContext('2d');
-                                            var chart = new Chart(ctxx, {
-                                                type: 'doughnut',
-                                                data: {
-                                                    labels: ['Femmes', 'Hommes'],
-                                                    datasets: [{
-                                                        label: "index de popularité",
-                                                        backgroundColor: ["#6219D8", "#BEBBC4"],
-                                                        data: [11, 109]
-                                                    }]
-                                                },
-                                                options: {
-                                                    responsive: true,
-                                                    title: {
-                                                        display: true,
-                                                        position: "bottom",
-                                                        fontFamily: "Lexend Deca",
-                                                        padding: 20,
-                                                        fontSize: 14,
-                                                        text: "Sexe des dirigeants des entreprises du SBF120 (2021)"
-                                                    },
-                                                    legend: {
-                                                        position: "right",
-                                                        align: "start",
-                                                    },
-                                                    tooltips: {
-                                                        mode: 'index',
-                                                        intersect: false
-                                                    },
-                                                    maintainAspectRatio: false,
-                                                    plugins: {
-                                                        deferred: {
-                                                            xOffset: 150,
-                                                            yOffset: '50%',
-                                                            delay: 300
-                                                        }
-                                                    },
-                                                }
-                                            });
-                                        </script>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="container neumorphSection neuViolet" data-aos="flip-down">
-                                <div class="container text-center">
-                                    <h4>Portraits de ces personnalités</h4>
-                                    <div class="col-sm" style="padding: 20px 0px;">
-                                        <table class="table table-hover" style="font-size: 17px;">
-                                            <tbody>
-                                                <tr style="padding:15px 0px">
-                                                    <td>Mme Valérie Baudson (Amundi)</td>
-                                                </tr>
-                                                <tr style="padding:15px 0px">
-                                                    <td>Mme Sophie Zurquiyah (CGG)</td>
-                                                </tr>
-                                                <tr style="padding:15px 0px">
-                                                    <td>Mme Ilham Kadri (Solvay)</td>
-                                                </tr>
-                                                <tr style="padding:15px 0px">
-                                                    <td>Mme Catherine MacGregor (Engie)</td>
-                                                </tr>
-                                                <tr style="padding:15px 0px">
-                                                    <td>Mme Gilles Martin (Eurofins Scientific)</td>
-                                                </tr>
-                                                <tr style="padding:15px 0px">
-                                                    <td>Mme Meka Brunel (Gecina)</td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="height: 2px; padding: 0px;"></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="container " data-aos="flip-down">
+                        <div class="container text-center" style="color: white; margin-bottom: 70px ;">
+                            <p>En France, une loi oblige les entreprises d’au moins 50 salariés à calculer et
+                                communiquer leur Index de l’égalitéune loi oblige les entreprises d’au moins 50 salaune
+                                loi oblige les entreprises d’au moins 50 sala femmes-hommes. </p>
                         </div>
                     </div>
 
@@ -808,6 +734,117 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="container neumorphSection neuViolet" data-aos="flip-down" data-aos-delay="100">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="container text-center h-100 d-flex">
+                                    <div style="margin: auto;">
+                                        <span style="font-size: 150px;">11</span>
+                                        <span style="font-size: 20px;"></span>
+                                        <div>Femmes à la tête d'entreprises du SBF120</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="container text-center">
+                                    <h4>Portraits de ces personnalités</h4>
+                                    <div id="pictDirig" class="row" style="padding: 20px 0px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="modalsDirigeants"></div>
+
+                    <script>
+                        let donneesFemmeDiri = [
+                            ['Mme Valérie Baudson', 'Amundi', 'Elle a fait des études en France et a réussi brillament et c\'est une personne extraordinaire et blabla et voilà...',
+                                '89', 'un lien',
+                                'http://158.191.169.228/fr/accessible/images/0065-1.jpg'
+                            ],
+                            ['Mme Sophie Zurquiyah', 'Gecina', 'Elle a fait des études en France et a réussi brillament et c\'est une personne extraordinaire et blabla et voilà...',
+                                '89', 'un lien',
+                                'https://energycouncil.com/wp-content/uploads/Sophie-Zurquiyah.png'
+                            ],
+                            ['Mme Ilham Kadri', 'Ubisoft', 'Elle a fait des études en France et a réussi brillament et c\'est une personne extraordinaire et blabla et voilà...',
+                                '89', 'un lien',
+                                'https://storage.googleapis.com/mos_media_bucket/2021/05/16b270f4-ilhamkadri-380x380.png'
+                            ],
+                            ['Mme Catherine MacGregor', 'Google', 'Elle a fait des études en France et a réussi brillament et c\'est une personne extraordinaire et blabla et voilà...',
+                                '89', 'un lien',
+                                'https://i.f1g.fr/media/eidos/704x396_cropupscale/2020/10/02/XVMd01177c2-04de-11eb-92fa-488b6abaf011.jpg'
+                            ],
+                            ['Mme Gilles Martin', 'Amundi', 'Elle a fait des études en France et a réussi brillament et c\'est une personne extraordinaire et blabla et voilà...',
+                                '89', 'un lien',
+                                'http://158.191.169.228/fr/accessible/images/0065-1.jpg'
+                            ],
+                            ['Mme Meka Brunel', 'Amundi', 'Elle a fait des études en France et a réussi brillament et c\'est une personne extraordinaire et blabla et voilà...',
+                                '89', 'un lien',
+                                'https://img.lemde.fr/2019/07/25/0/0/5325/7099/664/0/75/0/855c113_kefjZbcZ4DxB_twSP2if8vne.jpg'
+                            ],
+                            ['Mme Valérie Baudson', 'Amundi', 'Elle a fait des études en France et a réussi brillament et c\'est une personne extraordinaire et blabla et voilà...',
+                                '89', 'un lien',
+                                'http://158.191.169.228/fr/accessible/images/0065-1.jpg'
+                            ],
+                            ['Mme Valérie Baudson', 'Amundi', 'Elle a fait des études en France et a réussi brillament et c\'est une personne extraordinaire et blabla et voilà...',
+                                '89', 'un lien',
+                                'http://158.191.169.228/fr/accessible/images/0065-1.jpg'
+                            ],
+                            ['Mme Valérie Baudson', 'Amundi', 'Elle a fait des études en France et a réussi brillament et c\'est une personne extraordinaire et blabla et voilà...',
+                                '89', 'un lien',
+                                'http://158.191.169.228/fr/accessible/images/0065-1.jpg'
+                            ],
+                            ['Mme Valérie Baudson', 'Amundi', 'Elle a fait des études en France et a réussi brillament et c\'est une personne extraordinaire et blabla et voilà...',
+                                '89', 'un lien',
+                                'http://158.191.169.228/fr/accessible/images/0065-1.jpg'
+                            ],
+                            ['Mme Valérie Baudson', 'Amundi', 'Elle a fait des études en France et a réussi brillament et c\'est une personne extraordinaire et blabla et voilà...',
+                                '29', 'un lien',
+                                'http://158.191.169.228/fr/accessible/images/0065-1.jpg'
+                            ],
+                        ];
+                        let divDir = document.querySelector('#pictDirig');
+                        let divModalDir = document.querySelector('#modalsDirigeants');
+
+                        for (femme in donneesFemmeDiri) {
+                            let htmlDirig =
+                                '<div class="col-md-3 col-4 profilDirig"><div data-custom-open="modal-' + femme +
+                                '" style="background-image: url(\'' +
+                                donneesFemmeDiri[femme][5] + '\');"></div></div>';
+
+                            let htmlModalDirig = '<div class="modal micromodal-slide" id="modal-' + femme +
+                                '" aria-hidden="true"> <div class="modal__overlay" tabindex="-1" data-custom-close="modal-1"> <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title"> <header class="modal__header"> <img src="img/LOGO_JTV_ALT.svg" style="top: 5px;left:30%;position: absolute;width: 39%; opacity: .05;"> <button class="modal__close" aria-label="Close modal" data-custom-close="modal-1"></button> <h2 id="modal-1-title"> ' +donneesFemmeDiri[femme][0] + ' </h2> <div class="modalSubtitle">' + donneesFemmeDiri[femme][1] +'</div> </header> <main class="modal__content" id="modal-1-content"> <p> ' + donneesFemmeDiri[femme][2] +' </p><p style="font-weight:bold;"> ' + donneesFemmeDiri[femme][1] +' a un index égalité de ' + donneesFemmeDiri[femme][3] +'. </p></main> </div></div></div>'
+
+                            divDir.insertAdjacentHTML('beforeend', htmlDirig);
+                            divModalDir.insertAdjacentHTML('beforeend', htmlModalDirig);
+                        }
+                    </script>
+
+                    <script src="https://cdn.jsdelivr.net/npm/micromodal@0.4.6/dist/micromodal.min.js"></script>
+                    <script>
+                        MicroModal.init({
+                            openTrigger: 'data-custom-open', // [3]
+                            closeTrigger: 'data-custom-close', // [4]
+                            openClass: 'is-open', // [5]
+                            disableScroll: true, // [6]
+                            disableFocus: false, // [7]
+                        });
+                    </script>
+
+
+
+
+                    <div class="container neumorphSection neuViolet" data-aos="flip-down">
+                        <div class="container text-center">
+                            <h4>L'index d'égalité moyen par secteur dans le SBF120</h4>
+                            <p>Voici les secteurs avec le meilleure score égalité, balblabla....</p>
+                            <div class="col-sm" style="padding: 20px 0px;">
+                                <canvas id="chart1_sbf120_secteurs" style="min-height: 500px;"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div class="container-fluid"
