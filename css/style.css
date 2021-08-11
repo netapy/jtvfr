@@ -206,7 +206,7 @@ body {
     box-shadow: 20px 20px 35px #eeebf2,
         -20px -20px 35px #ffffff;
     padding: 40px 10px;
-    margin: 35px 0px;
+    margin: 50px 0px;
     transition: all .8s cubic-bezier(.25, .8, .25, 1);
 }
 
@@ -312,7 +312,7 @@ hr {
 }
 
 .panneauEtude:hover {
-    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+    /* box-shadow: 0 7px 20px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22); */
 }
 
 .panneauEtudeNoHov:hover {
@@ -578,7 +578,10 @@ hr {
 
 .state:checked~.label .indicator::after {
     transform: scale3d(.975, .975, 1) translate3d(0, 10%, 0);
-    opacity: 0;
+    background-image:url(../img/utils/dot.png) !important;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .state:checked~.label .text {
@@ -586,7 +589,6 @@ hr {
     font-weight: 900;
     opacity: 1;
     padding-left: 5px;
-    text-decoration: underline;
 }
 
 .rotateimg180 {
@@ -700,4 +702,10 @@ hr {
 
 .profilDirig div:hover {
     transform: scale(1.03);
+}
+
+@media (min-width: 1500px) {
+    .compenseNuage {
+        padding: 40px;
+    }
 }
