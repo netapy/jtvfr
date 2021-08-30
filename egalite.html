@@ -71,7 +71,7 @@
                 <div class="col-md-12 d-flex flex-column align-items-center">
                     <h2 style="padding-top: 2%;">Le moteur de recherche 🔎</h2>
                     <p style="max-width: 900px; margin: auto; padding-bottom: 5%;">Découvrez l'index d'une entreprise en
-                        saisissant sa dénomination sociale ou son code SIREN
+                        saisissant sa dénomination sociale
                         <br>
                         <span style="opacity: .35;">Attention, une entreprise peut-être rattachée à un groupe ou
                             comporter de sous-entités</span>
@@ -132,9 +132,9 @@
                                                         "</span>, <span class='txtEnAv'>" + jsonrep['ent'] +
                                                         "</span> avait un index d'égalité professionnelle s'élevant à <span class='txtEnAv'>" +
                                                         jsonrep['note'] +
-                                                        "</span>. <br>Elle se trouve dans le top <span class='txtEnAv'>" +
-                                                        jsonrep['decile'] +
-                                                        "</span> des entreprises ayant le meilleur score dans son secteur (<span class='txtEnAv'>" +
+                                                        "</span>. <br>Elle fait mieux que <span class='txtEnAv'>" +
+                                                        String(100 - parseInt(jsonrep['decile'].replace('%',''))) +
+                                                        "%</span> des entreprises de son secteur (<span class='txtEnAv'>" +
                                                         jsonrep['secteur'] + "</span>)."
                                                 }
                                                 btnLaunch.disabled = false;
