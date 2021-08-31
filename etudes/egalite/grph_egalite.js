@@ -223,11 +223,11 @@ var ctxx = document.querySelector('#chart3_sbf120_pot').getContext('2d');
 var chart = new Chart(ctxx, {
     type: 'horizontalBar',
     data: {
-        labels: data_top_pot_sbf['index'].slice(10).reverse(),
+        labels: data_top_pot_sbf['index'].slice(10),
         datasets: [{
             label: "Indice égalité",
             backgroundColor: '#E74C3C',
-            data: data_top_pot_sbf["data"].slice(10).reverse().map(x => x[0]),
+            data: data_top_pot_sbf["data"].slice(10).map(x => x[0]),
             borderRadius: 20
         }]
     },
