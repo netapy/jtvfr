@@ -54,7 +54,8 @@
                 <div class="container text-left">
                     <h3>Contexte</h3>
                     <p>En France, une loi oblige les entreprises d’au moins 50 salariés à calculer et communiquer leur
-                        <span class="meaJtv">Index de l’égalité femmes-hommes</span>. Celui-ci, sur <span class="meaJtv">100 points</span>, se calcule à partir de
+                        <span class="meaJtv">Index de l’égalité femmes-hommes</span>. Celui-ci, sur <span
+                            class="meaJtv">100 points</span>, se calcule à partir de
                         5 indicateurs :
                         <ul>
                             <li>Les écarts de rémunération femmes-hommes,</li>
@@ -63,10 +64,12 @@
                             <li>Le nombre de salariées augmentées à leur retour de congé de maternité,</li>
                             <li>La parité parmi les 10 plus hautes rémunérations.</li>
                         </ul>
-                        En cas d’Index inférieur à <span class="meaJtv">75 points</span>, une entreprise doit prendre des mesures correctives sous
+                        En cas d’Index inférieur à <span class="meaJtv">75 points</span>, une entreprise doit prendre
+                        des mesures correctives sous
                         peine de sanctions financières.
                         <br><br>
-                        <span class="meaJtv">Je te vois</span> a récupéré et traité les données de <span class="meaJtv">18 717 entreprises</span> afin de vous proposer un état
+                        <span class="meaJtv">Je te vois</span> a récupéré et traité les données de <span
+                            class="meaJtv">18 717 entreprises</span> afin de vous proposer un état
                         des lieux de l'égalité femmes-hommes dans le milieu professionnel français, "grande cause" du
                         quinquennat d'Emmanuel Macron.
                     </p>
@@ -204,7 +207,7 @@
                                 background="transparent" speed=".5" style="width: 200px; height: 200px;" loop autoplay>
                             </lottie-player>
                             <div id='resultatLeak' class="p-md-3"
-                                style="font-size: 20px; background-color: #6219d80a; padding: 10px 0px; border-radius: 10px;">
+                                style="font-size: 20px; background-color: #6219d80a; padding: 10px 0px; border-radius: 10px; display: none;">
                             </div>
                             <script>
                                 const rechercheEntSx = (btnLaunch) => {
@@ -225,6 +228,7 @@
                                                 var jsonrep = JSON.parse(data);
                                                 console.log(jsonrep)
                                                 animation.style.display = 'none';
+                                                resultLeak.style.display = '';
                                                 if (jsonrep == "Non trouve") {
                                                     resultLeak.innerHTML =
                                                         "La dénomination sociale renseignée n'est pas referencée. <br>Veuillez en renseigner une nouvelle."
@@ -250,11 +254,13 @@
 
                                     console.log(valueTel.trim())
                                     if (valueTel.trim() == "") {
+                                        resultLeak.style.display = '';
                                         resultLeak.innerHTML = "Veuillez saisir le nom d'une entreprise.";
                                         reinitLeakSrch();
                                     } else {
                                         btnLaunch.disabled = true;
                                         resultLeak.innerHTML = '';
+                                        resultLeak.style.display = 'none';
                                         animation.style.display = '';
                                         fetchAnswer();
                                     }
@@ -270,6 +276,83 @@
                                 }
                             </script>
                         </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="container neumorphSection" style="margin: 0px;" data-aos="flip-down">
+                        <div class="row">
+                            <div class="col-4" style="font-size: 80px;">
+                                <canvas id="camembert1" style="min-height: 100px;"></canvas>
+                                <script>
+                                    new Chart(document.getElementById("camembert1"), {
+                                        type: 'doughnut',
+                                        data: {
+                                            labels: ["2019", "2020", "2021"],
+                                            datasets: [{
+                                                label: "index égalité",
+                                                backgroundColor: ["#6219D8", "#B8B8B8"],
+                                                data: [25, 75]
+                                            }]
+                                        },
+                                        options: {
+                                            maintainAspectRatio: false,
+                                            responsive: true,
+                                            legend: {
+                                                display: false
+                                            },
+                                            tooltips: {
+                                                enabled: false
+                                            },
+                                        }
+                                    });
+                                </script>
+                            </div>
+                            <div class="col-8 p-2 center-vertical">
+                                <div class="textCartMsg text-left">En 2021, <span class="meaJtv">1 quart
+                                        seulement</span>
+                                    des entreprises respectent une parité ou une quasi-parité.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="container neumorphSection" style="margin: 0px;" data-aos="flip-down"
+                        data-aos-delay="100">
+                        <div class="row">
+                            <div class="col-4" style="font-size: 80px;">
+                                <canvas id="camembert2" style="min-height: 100px;"></canvas>
+                                <script>
+                                    new Chart(document.getElementById("camembert2"), {
+                                        type: 'doughnut',
+                                        data: {
+                                            labels: ["2019", "2020", "2021"],
+                                            datasets: [{
+                                                label: "index égalité",
+                                                backgroundColor: ["#6219D8", "#B8B8B8"],
+                                                data: [43, 100 - 43]
+                                            }]
+                                        },
+                                        options: {
+                                            maintainAspectRatio: false,
+                                            responsive: true,
+                                            legend: {
+                                                display: false
+                                            },
+                                            tooltips: {
+                                                enabled: false
+                                            },
+                                        }
+                                    });
+                                </script>
+                            </div>
+                            <div class="col-8 p-2 center-vertical">
+                                <div class="textCartMsg text-left">En 2021, <span class="meaJtv">43% des entreprises
+                                    </span>ont moins de 2 femmes dans leurs 10 meilleures rémunérations.</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
