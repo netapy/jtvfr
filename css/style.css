@@ -319,7 +319,7 @@ hr {
     cursor: pointer;
 }
 
-.clickablePannel:hover{
+.clickablePannel:hover {
     box-shadow: 0 7px 20px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
 }
 
@@ -586,7 +586,7 @@ hr {
 
 .state:checked~.label .indicator::after {
     transform: scale3d(.975, .975, 1) translate3d(0, 10%, 0);
-    background-image:url(../img/utils/dot.png) !important;
+    background-image: url(../img/utils/dot.png) !important;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -716,4 +716,14 @@ hr {
     .compenseNuage {
         padding: 40px;
     }
+}
+
+.center-vertical {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.textCartMsg{
+    font-size: 1.2rem;
 }

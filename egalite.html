@@ -17,6 +17,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-deferred@1"></script>
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
     <title>Je te vois - Egalité H/F</title>
@@ -66,12 +67,13 @@
                         peine de sanctions financières.
                         <br><br>
                         Je te vois a récupéré et traité les données de 18 717 entreprises afin de vous proposer un état
-                        des lieux de l'égalité femmes-hommes dans le milieu professionnel français, "grande cause" du quinquennat d'Emmanuel Macron.
+                        des lieux de l'égalité femmes-hommes dans le milieu professionnel français, "grande cause" du
+                        quinquennat d'Emmanuel Macron.
                     </p>
                 </div>
             </div>
 
-            <div class="container neumorphSection" data-aos="flip-down">
+            <div class="container neumorphSection" style="margin-bottom: 0;" data-aos="flip-down">
                 <div class="container text-center">
                     <h4>Contexte</h4>
                     <p>La moyenne nationale évolue dans le bon sens depuis 2019 avec une augmentation annualisée de </p>
@@ -79,69 +81,86 @@
                     <div class="container"><canvas id="evolscore1" style="min-height: 250px;"></canvas>
                     </div>
                 </div>
-            </div>
+                <script>
+                    let moyennesIndex = [82.9, 87.4, 88.3]
+                    new Chart(document.getElementById("evolscore1"), {
+                        type: 'bar',
+                        plugins: [{
+                            afterDraw: function (chartInstance) {
+                                var ctx = chartInstance.chart.ctx;
+                                ctx.font = Chart.helpers.fontString(18, "normal",
+                                    "Lexend Deca");
+                                ctx.textAlign = 'center';
+                                ctx.textBaseline = 'bottom';
 
-
-            <script>
-                let moyennesIndex = [82.9, 87.4, 88.3]
-                new Chart(document.getElementById("evolscore1"), {
-                    type: 'bar',
-                    plugins: [{
-                        afterDraw: function (chartInstance) {
-                            var ctx = chartInstance.chart.ctx;
-                            ctx.font = Chart.helpers.fontString(18, "normal",
-                                "Lexend Deca");
-                            ctx.textAlign = 'center';
-                            ctx.textBaseline = 'bottom';
-
-                            chartInstance.data.datasets.forEach(function (dataset) {
-                                for (var i = 0; i < dataset.data.length; i++) {
-                                    var model = dataset._meta[Object.keys(dataset._meta)[0]]
-                                        .data[i]
-                                        ._model;
-                                    ctx.fillText(dataset.data[i], model.x, model.y - 2);
-                                }
-                            });
-                        }
-                    }],
-                    data: {
-                        labels: ["2019", "2020", "2021"],
-                        datasets: [{
-                            label: "index égalité",
-                            backgroundColor: ["#8792FD", "#8792FD", "#6219D8"],
-                            data: [moyennesIndex[0], moyennesIndex[1], moyennesIndex[2]]
-                        }]
-                    },
-                    options: {
-                        maintainAspectRatio: false,
-                        responsive: true,
-                        legend: {
-                            display: false
-                        },
-                        tooltips: {
-                            enabled: false
-                        },
-                        scales: {
-                            xAxes: [{
-                                gridLines: {
-                                    display: false
-                                }
-                            }],
-                            yAxes: [{
-                                display: false,
-                                gridLines: {
-                                    display: false
-                                },
+                                chartInstance.data.datasets.forEach(function (dataset) {
+                                    for (var i = 0; i < dataset.data.length; i++) {
+                                        var model = dataset._meta[Object.keys(dataset
+                                                ._meta)[0]]
+                                            .data[i]
+                                            ._model;
+                                        ctx.fillText(dataset.data[i], model.x, model.y - 2);
+                                    }
+                                });
+                            }
+                        }],
+                        data: {
+                            labels: ["2019", "2020", "2021"],
+                            datasets: [{
+                                label: "index égalité",
+                                backgroundColor: ["#8792FD", "#8792FD", "#6219D8"],
+                                data: [moyennesIndex[0], moyennesIndex[1], moyennesIndex[2]]
                             }]
                         },
-                    }
-                });
-            </script>
+                        options: {
+                            maintainAspectRatio: false,
+                            responsive: true,
+                            legend: {
+                                display: false
+                            },
+                            tooltips: {
+                                enabled: false
+                            },
+                            scales: {
+                                xAxes: [{
+                                    gridLines: {
+                                        display: false
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: false,
+                                    gridLines: {
+                                        display: false
+                                    },
+                                }]
+                            },
+                        }
+                    });
+                </script>
+            </div>
 
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="container neumorphSection" style="margin-bottom: 0;" data-aos="flip-down">
+                        <div class="row">
+                            <div class="col-4" style="font-size: 80px;"><img src="img/checkdesign.svg" style="width:100%;"></div>
+                            <div class="col-8 p-2 center-vertical"><div class="textCartMsg text-left"><span class="meaJtv">56 entreprises</span> ont une note inférieure à 75 depuis 3 ans.</div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="container neumorphSection" style="margin-bottom: 0;" data-aos="flip-down" data-aos-delay="100">
+                        <div class="row">
+                            <div class="col-4" style="font-size: 80px;"><img src="img/crossdesign.svg" style="width:100%;"></div>
+                            <div class="col-8 p-2 center-vertical"><div class="textCartMsg text-left"><span class="meaJtv">56 entreprises </span>ont une note inférieure à 75 depuis 3 ans.</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="container neumorphSection" data-aos="flip-down">
                 <div class="col-md-12 d-flex flex-column align-items-center">
-                    <h2 style="padding-top: 2%;">Le moteur de recherche 🔎</h2>
+                    <h2 style="padding-top: 2%;">Le moteur de recherche</h2>
                     <p style="max-width: 900px; margin: auto; padding-bottom: 5%;">Découvrez l'index d'une entreprise en
                         saisissant sa dénomination sociale
                         <br>
@@ -166,15 +185,13 @@
 
                         <div class="d-flex flex-column align-items-center justify-content-center"
                             style="height: 200px; margin: 30px 0px;">
-                            <lottie-player id="searchAnim"
-                                src="https://assets4.lottiefiles.com/private_files/lf30_uet7z2uz.json"
-                                background="transparent" speed="1" style="width: 200px; height: 200px; display: none;"
+                            <lottie-player id="searchAnim" 
+                                src="https://assets2.lottiefiles.com/packages/lf20_rudyvssh.json"
+                                background="transparent" speed=".5" style="width: 200px; height: 200px;"
                                 loop autoplay>
                             </lottie-player>
-                            <img id="illustrationAtt" src="img/undraw_Web_search_re_efla-jtvstyle.png"
-                                style="width: 200px; margin: auto; padding-top: 20px;" />
-                            <div id='resultatLeak'
-                                style="font-size: 20px; padding: 20px; background-color: #6219d80a; padding: 10px 0px; border-radius: 10px;">
+                            <div id='resultatLeak' class="p-md-3"
+                                style="font-size: 20px; background-color: #6219d80a; padding: 10px 0px; border-radius: 10px;">
                             </div>
                             <script>
                                 const rechercheEntSx = (btnLaunch) => {
@@ -220,11 +237,9 @@
 
                                     console.log(valueTel.trim())
                                     if (valueTel.trim() == "") {
-                                        document.querySelector("#illustrationAtt").style.display = 'none';
                                         resultLeak.innerHTML = "Veuillez saisir le nom d'une entreprise.";
                                         reinitLeakSrch();
                                     } else {
-                                        document.querySelector("#illustrationAtt").style.display = 'none';
                                         btnLaunch.disabled = true;
                                         resultLeak.innerHTML = '';
                                         animation.style.display = '';
