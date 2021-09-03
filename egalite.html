@@ -73,8 +73,9 @@
 
             <div class="container neumorphSection" data-aos="flip-down">
                 <div class="container text-center">
-                    <h4>Contexte</h4>
-                    <p>La moyenne nationale évolue dans le bon sens depuis 2019 avec une augmentation annualisée de </p>
+                    <h4>Évolution de la moyenne nationale</h4>
+                    <p>Le graphique ci-dessous permet de visualiser l'évolution du score moyen des entreprises française, en nette hausse depuis sa création.
+                    <span style="opacity: .35;">Un score de 100 étant équivalent à une égalité absolument parfaite</span></p>
                     <hr style="opacity: 0;">
                     <div class="container"><canvas id="evolscore1" style="min-height: 250px;"></canvas>
                     </div>
@@ -663,7 +664,7 @@
                                 style="margin: auto; font-size: 20px; padding: 20px; background-color: #6219d80a; padding: 10px 0px; border-radius: 10px;">
                                 <h4 style="padding:0; margin: 0;">L'index moyen des entreprises de <span class="txtEnAv"
                                         id="dtCarteTerritoire">France</span> est de <span class="txtEnAv"
-                                        id="dtCarteMoyenne"> 84 </span></h4>
+                                        id="dtCarteMoyenne"> 88.3 </span></h4>
                             </div>
 
                             <!-- <div style="margin: auto;">
@@ -711,7 +712,7 @@
                                         <span style="font-size: 120px;">87</span>
                                         <span style="font-size: 20px;"></span>
                                         <div>Score moyen des entreprises du SBF120</div>
-                                        <span style="opacity: .35;">(Moyenne nationale : 84)</span>
+                                        <span style="opacity: .35;">(Moyenne nationale : 88.4)</span>
                                     </div>
                                 </div>
                             </div>
@@ -747,7 +748,7 @@
                             <div class="col-lg-4">
                                 <div class="container text-center h-100 d-flex">
                                     <div style="margin: auto; padding-bottom: 20px;">
-                                        <span style="font-size: 150px;">10</span>
+                                        <span style="font-size: 150px;">11</span>
                                         <span style="font-size: 20px;"></span>
                                         <div>Femmes à la tête d'entreprises du SBF120</div>
                                     </div>
@@ -768,58 +769,58 @@
                     <script>
                         let donneesFemmeDiri = [
                             ['Mme Valérie Baudson', 'Amundi',
-                                'Elle a fait des études en France et a réussi brillament et c\'est une personne extraordinaire et blabla et voilà...',
-                                '89', 'un lien',
+                                'Valérie Baudson, née le 7 mai 1971, est une personnalité française du monde de la finance. Diplômée d\'HEC, elle est directrice générale d\'Amundi depuis mai 2021.',
+                                '84', 'un lien',
                                 'https://forum.amundi.com/app/uploads/2021/05/Baudson-Val%C3%A9rie-Awif21.png'
                             ],
                             ['Mme Sophie Zurquiyah', 'CGG',
-                                'Elle a fait des études en France et a réussi brillament et c\'est une personne extraordinaire et blabla et voilà...',
-                                '89', 'un lien',
+                                'Sophie Zurquiyah est directrice générale de CGG. Centralienne et diplômée de l\'université du Colorado aux Etats-Unis, elle était jusqu\'alors Chief Operating Officer et mandataire sociale au sein de l\'entreprise. Avant cela elle avait passé l\'essentiel de sa carrière au sein du groupe Schlumberger, débutant comme géophysicienne puis ingénieure qualité.',
+                                '88', 'un lien',
                                 'https://energycouncil.com/wp-content/uploads/Sophie-Zurquiyah.png'
                             ],
                             ['Mme Ilham Kadri', 'Solvay SA',
-                                'Elle a fait des études en France et a réussi brillament et c\'est une personne extraordinaire et blabla et voilà...',
+                                'Ilham Kadri, née le 14 février 1969 à Casablanca (Maroc), est une dirigeante d\'entreprise. Chimiste de formation, elle est présidente et directrice générale du groupe de chimie belge Solvay depuis mars 2019. Elle a la double nationalité franco-marocaine.',
                                 '89', 'un lien',
                                 'https://www.usinenouvelle.com/mediatheque/4/0/5/000697504_896x598_c.jpg'
                             ],
                             ['Mme Catherine MacGregor', 'Engie',
-                                'Elle a fait des études en France et a réussi brillament et c\'est une personne extraordinaire et blabla et voilà...',
-                                '89', 'un lien',
+                                'Catherine MacGregor, née Catherine Fiamma le 7 août 1972 au Maroc, est une cheffe d\'entreprise française. Ingénieure diplômée de l\'École centrale Paris en 1995, elle est directrice générale d\'Engie depuis octobre 2020',
+                                '93', 'un lien',
                                 'https://pbs.twimg.com/profile_images/1338904109089497094/XQ2ZJ5Wi_400x400.jpg'
                             ],
                             ['Mme Caroline Parot', 'Europcar Mobility Group',
-                                'Elle a fait des études en France et a réussi brillament et c\'est une personne extraordinaire et blabla et voilà...',
-                                '89', 'un lien',
+                                'Caroline Parot, née le 27 janvier 1972 à Aix-en-Provence, est une cheffe d\'entreprise française diplômée de l\'ESCP et présidente du directoire d\'Europcar depuis 20161.',
+                                '86', 'un lien',
                                 'https://www.forbes.fr/wp-content/uploads/2017/01/Caroline-Parot-1-420x250.jpg'
                             ],
                             ['Mme Meka Brunel', 'Gecina',
-                                'Elle a fait des études en France et a réussi brillament et c\'est une personne extraordinaire et blabla et voilà...',
-                                '89', 'un lien',
+                                'Méka Brunel est une femme d\'affaires franco-iranienne, née le 9 mai 1956 à Téhéran et vivant en France, présidente Europe d\'Ivanhoé Cambridge puis directrice générale de Gecina.',
+                                '94', 'un lien',
                                 'https://presse.gecina.fr/media/cache/gecina_expert_jumbotron_grid_fs/606347b424f480794327cd45'
                             ],
                             ['Mme Sophie Boissard', 'Korian',
-                                'Elle a fait des études en France et a réussi brillament et c\'est une personne extraordinaire et blabla et voilà...',
-                                '89', 'un lien',
+                                'Sophie Boissard, née Bombois, est née à Paris le 11 juillet 1970. Diplômée de l\'ENS et de l\'ENA, elle est directrice du Groupe Korian depuis le 26 janvier 2016.',
+                                '88', 'un lien',
                                 'https://www.changerparledon.com/wp-content/uploads/2018/11/Sophie-Boissard-e1543615689851-500x450.jpg'
                             ],
                             ['Mme Julie Walbaum', 'Maisons du Monde',
-                                'Elle a fait des études en France et a réussi brillament et c\'est une personne extraordinaire et blabla et voilà...',
-                                '89', 'un lien',
+                                'Diplômée de l\'ESSEC et de l\'INSEAD, Julie Walbaum a été Managing Director de Westing France et est dorénavant CEO de Maisons du Monde.',
+                                '83', 'un lien',
                                 'https://parlement2020.entrepreneursdavenir.com/wp-content/uploads/2019/11/0-1.jpg'
                             ],
                             ['Mme Clarisse Gobin-Swiecznik', 'Rubis',
-                                'Elle a fait des études en France et a réussi brillament et c\'est une personne extraordinaire et blabla et voilà...',
-                                '89', 'un lien',
+                                'Clarisse Gobin-Swiecznik est directrice du développement chez Rubis Terminal, société spécialisée en stockage et distribution de produits pétroliers et chimiques.',
+                                '79', 'un lien',
                                 'https://resources.alvarum.com/images/fundraisingPages/fundraisingPage546/537/gallery/pfm3P7.jpg'
                             ],
                             ['Mme Marie-Hélène Feuillet', 'Trigano',
-                                'Elle a fait des études en France et a réussi brillament et c\'est une personne extraordinaire et blabla et voilà...',
-                                '89', 'un lien',
+                                'Marie-Hélène Feuillet est une femme d\'affaires intervenant au sein de nombreuses entreprises spécialisées dans le transport. Elle est notamment membre du directoire et actionnaire majoritaire de Trigano.',
+                                '80', 'un lien',
                                 'http://www.trigano-finance.com/medias/img/strat/mhf.jpg'
                             ],
                             ['Mme Estelle Brachlianoff', 'Véolia Environnement',
-                                'Elle a fait des études en France et a réussi brillament et c\'est une personne extraordinaire et blabla et voilà...',
-                                '29', 'un lien',
+                                'Estelle Brachlianoff est simultanément COO de Véolia Environnement et directrice non-exécutive d\'Hermès France. Elle est diplômée de Polytechnique et des Ponts et Chaussées.',
+                                '86', 'un lien',
                                 'https://mk0businessofem29abh.kinstacdn.com/wp-content/uploads/2019/10/rsz_1rsz_photo_estelle_brachlianoff_.jpg'
                             ],
                         ];
