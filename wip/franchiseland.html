@@ -17,28 +17,30 @@
 </head>
 
 <body>
-    <div class="jumbotron jumbotron-fluid p-3 py-5"
-        style="background-color: #871D65; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px;">
-        <div class="container" style="color: white;">
+    <div class="jumbotron jumbotron-fluid p-3 py-5" style="background-color: #871D65;">
+        <div class="container d-flex justify-content-center align-items-center flex-column" style="color: white; min-height: 400px;">
             <h1 class="display-2" style="font-weight: bold;">Franchise Land</h1>
-            <p class="lead">Olivier Gast - 30 ans d’expérience -
-                vous accompagne et vous conseille pour créer votre réseau de franchise.</p>
-            <button class="btn btn-primary">Contacter</button>
+            <p class="lead text-center">Olivier Gast - 30 ans d’expérience -
+                vous accompagne et vous conseille<br> pour créer votre réseau de franchise.</p>
+            <button class="btn btn-primary" style="max-width: 120px; font-size: 20px;">Contacter</button>
         </div>
     </div>
-    <div class="container py-5">
+    <div class="container py-5 my-3">
         <div class="row">
             <style>
                 .btnFranch {
                     background-color: #871D65;
-                    border-radius: 25px;
+                    border-radius: 20px;
                     margin: auto;
                     max-width: 280px;
                     text-align: center;
                     color: white;
                     font-size: 1.2rem;
+                    font-weight: bold;
                     cursor: pointer;
                     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+                    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
                 }
 
                 .btnFranch:hover {
@@ -46,12 +48,12 @@
                 }
             </style>
             <div class="col-6">
-                <div class="btnFranch p-3">
+                <div class="btnFranch p-3" onclick="window.location='https://www.franchise-land.com/devenir-franchiseur.html';">
                     Devenir Franchiseur
                 </div>
             </div>
             <div class="col-6">
-                <div class="btnFranch p-3">
+                <div class="btnFranch p-3" onclick="window.location='http://www.franchise-land.com/devenir-franchise.html';">
                     Devenir Franchisé
                 </div>
             </div>
@@ -60,30 +62,96 @@
 
     <hr class="mx-5" style="opacity: .15;">
 
-    <div class="container py-4 text-center">
-        <h3 class="display-5">Découvrez l'univers d'Olivier Gast</h3>
+    <div class="container-fluid py-5 text-center" style="padding-left: 0px; padding-right: 0px;">
+        <div class="container">
+            <h3 class="display-5 mb-3">Découvrez l'univers d'Olivier Gast</h3>
+        </div>
 
         <div id="carrArticles"> </div>
 
         <script>
             let igo = document.querySelector('#carrArticles');
             let listArticles = [
-                'Article Franchise 1',
-                'Article Franchise 2',
-                'Article Franchise 3',
-                'Article Franchise 4',
-                'Article Franchise 5'
+                ["Définition de la franchise",
+                    "http://www.franchise-land.com/devenir-franchiseur/bible/definition-de-la-franchise.html",
+                    "Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eiusmod blablabla.. "
+                ],
+                ["Droit de la franchise",
+                    "http://www.franchise-land.com/devenir-franchiseur/cadre-juridique-de-la-franchise/droit-de-la-franchise.html",
+                    "Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eiusmod blablabla.. "
+                ],
+                ["Reconnaissance Jurisprudentielle",
+                    "http://www.franchise-land.com/archives-gastland/memoire-de-franchise/article-reconnaissance-jurisprudentielle.html",
+                    "Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eiusmod blablabla.. "
+                ],
+                ["Les Parfumeurs",
+                    "http://www.franchise-land.com/archives-gastland/influence-olivier-gast/les-parfumeurs.html",
+                    "Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eiusmod blablabla.. "
+                ],
+                ["1988-1990 : Initiateurs et inspirateur de la loi Doubin",
+                    "http://www.franchise-land.com/archives-gastland/revue-de-presse-avant-an-2000/1988-1990-initiateur-et-inspirateur-de-la-loi-doubin.html",
+                    "Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eiusmod blablabla.. "
+                ],
+                ["L'administration fait appel à Olivier Gast",
+                    "http://www.franchise-land.com/imgs/files_doc/24-juillet-1989-journal-du-textile-l-administration-fait-appel-olivier-gast-1519-0.pdf",
+                    "Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eiusmod blablabla.. "
+                ],
+                ["Janvier 1990 : Dynasteurs en toute franchise",
+                    "http://www.franchise-land.com/imgs/files_doc/janvier-1990-dynasteurs-en-toute-franchise-1516-0.pdf",
+                    "Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eiusmod blablabla.. "
+                ],
+                ["Projet de proposition de loi sur la franchise",
+                    "http://www.franchise-land.com/imgs/files_doc/projet-de-proposition-de-loi-sur-la-franchise-par-olivier-gast-1535-0.pdf",
+                    "Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eiusmod blablabla.. "
+                ],
+                ["Quick : l'échec de la co-franchise",
+                    "https://entoutefranchise.wordpress.com/2015/10/29/quick-lechec-de-la-co-franchise/",
+                    "Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eiusmod blablabla.. "
+                ],
+                ["Dommages Collateraux", "https://entoutefranchise.wordpress.com/2011/03/11/dommages-collateraux/",
+                    "Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eiusmod blablabla.. "
+                ]
             ];
             for (ii in listArticles) {
-                let htmltxt = "<div class='carteArticle'>" + listArticles[ii] + "</div>";
+                let htmltxt = "<div class='carteArticle text-center'> <div class='headArticle'>" + listArticles[ii][0] +
+                    "</div><div class='bodyArticle text-center m-2'>" + listArticles[ii][2] +
+                    "<div class='my-3'><a class='btnArticle' href='" +
+                    listArticles[ii][1] + "'>Découvrir</a></div></div></div>";
                 igo.insertAdjacentHTML('beforeend', htmltxt);
             };
         </script>
         <style>
             .carteArticle {
-                background-color: tomato;
-                height: 50px;
-                margin: 10px;
+                background-color: #DFDFDF;
+                margin: 30px 15px;
+                border-radius: 25px;
+                max-width: 300px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            }
+
+            .headArticle {
+                background-color: #235789;
+                width: 100%;
+                padding: 10px 15px;
+                border-top-left-radius: 25px;
+                border-top-right-radius: 25px;
+                font-size: 1.1rem;
+                font-weight: bold;
+                color: white;
+            }
+
+            .bodyArticle {
+                padding: 10px
+            }
+
+            .btnArticle {
+                margin: 50px;
+                padding: 10px 15px;
+                text-decoration: none;
+                font-weight: bold;
+                border-radius: 10px;
+                background-color: #CECCCC;
+                color: #424242;
             }
         </style>
     </div>
@@ -93,10 +161,28 @@
         $(document).ready(function () {
             $('#carrArticles').slick({
                 slidesToShow: 3,
-                slidesToScroll: 1,
-                autoplay: true,
+                slidesToScroll: 3,
+                autoplay: false,
                 autoplaySpeed: 2000,
                 arrows: false,
+                centerPadding: '60px',
+                centerMode: true,
+                responsive: [{
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2,
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+
             });
         });
     </script>
