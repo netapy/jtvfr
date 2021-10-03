@@ -13,58 +13,133 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <title>Franchise Land</title>
 </head>
 
-<body>
-    <div class="jumbotron jumbotron-fluid p-3 py-5" style="background-color: #871D65;">
-        <div class="container d-flex justify-content-center align-items-center flex-column" style="color: white; min-height: 400px;">
-            <h1 class="display-2" style="font-weight: bold;">Franchise Land</h1>
-            <p class="lead text-center">Olivier Gast - 30 ans d’expérience -
+<body style="overflow-x: hidden;">
+    <div class="jumbotron jumbotron-fluid p-3 py-5"
+        style="background-image: linear-gradient(0deg, #871d65ee, #871d6585),url('https://images.unsplash.com/photo-1447433589675-4aaa569f3e05?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=880&q=80'); background-size: cover;">
+        <div class="container d-flex justify-content-center align-items-center flex-column"
+            style="color: white; min-height: 75vh;">
+            <h1 class="display-1 text-center" style="font-weight: bold;  font-size: 4rem;">Franchise Land</h1>
+            <p class="lead text-center py-4" style="font-size: 1.3rem;">Olivier Gast - 30 ans d’expérience -
                 vous accompagne et vous conseille<br> pour créer votre réseau de franchise.</p>
             <button class="btn btn-primary" style="max-width: 120px; font-size: 20px;">Contacter</button>
         </div>
     </div>
-    <div class="container py-5 my-3">
-        <div class="row">
-            <style>
-                .btnFranch {
-                    background-color: #871D65;
-                    border-radius: 20px;
-                    margin: auto;
-                    max-width: 280px;
-                    text-align: center;
-                    color: white;
-                    font-size: 1.2rem;
-                    font-weight: bold;
-                    cursor: pointer;
-                    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-                    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-
-                }
-
-                .btnFranch:hover {
-                    transform: scale(1.02);
-                }
-            </style>
-            <div class="col-6">
-                <div class="btnFranch p-3" onclick="window.location='https://www.franchise-land.com/devenir-franchiseur.html';">
-                    Devenir Franchiseur
-                </div>
+    <div class="row" style="transform: translateY(-10vh);">
+        <div class="col-1"></div>
+        <div class="col-5">
+            <div class="btnFranch p-1 py-4"
+                onclick="window.location='https://www.franchise-land.com/devenir-franchiseur.html';">
+                <div class="iconBtnFranch"><i class="material-icons" style="font-size:48px;">work</i></div>
+                Devenir Franchiseur
             </div>
-            <div class="col-6">
-                <div class="btnFranch p-3" onclick="window.location='http://www.franchise-land.com/devenir-franchise.html';">
-                    Devenir Franchisé
+        </div>
+        <div class="col-5">
+            <div class="btnFranch p-1 py-4"
+                onclick="window.location='http://www.franchise-land.com/devenir-franchise.html';">
+                <div class="iconBtnFranch"><i class="material-icons" style="font-size:48px;">store</i></div>
+                Devenir Franchisé
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <style>
+        .btnFranch {
+            background-color: #FFFFFF;
+            border-radius: 20px;
+            margin: auto;
+            max-width: 280px;
+            text-align: center;
+            color: Black;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+            box-shadow: 0 2px 48px 0 rgb(0 0 0 / 10%);
+        }
+
+        .btnFranch:hover {
+            transform: scale(1.02);
+        }
+
+        .iconBtnFranch {
+            border-width: 1px;
+            border-style: solid;
+            border-radius: 50%;
+            background-color: #871D65;
+            color: white;
+            margin: auto;
+            aspect-ratio: 1/1;
+            width: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+    </style>
+
+    <div class="p-3">
+        <div class="container my-3 p-5"
+            style="box-shadow: 0 2px 48px 0 rgb(0 0 0 / 10%); max-width: 1100px; border-radius: 20px;">
+            <div class="row">
+                <div class="col-12 col-lg-4">
+                    <div id="fadeImage">
+                        <div class="arrondbor"><img class="imgGast"
+                                src="https://image-uviadeo.journaldunet.com/image/450/1151087002/2103444.jpg"></div>
+                        <div class="arrondbor"><img class="imgGast"
+                                src="http://www.franchise-land.com/imgs/files_img/15-juillet-1984-au-15-septembre-1984-l-uef-une-force-de-proposition-olivier-gast-couverture-649-1.jpg">
+                        </div>
+                        <div class="arrondbor"><img class="imgGast"
+                                src="https://www.laformationpourtous.com/common/media/images/videostills/2411868503001.jpg">
+                        </div>
+                    </div>
+                    <style>
+                        .imgGast {
+                            max-height: 300px;
+                            object-fit: contain;
+                            border-radius: 20px;
+                            margin: auto;
+                        }
+
+                        .arrondbor {
+                            border-radius: 20px;
+                        }
+                    </style>
+                </div>
+                <div class="col-12 col-lg-8" style="display: flex; justify-content: center; flex-direction: column; max-width: 620px;">
+                    <h3 class="display-5">Qui est Olivier Gast? </h3>
+                    <p style="font-size:1.1rem; text-align: justify;">Olivier Gast Conseil est un cabinet spécialisé dans la franchise et dans le développement
+                        apportant de nombreuses compétences techniques qui permettent à des entreprises sérieuses
+                        d’aborder la franchise et la master franchise avec des garanties de professionnalisme. </p>
                 </div>
             </div>
         </div>
     </div>
 
-    <hr class="mx-5" style="opacity: .15;">
 
-    <div class="container-fluid py-5 text-center" style="padding-left: 0px; padding-right: 0px;">
+    <script>
+        $('#fadeImage').slick({
+            dots: true,
+            infinite: true,
+            speed: 300,
+            fade: true,
+            autoplay:true,
+            cssEase: 'linear',
+            dots: false,
+            arrows: false,
+        });
+    </script>
+
+
+
+    <div class="container-fluid py-5 text-center" style="padding-left: 0px; padding-right: 0px; background-color: ;">
         <div class="container">
-            <h3 class="display-5 mb-3">Découvrez l'univers d'Olivier Gast</h3>
+            <h4 class="display-5 mb-3">Découvrez l'univers d'Olivier Gast</h4>
         </div>
 
         <div id="carrArticles"> </div>
@@ -155,8 +230,6 @@
             }
         </style>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#carrArticles').slick({
