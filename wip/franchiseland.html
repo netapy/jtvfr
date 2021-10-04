@@ -16,6 +16,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Franchise Land</title>
 </head>
 
@@ -27,14 +30,16 @@
             <h1 class="display-1 text-center" style="font-weight: bold;  font-size: 4rem;">Franchise Land</h1>
             <p class="lead text-center py-4" style="font-size: 1.3rem;">Olivier Gast - 30 ans d’expérience -
                 vous accompagne et vous conseille<br> pour créer votre réseau de franchise.</p>
-            <button class="btn btn-primary" style="max-width: 120px; font-size: 20px;">Contacter</button>
+            <button class="btn btn-primary"
+                style="max-width: 160px; font-size: 20px; background-color: white; color: #871d65; font-weight: bold; border-width: 0;">
+                📞 Contacter</button>
         </div>
     </div>
     <div class="row" style="transform: translateY(-10vh);">
         <div class="col-1"></div>
         <div class="col-5">
             <div class="btnFranch p-1 py-4"
-                onclick="window.location='https://www.franchise-land.com/devenir-franchiseur.html';">
+                onclick="window.location='http://www.franchise-land.com/devenir-franchiseur.html';">
                 <div class="iconBtnFranch"><i class="material-icons" style="font-size:48px;">work</i></div>
                 Devenir Franchiseur
             </div>
@@ -49,6 +54,10 @@
         <div class="col-1"></div>
     </div>
     <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
         .btnFranch {
             background-color: #FFFFFF;
             border-radius: 20px;
@@ -74,7 +83,7 @@
             background-color: #871D65;
             color: white;
             margin: auto;
-            aspect-ratio: 1/1;
+            aspect-ratio: 1 / 1;
             width: 80px;
             display: flex;
             align-items: center;
@@ -83,8 +92,8 @@
         }
     </style>
 
-    <div class="p-3">
-        <div class="container my-3 p-5"
+    <div class="p-3" style="margin-bottom: 80px;">
+        <div class="container my-5 p-5"
             style="box-shadow: 0 2px 48px 0 rgb(0 0 0 / 10%); max-width: 1100px; border-radius: 20px;">
             <div class="row">
                 <div class="col-12 col-lg-4">
@@ -111,9 +120,12 @@
                         }
                     </style>
                 </div>
-                <div class="col-12 col-lg-8" style="display: flex; justify-content: center; flex-direction: column; max-width: 620px;">
-                    <h3 class="display-5">Qui est Olivier Gast? </h3>
-                    <p style="font-size:1.1rem; text-align: justify;">Olivier Gast Conseil est un cabinet spécialisé dans la franchise et dans le développement
+                <div class="col-12 col-lg-8"
+                    style="display: flex; justify-content: center; flex-direction: column; max-width: 620px;">
+                    <h3 class="display-5 mb-4">Qui est Olivier Gast? </h3>
+                    <p style="font-size:1.1rem; text-align: justify; opacity: .9;">Olivier Gast Conseil est un cabinet
+                        spécialisé
+                        dans la franchise et dans le développement
                         apportant de nombreuses compétences techniques qui permettent à des entreprises sérieuses
                         d’aborder la franchise et la master franchise avec des garanties de professionnalisme. </p>
                 </div>
@@ -128,7 +140,8 @@
             infinite: true,
             speed: 300,
             fade: true,
-            autoplay:true,
+            autoplay: true,
+            autoplaySpeed: 3000,
             cssEase: 'linear',
             dots: false,
             arrows: false,
@@ -137,12 +150,13 @@
 
 
 
-    <div class="container-fluid py-5 text-center" style="padding-left: 0px; padding-right: 0px; background-color: ;">
-        <div class="container">
-            <h4 class="display-5 mb-3">Découvrez l'univers d'Olivier Gast</h4>
+    <div class="container-fluid py-5 text-center my-2"
+        style="padding-left: 0px; padding-right: 0px; background-image: linear-gradient(0deg, #871d65, #871d65b2),url('https://images.unsplash.com/photo-1517866184231-7ef94c2ea930?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1547&q=80'); background-size: cover; height: 380px;">
+        <div class="container p-3">
+            <h4 class="display-5 mb-3" style="color: white; font-weight: bold;">Découvrez l'univers d'Olivier Gast</h4>
         </div>
 
-        <div id="carrArticles"> </div>
+        <div class="py-3" id="carrArticles"> </div>
 
         <script>
             let igo = document.querySelector('#carrArticles');
@@ -188,8 +202,11 @@
                 ]
             ];
             for (ii in listArticles) {
-                let htmltxt = "<div class='carteArticle text-center'> <div class='headArticle'>" + listArticles[ii][0] +
-                    "</div><div class='bodyArticle text-center m-2'>" + listArticles[ii][2] +
+                let htmltxt =
+                    "<div class='carteArticle text-center'> <div class='headArticle d-flex flex-column justify-content-center'>" +
+                    listArticles[ii][0] +
+                    "</div><div class='bodyArticle text-center m-2 d-flex flex-column justify-content-around'>" +
+                    listArticles[ii][2] +
                     "<div class='my-3'><a class='btnArticle' href='" +
                     listArticles[ii][1] + "'>Découvrir</a></div></div></div>";
                 igo.insertAdjacentHTML('beforeend', htmltxt);
@@ -197,26 +214,35 @@
         </script>
         <style>
             .carteArticle {
-                background-color: #DFDFDF;
+                background-color: #eeeeee;
                 margin: 30px 15px;
-                border-radius: 25px;
+                border-radius: 20px;
                 max-width: 300px;
-                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+                height: 250px;
+                transition: all .3s ease-in-out;
+                box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
+            }
+
+            .carteArticle:hover {
+                transform: translateY(-10px);
             }
 
             .headArticle {
-                background-color: #235789;
+                background-color: #63174B;
                 width: 100%;
+                height: 30%;
                 padding: 10px 15px;
-                border-top-left-radius: 25px;
-                border-top-right-radius: 25px;
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
                 font-size: 1.1rem;
                 font-weight: bold;
                 color: white;
+                transform: translateY(-3px);
             }
 
             .bodyArticle {
-                padding: 10px
+                padding: 10px;
+                height: 70%;
             }
 
             .btnArticle {
@@ -225,8 +251,8 @@
                 text-decoration: none;
                 font-weight: bold;
                 border-radius: 10px;
-                background-color: #CECCCC;
-                color: #424242;
+                background-color: #ffffff;
+                color: #63174B;
             }
         </style>
     </div>
@@ -235,8 +261,10 @@
             $('#carrArticles').slick({
                 slidesToShow: 3,
                 slidesToScroll: 3,
-                autoplay: false,
-                autoplaySpeed: 2000,
+                autoplay: true,
+                infinite: true,
+                autoplaySpeed: 3000,
+                speed: 300,
                 arrows: false,
                 centerPadding: '60px',
                 centerMode: true,
@@ -259,6 +287,127 @@
             });
         });
     </script>
+
+    <div class="p-5 my-3"></div>
+
+    <style>
+        .carteGast {
+            box-shadow: 0 2px 48px 0 rgb(0 0 0 / 10%);
+            border-radius: 20px;
+        }
+
+        .card-img-top {
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            max-height: 160px;
+            object-fit: cover;
+        }
+    </style>
+    <div class="container text-center p-5" style="max-width: 1100px;">
+        <div class="my-5">
+            <h4 class="display-5 mb-3" style="font-weight: bold;">La sélection d'Olivier</h4>
+            <h4 class="text-muted">Olivier a créé et rassemblé plusieurs ressources</h4>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4 my-3">
+                <div class="card m-auto carteGast" sletyle="width: 25rem; max-width:80vw">
+                    <img class="card-img-top"
+                        src="https://images.pexels.com/photos/9736931/pexels-photo-9736931.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btnArticle my-1">Découvrir</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 my-3">
+                <div class="card m-auto carteGast" sletyle="width: 25rem; max-width:80vw">
+                    <img class="card-img-top"
+                        src="https://images.pexels.com/photos/9736931/pexels-photo-9736931.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btnArticle my-1">Découvrir</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 my-3">
+                <div class="card m-auto carteGast" sletyle="width: 25rem; max-width:80vw">
+                    <img class="card-img-top"
+                        src="https://images.pexels.com/photos/9736931/pexels-photo-9736931.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btnArticle my-1">Découvrir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .logoRef{
+            width:80px;
+        }
+    </style>
+
+    <div class="container-fluid p-5 mt-5" style="background-color: #EEEEEE;">
+        <div class="row">
+            <div class="col-12 col-md-4 my-3 text-left d-flex flex-column justify-content-center">
+                <h4 class="display-5 mb-3" style="font-weight: bold;">Ils m'ont fait confiance</h4>
+                <h4 class="text-muted">Olivier Gast a aidé à développer des grandes boites</h4>
+            </div>
+            <div class="col-12 col-md-8 my-3">
+                <div class="row">
+                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://www.makrea.com/1223-large_default/sticker-logo-adidas.jpg"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://www.makrea.com/1223-large_default/sticker-logo-adidas.jpg"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://www.makrea.com/1223-large_default/sticker-logo-adidas.jpg"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://www.makrea.com/1223-large_default/sticker-logo-adidas.jpg"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://www.makrea.com/1223-large_default/sticker-logo-adidas.jpg"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://www.makrea.com/1223-large_default/sticker-logo-adidas.jpg"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://www.makrea.com/1223-large_default/sticker-logo-adidas.jpg"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://www.makrea.com/1223-large_default/sticker-logo-adidas.jpg"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://www.makrea.com/1223-large_default/sticker-logo-adidas.jpg"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://www.makrea.com/1223-large_default/sticker-logo-adidas.jpg"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://www.makrea.com/1223-large_default/sticker-logo-adidas.jpg"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://www.makrea.com/1223-large_default/sticker-logo-adidas.jpg"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://www.makrea.com/1223-large_default/sticker-logo-adidas.jpg"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://www.makrea.com/1223-large_default/sticker-logo-adidas.jpg"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://www.makrea.com/1223-large_default/sticker-logo-adidas.jpg"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://www.makrea.com/1223-large_default/sticker-logo-adidas.jpg"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://www.makrea.com/1223-large_default/sticker-logo-adidas.jpg"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://www.makrea.com/1223-large_default/sticker-logo-adidas.jpg"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container text-center p-5" style="max-width: 1100px;">
+        <div class="my-5">
+            <h4 class="display-5 mb-3" style="font-weight: bold;">Ils m'ont fait confiance</h4>
+            <h4 class="text-muted">Olivier a créé et rassemblé plusieurs ressources</h4>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4 my-3">
+                <div class="card m-auto carteGast" sletyle="width: 25rem; max-width:80vw">
+                    <img class="card-img-top"
+                        src="https://images.pexels.com/photos/9736931/pexels-photo-9736931.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            of
+                            the card's content.</p>
+                        <a href="#" class="btnArticle my-1">Découvrir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </body>
 
 </html>
