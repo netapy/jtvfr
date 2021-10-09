@@ -93,10 +93,10 @@
     </style>
 
     <div class="p-3" style="margin-bottom: 80px;">
-        <div class="container my-5 p-5"
+        <div class="container my-3 p-5"
             style="box-shadow: 0 2px 48px 0 rgb(0 0 0 / 10%); max-width: 1100px; border-radius: 20px;">
             <div class="row">
-                <div class="col-12 col-lg-4">
+                <div class="col-12 col-lg-4 mb-4 mb-lg-1">
                     <div id="fadeImage">
                         <div class="arrondbor"><img class="imgGast"
                                 src="https://image-uviadeo.journaldunet.com/image/450/1151087002/2103444.jpg"></div>
@@ -124,8 +124,12 @@
                 <div class="col-12 col-lg-8"
                     style="display: flex; justify-content: center; flex-direction: column; max-width: 620px;">
                     <h3 class="display-5 mb-4">Qui est Olivier Gast? </h3>
-                    <p style="font-size:1.1rem; text-align: justify; opacity: .9;">Olivier Gast est un avocat expérimenté ayant contribué au succès européen du concept de franchise. Il a accompagné de nombreuses sociétés (Adidas, Leroy Merlin, Carrefour, ...) dans le développement de leurs affaires, prodiguant conseils, réseau et expertise juridique.
-                    <br><br>Le site Franchise-Land.com concentre toute l'actualité relative à son activité, dont de très nombreux articles, succes-stories et témoignages.</p>
+                    <p style="font-size:1.1rem; text-align: justify; opacity: .9;">Olivier Gast est un avocat
+                        expérimenté ayant contribué au succès européen du concept de franchise. Il a accompagné de
+                        nombreuses sociétés (Adidas, Leroy Merlin, Carrefour, ...) dans le développement de leurs
+                        affaires, prodiguant conseils, réseau et expertise juridique.
+                        <br><br>Le site Franchise-Land.com concentre toute l'actualité relative à son activité, dont de
+                        très nombreux articles, succes-stories et témoignages.</p>
                 </div>
             </div>
         </div>
@@ -244,7 +248,7 @@
             }
 
             .btnArticle {
-                margin: 50px;
+                margin: 30px;
                 padding: 10px 15px;
                 text-decoration: none;
                 font-weight: bold;
@@ -292,6 +296,12 @@
         .carteGast {
             box-shadow: 0 2px 48px 0 rgb(0 0 0 / 10%);
             border-radius: 20px;
+            transition: all .3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .carteGast:hover {
+            transform: scale(1.02);
         }
 
         .card-img-top {
@@ -304,39 +314,44 @@
     <div class="container text-center p-5" style="max-width: 1100px;">
         <div class="my-5">
             <h4 class="display-5 mb-3" style="font-weight: bold;">La sélection d'Olivier</h4>
-            <h4 class="text-muted">Avocat médiatique, Olivier Gast a développé de nombreuses ressources et structures au cours de sa carrière, à découvrir ci-dessous.</h4>
+            <h4 class="text-muted">Avocat médiatique, Olivier Gast a développé de nombreuses ressources et structures au
+                cours de sa carrière, à découvrir ci-dessous.</h4>
         </div>
         <div class="row">
             <div class="col-12 col-md-4 my-3">
-                <div class="card m-auto carteGast" sletyle="width: 25rem; max-width:80vw">
-                    <img class="card-img-top"
-                        src="https://i.ibb.co/ThXMYCh/illu-CEDRE.png"
-                        alt="Card image cap">
+                <div class="card m-auto carteGast"
+                    onclick="window.location.href = 'http://www.franchise-land.com/club-europeen-des-directeurs-reseaux.html'">
+                    <img class="card-img-top" src="https://i.ibb.co/ThXMYCh/illu-CEDRE.png" alt="Card image cap">
                     <div class="card-body">
-                        <p class="card-text">Créé en 1991 par Olivier Gast, le Club Européen des Directeurs de Réseau (CEDRE) regroupe les Développeurs, Animateurs, Directeurs de Réseaux et Franchiseurs (Franchise, Succursales, Chaînes Volontaires, Groupements, Partenariat, Coopérative...).
+                        <p class="card-text">Créé en 1991 par Olivier Gast, le Club Européen des Directeurs de Réseau
+                            (CEDRE) regroupe les Développeurs, Animateurs, Directeurs de Réseaux et Franchiseurs
+                            (Franchise, Succursales, Chaînes Volontaires, Groupements, Partenariat, Coopérative...).
                         </p>
                         <a href="#" class="btnArticle my-1">Découvrir</a>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-4 my-3">
-                <div class="card m-auto carteGast" sletyle="width: 25rem; max-width:80vw">
-                    <img class="card-img-top"
-                        src="https://i.ibb.co/JKcdGKg/illu-presse.png"
-                        alt="Card image cap">
+                <div class="card m-auto carteGast"
+                    onclick="window.location.href = 'http://www.franchise-land.com/archives-gastland.html'">
+                    <img class="card-img-top" src="https://i.ibb.co/JKcdGKg/illu-presse.png" alt="Card image cap">
                     <div class="card-body">
-                        <p class="card-text">Olivier Gast est régulièrement cité dans la presse internationale et spécialisée depuis plusieurs décénies. <br><br> Retrouvez ses articles ici.</p>
+                        <p class="card-text">Olivier Gast est régulièrement cité dans la presse internationale et
+                            spécialisée depuis plusieurs décénies. <br><br> Retrouvez ses articles ici.</p>
                         <a href="#" class="btnArticle my-1">Découvrir</a>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-4 my-3">
-                <div class="card m-auto carteGast" sletyle="width: 25rem; max-width:80vw">
-                    <img class="card-img-top"
-                        src="https://i.ibb.co/sWyZjyL/illu-master-franchisepsd.png"
+                <div class="card m-auto carteGast"
+                    onclick="window.location.href = 'http://www.franchise-land.com/devenir-franchiseur/la-master-franchise.html'">
+                    <img class="card-img-top" src="https://i.ibb.co/sWyZjyL/illu-master-franchisepsd.png"
                         alt="Card image cap">
                     <div class="card-body">
-                        <p class="card-text">La master franchise est un procédé créé par Olivier Gast permettant l’exportation de franchiseurs français à l’étranger. Dédié aux entrepreneurs, ceux-ci bénéficient de l'exclusivité d’un pays pour y développer le concept de l'entreprise franchisée.</p>
+                        <p class="card-text">La master franchise est un procédé créé par Olivier Gast permettant
+                            l’exportation de franchiseurs français à l’étranger. Dédié aux entrepreneurs, ceux-ci
+                            bénéficient de l'exclusivité d’un pays pour y développer le concept de l'entreprise
+                            franchisée.</p>
                         <a href="#" class="btnArticle my-1">Découvrir</a>
                     </div>
                 </div>
@@ -345,44 +360,69 @@
     </div>
 
     <style>
-        .logoRef{
-            width:80px;
+        .logoRef {
+            width: 80px;
         }
 
         @media (max-width: 750px) {
-        .mobilegrandetaille{
-        height: 75vh;
-        }
+            .mobilegrandetaille {
+                height: 75vh;
+            }
         }
     </style>
-    
+
 
     <div class="container-fluid p-5 mt-5" style="background-color: #EEEEEE;">
         <div class="row">
             <div class="col-12 col-md-4 my-3 text-left d-flex flex-column justify-content-center">
                 <h4 class="display-5 mb-3" style="font-weight: bold;">Références</h4>
-                <h4 class="text-muted">Ils ont fait confiance à Olivier Gast</h4>
+                <h4 class="text-muted">Ils ont fait confiance à <br>Olivier Gast</h4>
             </div>
             <div class="col-12 col-md-8 my-3">
-                <div class="row" >
-                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Adidas_Logo.svg/2560px-Adidas_Logo.svg.png"></div>
-                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://upload.wikimedia.org/wikipedia/fr/thumb/f/f4/Logo_ArcelorMittal.svg/1200px-Logo_ArcelorMittal.svg.png"></div>
-                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://www.icon-icon.com/wp-content/uploads/2021/06/logo-babolat.png"></div>
-                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://5-ch-cdn.bata.eu/img/web/bata-logo.svg"></div>
-                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://www.yext.fr/wp-content/uploads/sites/9/2016/08/logo-benandjerrys.png"></div>
-                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://upload.wikimedia.org/wikipedia/fr/thumb/6/65/Bricorama.svg/1200px-Bricorama.svg.png"></div>
-                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://upload.wikimedia.org/wikipedia/fr/c/c8/Logo_Brioche_dor%C3%A9e.png"></div>
-                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://upload.wikimedia.org/wikipedia/commons/7/74/Club_Med_Logo_Blu.png"></div>
-                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://www.totalbug.com/wp-content/uploads/2018/06/dominos-pizza.png"></div>
-                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://logo-marque.com/wp-content/uploads/2020/12/Estee-Lauder-Logo.png"></div>
-                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://www.chilledfood.org/wp-content/uploads/2015/07/Logos-Florette-Pantone.png"></div>
-                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Flunch-Logo.svg/1024px-Flunch-Logo.svg.png"></div>
-                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="http://assets.stickpng.com/images/5a1edf624ac6b00ff574e310.png"></div>
-                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://www.carrefour.fr/images/meta-social-default-image-generic.png"></div>
-                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://upload.wikimedia.org/wikipedia/fr/thumb/3/3b/Casino_supermarch%C3%A9_logo_2018.svg/1280px-Casino_supermarch%C3%A9_logo_2018.svg.png"></div>
-                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://cdn.worldvectorlogo.com/logos/jacadi-1.svg"></div>
-                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://grandprix-events.com/wp-content/uploads/2018/04/FINAL-LOGO-PS-2018.png"></div>
-                    <div class="col-4 col-md-2"><img class="logoRef m-2" src="https://paris.makerfaire.com/wp-content/uploads/sites/109/2021/06/Leroy-Merlin-Logo.png"></div>
+                <div class="row">
+                    <div class="col-4 col-md-2"><img class="logoRef m-2"
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Adidas_Logo.svg/2560px-Adidas_Logo.svg.png">
+                    </div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2"
+                            src="https://upload.wikimedia.org/wikipedia/fr/thumb/f/f4/Logo_ArcelorMittal.svg/1200px-Logo_ArcelorMittal.svg.png">
+                    </div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2"
+                            src="https://www.icon-icon.com/wp-content/uploads/2021/06/logo-babolat.png"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2"
+                            src="https://5-ch-cdn.bata.eu/img/web/bata-logo.svg"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2"
+                            src="https://www.yext.fr/wp-content/uploads/sites/9/2016/08/logo-benandjerrys.png"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2"
+                            src="https://upload.wikimedia.org/wikipedia/fr/thumb/6/65/Bricorama.svg/1200px-Bricorama.svg.png">
+                    </div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2"
+                            src="https://upload.wikimedia.org/wikipedia/fr/c/c8/Logo_Brioche_dor%C3%A9e.png"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2"
+                            src="https://upload.wikimedia.org/wikipedia/commons/7/74/Club_Med_Logo_Blu.png"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2"
+                            src="https://www.totalbug.com/wp-content/uploads/2018/06/dominos-pizza.png"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2"
+                            src="https://logo-marque.com/wp-content/uploads/2020/12/Estee-Lauder-Logo.png"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2"
+                            src="https://www.chilledfood.org/wp-content/uploads/2015/07/Logos-Florette-Pantone.png">
+                    </div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2"
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Flunch-Logo.svg/1024px-Flunch-Logo.svg.png">
+                    </div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2"
+                            src="http://assets.stickpng.com/images/5a1edf624ac6b00ff574e310.png"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2"
+                            src="https://www.carrefour.fr/images/meta-social-default-image-generic.png"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2"
+                            src="https://upload.wikimedia.org/wikipedia/fr/thumb/3/3b/Casino_supermarch%C3%A9_logo_2018.svg/1280px-Casino_supermarch%C3%A9_logo_2018.svg.png">
+                    </div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2"
+                            src="https://cdn.worldvectorlogo.com/logos/jacadi-1.svg"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2"
+                            src="https://grandprix-events.com/wp-content/uploads/2018/04/FINAL-LOGO-PS-2018.png"></div>
+                    <div class="col-4 col-md-2"><img class="logoRef m-2"
+                            src="https://paris.makerfaire.com/wp-content/uploads/sites/109/2021/06/Leroy-Merlin-Logo.png">
+                    </div>
                 </div>
             </div>
         </div>
@@ -390,11 +430,50 @@
 
     <div class="container text-center p-5" style="max-width: 1100px;">
         <div class="my-5">
-            <h4 class="display-5 mb-3" style="font-weight: bold;">Section contact</h4>
-            <h4 class="text-muted">Voir le format mais l'essentiel est de mettre le 06</h4>
+            <h4 class="display-5 mb-3" style="font-weight: bold;">Nous contacter</h4>
+        </div>
+        <div class="row m-auto my-2" style="max-width: 800px;">
+            <div class="col-12 col-md-6 mb-2 mb-md-0">
+                <img style="width: 100%; min-height: 200px;"
+                    src="http://image.golden-trade.com/file/rep_img/evoyageclub/Image/olivier_gast.png">
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="d-flex flex-column justify-content-center align-items-center h-100">
+                    <div class="meaContact">📞 +33 06 07 33 23 97</div>
+                    <div class="meaContact"><a class='nolink'
+                            href="mailto:olivier.gast@yahoo.com">✉️ olivier.gast@yahoo.com</a></div>
+                    <style>
+                        .meaContact {
+                            padding: 10px 20px;
+                            font-weight: bold;
+                            font-size: 1.2rem;
+                            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+                            box-shadow: 0 2px 48px 0 rgb(0 0 0 / 10%);
+                            margin: 10px 0px;
+                            color: #63174B;
+                            border-radius: 10px;
+                            cursor: pointer;
+                        }
+
+                        .nolink {
+                            color: #63174B;
+                            text-decoration: none;
+                        }
+
+                        .meaContact:hover {
+                            transform: scale(1.02);
+                        }
+                    </style>
+                </div>
+            </div>
         </div>
     </div>
 
+    <footer class="footer" style="background-color: #63174B; color:white;">
+        <div class="container" style="padding: 20px;">
+            <span>© Olivier Gast, 2021</span>
+        </div>
+    </footer>
 
 </body>
 
