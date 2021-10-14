@@ -126,7 +126,8 @@
                     <h3 class="display-5 mb-4">Qui est Olivier Gast? </h3>
                     <p style="font-size:1.1rem; text-align: justify; opacity: .9;">Olivier Gast est un avocat
                         expérimenté ayant contribué au succès européen du concept de franchise. Il a accompagné de
-                        nombreuses sociétés (Adidas, Leroy Merlin, Carrefour, Babolat, ...) dans le développement de leurs
+                        nombreuses sociétés (Adidas, Leroy Merlin, Carrefour, Babolat, ...) dans le développement de
+                        leurs
                         affaires, prodiguant conseils, réseau et expertise juridique.
                         <br><br>Le site Franchise-Land.com concentre toute l'actualité relative à son activité, dont de
                         très nombreux articles, succes-stories et témoignages.</p>
@@ -153,7 +154,7 @@
 
 
     <div class="container-fluid py-5 text-center my-2"
-        style="padding-left: 0px; padding-right: 0px; background-image: linear-gradient(0deg, #871d65, #871d65b2),url('https://images.unsplash.com/photo-1517866184231-7ef94c2ea930?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1547&q=80'); background-size: cover; height: 380px;">
+        style="padding-left: 0px; padding-right: 0px; background-image: linear-gradient(0deg, #871d65, #871d65b2),url('https://images.unsplash.com/photo-1517866184231-7ef94c2ea930?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1547&q=80'); background-size: cover; height: 300px;">
         <div class="container p-3">
             <h4 class="display-5 mb-3" style="color: white; font-weight: bold;">Découvrez l'univers d'Olivier Gast</h4>
         </div>
@@ -209,12 +210,10 @@
             ];
             for (ii in listArticles) {
                 let htmltxt =
-                    "<div class='carteArticle text-center'> <div class='headArticle d-flex flex-column justify-content-center'>" +
-                    listArticles[ii][0] +
-                    "</div><div class='bodyArticle text-center m-2 d-flex flex-column justify-content-around'>" +
-                    listArticles[ii][2] +
-                    "<div class='my-3'><a class='btnArticle' href='" +
-                    listArticles[ii][1] + "'>Découvrir</a></div></div></div>";
+                    "<div class='carteArticle text-center'><div class='bodyArticle px-3 text-center d-flex flex-column justify-content-around'><div class='titreArticle my-3 d-flex flex-column justify-content-center'>" +
+                    listArticles[ii][0] + "</div><div style='height:40%;'><a class='btnArticle' href='" + listArticles[
+                        ii][1] +
+                    "'>Découvrir</a></div></div></div>";
                 igo.insertAdjacentHTML('beforeend', htmltxt);
             };
         </script>
@@ -224,36 +223,30 @@
                 margin: 30px 15px;
                 border-radius: 20px;
                 max-width: 300px;
-                height: 250px;
+                height: 160px;
                 transition: all .3s ease-in-out;
                 box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
+            }
+
+            .titreArticle {
+                font-size: 1.3rem;
+                font-weight: bold;
+                margin-bottom: 25px;
+                height: 60%;
+                color: rgb(65, 65, 65);
             }
 
             .carteArticle:hover {
                 transform: translateY(-10px);
             }
 
-            .headArticle {
-                background-color: #63174B;
-                width: 100%;
-                height: 30%;
-                padding: 10px 15px;
-                border-top-left-radius: 20px;
-                border-top-right-radius: 20px;
-                font-size: 1.1rem;
-                font-weight: bold;
-                color: white;
-                transform: translateY(-3px);
-            }
-
             .bodyArticle {
-                padding: 10px;
-                height: 70%;
+                height: 100%;
             }
 
             .btnArticle {
-                margin: 30px;
                 padding: 10px 15px;
+                font-size: 1.2rem;
                 text-decoration: none;
                 font-weight: bold;
                 border-radius: 10px;
@@ -341,7 +334,8 @@
                     <img class="card-img-top" src="https://i.ibb.co/JKcdGKg/illu-presse.png" alt="Card image cap">
                     <div class="card-body">
                         <p class="card-text">Olivier Gast est régulièrement cité dans la presse internationale et
-                            spécialisée depuis plusieurs décénies. <br><br> Retrouvez les articles qui présentent ses activités et évènements ici.</p>
+                            spécialisée depuis plusieurs décénies. <br><br> Retrouvez les articles qui présentent ses
+                            activités et évènements ici.</p>
                         <a href="#" class="btnArticle my-1">Découvrir</a>
                     </div>
                 </div>
@@ -438,14 +432,13 @@
         </div>
         <div class="row m-auto my-2" style="max-width: 800px;">
             <div class="col-12 col-md-6 mb-2 mb-md-0">
-                <img style="width: 100%; min-height: 200px;"
-                    src="https://i.ibb.co/PCy4FbC/Logo-FL.png">
+                <img style="width: 100%; min-height: 200px;" src="https://i.ibb.co/PCy4FbC/Logo-FL.png">
             </div>
             <div class="col-12 col-md-6">
                 <div class="d-flex flex-column justify-content-center align-items-center h-100">
                     <div class="meaContact">📞 +33 06 07 33 23 97</div>
-                    <div class="meaContact"><a class='nolink'
-                            href="mailto:olivier.gast@yahoo.com">✉️ olivier.gast@yahoo.com</a></div>
+                    <div class="meaContact"><a class='nolink' href="mailto:olivier.gast@yahoo.com">✉️
+                            olivier.gast@yahoo.com</a></div>
                     <style>
                         .meaContact {
                             padding: 10px 20px;
