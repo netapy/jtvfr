@@ -20,7 +20,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Franchise Land</title>
-    <link rel="shortcut icon" href="imgs/files_img/favicon.ico" type="image/x-icon">  
+    <link rel="shortcut icon" href="imgs/files_img/favicon.ico" type="image/x-icon">
+
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-4347385-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') +
+                '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
 </head>
 
 <body style="overflow-x: hidden;">
@@ -28,7 +45,7 @@
         style="background-image: linear-gradient(0deg, #871d65ee, #871d6585),url('https://images.unsplash.com/photo-1447433589675-4aaa569f3e05?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=880&q=80'); background-size: cover;">
         <div class="container d-flex justify-content-center align-items-center flex-column mobilegrandetaille"
             style="color: white; min-height: 55vh;">
-            <h1 class="display-1 text-center" style="font-weight: bold;  font-size: 4rem;">Franchiseland</h1>
+            <h1 class="display-2 text-center" style="font-weight: bold;">Franchiseland</h1>
             <p class="lead text-center py-4" style="font-size: 1.3rem;">Olivier Gast - 30 ans d’expérience -
                 vous accompagne et vous conseille<br> pour créer votre réseau de franchise</p>
             <button class="btn btn-primary"
@@ -99,6 +116,13 @@
             justify-content: center;
             margin-bottom: 20px;
         }
+
+        .btnArrow {
+            background-color: transparent;
+            border-width: 0px;
+            font-size: 25px;
+            color: #871D65;
+        }
     </style>
 
     <div class="p-3" style="margin-bottom: 80px;">
@@ -133,10 +157,20 @@
                 <div class="col-12 col-lg-8"
                     style="display: flex; justify-content: center; flex-direction: column; max-width: 620px;">
                     <h3 class="display-5 mb-4">Qui est Olivier Gast ?</h3>
-                    <p style="font-size:1.1rem; text-align: justify; opacity: .9;">Olivier Gast a été avocat durant 30 ans et a contribué au succès européen du concept de franchise. Il a accompagné de nombreuses sociétés (Adidas, Leroy Merlin, Carrefour, Babolat, ...) dans le développement de leurs affaires, prodiguant conseils, réseau et expertise juridique.
-                        Il est considéré comme le <a href="http://www.franchise-land.com/actualites/le-gourou-de-la-franchise-europeenne-cree-avenement-de-la-franchise-a-abidjan.html" target="_blank">Gourou Européen</a> de la franchise - <a href="http://www.franchise-land.com/gast-conseils/olivier-gast-parcours-professionnel.html" target="_blank">découvrez sa carrière</a>.
-                        <br><br>Le site <span style="color: #871D65;">Franchiseland.com</span> concentre toute l'actualité relative à son activité, dont de très nombreux articles succes-stories et témoignages.
-                </p>
+                    <p style="font-size:1.1rem; text-align: justify; opacity: .9;">Olivier Gast a été avocat durant 30
+                        ans et a contribué au succès européen du concept de franchise. Il a accompagné de nombreuses
+                        sociétés (Adidas, Leroy Merlin, Carrefour, Babolat, ...) dans le développement de leurs
+                        affaires, prodiguant conseils, réseau et expertise juridique.
+                        Il est considéré comme le <a
+                            href="http://www.franchise-land.com/actualites/le-gourou-de-la-franchise-europeenne-cree-avenement-de-la-franchise-a-abidjan.html"
+                            target="_blank" style="color: #E1A21D;text-decoration: none;">Gourou Européen</a> de la
+                        franchise - <a
+                            href="http://www.franchise-land.com/gast-conseils/olivier-gast-parcours-professionnel.html"
+                            target="_blank" style="color: #E1A21D;text-decoration: none;">découvrez sa carrière</a>.
+                        <br><br>Le site <span style="color: #871D65;">Franchiseland.com</span> concentre toute
+                        l'actualité relative à son activité, dont de très nombreux articles succes-stories et
+                        témoignages.
+                    </p>
                 </div>
             </div>
         </div>
@@ -164,8 +198,14 @@
         <div class="container p-3">
             <h4 class="display-5 mb-3" style="color: white; font-weight: bold;">Découvrez l'univers d'Olivier Gast</h4>
         </div>
-
-        <div class="py-3" id="carrArticles"> </div>
+        <div class="py-3 mb-5">
+            <div id="carrArticles"> </div>
+            <div class="d-flex justify-content-between align-items-center"
+                style="max-width: 90vw; margin: auto; transform: translateY(-20px);">
+                <button class="btnArrow" onclick="$('#carrArticles').slick('slickPrev')">←</button>
+                <button class="btnArrow" onclick="$('#carrArticles').slick('slickNext')">→</button>
+            </div>
+        </div>
 
         <script>
             let igo = document.querySelector('#carrArticles');
@@ -262,7 +302,8 @@
                     "http://www.franchise-land.com/imgs/files_doc/1992-meredith-lectures-franchising-1196-0.pdf",
                     "Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eiusmod blablabla.. "
                 ],
-                ["Le congrès du CEDRE chez Google France", "http://www.franchise-land.com/club-europeen-des-directeurs-reseaux/cedre-congres-trophees/14eme-congres-21eme-trophee-cedre/14eme-congres-21eme-trophee-cedre-photos.html",
+                ["Le congrès du CEDRE chez Google France",
+                    "http://www.franchise-land.com/club-europeen-des-directeurs-reseaux/cedre-congres-trophees/14eme-congres-21eme-trophee-cedre/14eme-congres-21eme-trophee-cedre-photos.html",
                     "Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eiusmod blablabla.. "
                 ],
                 ["Le retour du Jedi",
@@ -419,7 +460,8 @@
                     <img class="card-img-top" src="https://i.ibb.co/sWyZjyL/illu-master-franchisepsd.png"
                         alt="Card image cap">
                     <div class="card-body">
-                        <p class="card-text">La master franchise est un procédé créé aux Etats-Unis et utilisé par Olivier Gast, permettant
+                        <p class="card-text">La master franchise est un procédé créé aux Etats-Unis et utilisé par
+                            Olivier Gast, permettant
                             l’exportation de franchiseurs français à l’étranger. Dédié aux entrepreneurs, ceux-ci
                             bénéficient de l'exclusivité d’un pays pour y développer le concept de l'entreprise
                             franchisée.</p>
