@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <title>Protoyping Emotions</title>
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.ico" id="light-scheme-favicon" />
+    <link rel="icon" href="img/faviconBlanc.ico" id="dark-scheme-favicon" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-deferred@1"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QSTY073PT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "G-QSTY073PT9");
+    </script>
+</head>
+
+<body style="background-color: #FAF7FF;">
+    <div style="background-color: #FAF7FF; min-height: 100vh;">
+        <div style="position: absolute ;height: 150px; width: 35vw ;top: 0px; background-color: #6219D8">
+            <img src="img/header/Fichier 6.svg" style="width: 1000px; position: absolute; top: 0px; right: -50px">
+        </div>
+        <div class="container text-center" style="position: relative; z-index: 1980; padding: 80px 15px 0px 15px">
+            <div class="container-fluid text-center">
+                <img src="img/LOGO_JTV_ALT.svg"
+                    style="opacity: .05; position: absolute; top: 20px; max-width: 350px; margin-right: 20px;">
+                <h1><span class="meaJtv">#Protoype</span> <br><br>Identify any emotion from any text input
+                </h1><br>
+                <p
+                    style="max-width: 800px; margin: auto; font-size: 18px; font-family: Lexend Deca; padding-bottom: 3%;">
+                    Try for free our new tool, capable of <span class="meaJtv">identifying any emotion</span> (joy, sadness, fear, ...) from any of your text input.
+                    <br><br> An API will be available soon to implement it on your own systems. <br>We also propose business advisory to help you implement it.</p>
+            </div>
+
+            <div class="container neumorphSection" data-aos="flip-down">
+                <div class="col-md-12 d-flex flex-column align-items-center">
+                    <h2 style="padding-top: 2%;">Enter your text here</h2>
+                    <p style="max-width: 900px; margin: auto; padding-bottom: 5%;">Any input can be recognized
+                        <br><span style="opacity: .6;">(We don't keep your datas)</span></p>
+                    <div class="row">
+                        <div class="col-md-8"> <input class="inputTelephoneCheck" 
+                                placeholder="Lorem ipsum sintare olé" style="font-size: 25px;" />
+                        </div>
+                        <div class="col-md-4 d-flex align-items-center"> <button class="btn jtvBtn" id="btnRecherche"
+                                style="padding: 10px; border-radius: 10px; font-family: Lexend Deca; font-size: 16px; margin: 5px auto;"
+                                onclick="rechercheNumLeak(this)" >Analyze 🔍</button>
+                        </div> 
+                    </div>
+                    <!-- <div class="col-md-12">
+                        <p style="opacity: .8; font-size: 12px; padding-top: 5px;">Vous êtes trop nombreux! Notre service est ralenti, un changement de serveur est en cours 😉</p>
+                    </div> -->
+
+                    <div class="d-flex flex-column align-items-center justify-content-center"
+                        style="height: 200px; margin: 30px 0px;">
+                        <lottie-player id="searchAnim"
+                            src="https://assets4.lottiefiles.com/private_files/lf30_uet7z2uz.json"
+                            background="transparent" speed="1" style="width: 200px; height: 200px; display: none;" loop
+                            autoplay>
+                        </lottie-player>
+                        <img id="illustrationAtt" src="img/undraw_online_reading_np7n.svg"
+                            style="width: 200px; margin: auto; padding-top: 20px;" />
+                        <div id='resultatLeak' style="font-size: 20px; padding: 20px;"></div>
+                        <script>
+                            const rechercheNumLeak = (btnLaunch) => {
+                                let animation = document.querySelector("#searchAnim");
+                                let valueTel = document.querySelector("#telCheck").value;
+                                let resultLeak = document.querySelector("#resultatLeak");
+                                let newSearch = document.querySelector("#newSearcch")
+
+                                if (valueTel.length != 10) {
+                                    swal({
+                                        text: 'Veuillez renseigner un numéro de 10 chiffres.',
+                                        icon: 'error',
+                                        button: !1,
+                                        timer: 1500
+                                    });
+                                } else {
+                                    resultLeak.innerHTML = '';
+                                    animation.style.display = '';
+                                    btnLaunch.disabled = true;
+                                    document.querySelector("#illustrationAtt").style.display = 'none';
+
+                                    function fetchAnswer() {
+                                        console.log("fetching...")
+                                        fetch('https://dbreq.jetevois.fr:5000/33' + String(valueTel).substring(1))
+                                        .then(function (response) {
+                                            return response.text();
+                                        })
+                                        .then(function (data) {
+                                            var jsonrep = JSON.parse(data)["rep"];
+                                            console.log(jsonrep)
+                                            animation.style.display = 'none';
+                                            if (jsonrep == 'yes') {
+                                                resultLeak.innerHTML =
+                                                    "<span style='color:#d51717'>Votre numéro est dans le fichier ayant fuité 😟 <br> <br> Scrollez en bas de notre page pour en savoir plus !</span>"
+                                            } else if (jsonrep == 'no') {
+                                                resultLeak.innerHTML =
+                                                    "<span style='color:#329732'>Votre numéro n'a pas été diffusé 🙂</span>"
+                                            } else {
+                                                resultLeak.innerHTML =
+                                                    "Une erreur est survenue.<br>Veuillez réessayer ultérieurement."
+                                            }
+                                            btnLaunch.disabled = false;
+                                        })
+                                        .catch((error) => {
+                                            console.log("attente...")
+                                            fetchAnswer();
+                                        })
+                                    };
+
+                                    fetchAnswer();
+                                }
+                            }
+
+                            const reinitLeakSrch = (elem) => {
+                                elem.style.display = 'none';
+                                document.querySelector("#telCheck").value = "";
+                                document.querySelector("#btnRecherche").style.display = '';
+                                document.querySelector("#searchAnim").style.display = 'none';
+                                document.querySelector("#resultatLeak").innerHTML = '';
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="container neumorphSection" data-aos="flip-down">
+                        <div class="container text-center">
+                            <h4>How does it work?</h4>
+                            <div class="col-sm" style="padding: 20px 0px;">
+                                <table class="table table-hover" style="font-size: 17px;">
+                                    <tbody>
+                                        <tr style="padding:15px 0px">
+                                            <td>We use a base algorithm made by Google.</td>
+                                        </tr>
+                                        <tr style="padding:15px 0px">
+                                            <td>The project is open source.</td>
+                                        </tr>
+                                        <tr style="padding:15px 0px">
+                                            <td>We train the algorithms on our own databases</td>
+                                        </tr>
+                                        <tr style="padding:15px 0px">
+                                            <td>An API will be available soon.</td>
+                                        </tr>
+                                        <tr style="padding:15px 0px">
+                                            <td>WWe help companies to implement and use it.</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="height: 2px; padding: 0px;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="container neumorphSection" data-aos="flip-down" data-aos-delay="100">
+                        <div class="container text-center">
+                            <h4>What are the most common emotions?</h4>
+                            <div class="col-sm" style="padding: 20px 0px;">
+                                <canvas id="chart1_leakzone" style="min-height: 300px;"></canvas>
+                                <script>
+                                    var ctxx1 = document.querySelector('#chart1_leakzone').getContext('2d');
+                                    var chart1 = new Chart(ctxx1, {
+                                        type: 'bar',
+                                        data: {
+                                            labels: ["Joy", "Sadness", "Fear", "Indecision", "Excitment",
+                                                "Amusment", "Powerness", "Confidence", "Passion", "Ambition",
+                                                "Hate", "Grateful", "Weepy", "Peaceful"
+                                            ],
+                                            datasets: [{
+                                                label: "Nb de personnes leakés",
+                                                backgroundColor: '#6219D8',
+                                                data: [1157356, 1000356, 700356, 1150870, 116307, 90303,
+                                                    86307, 7961, 892338, 75008, 1025850, 99508, 42265,
+                                                    37078
+                                                ]
+                                            }]
+                                        },
+                                        options: {
+                                            responsive: true,
+                                            legend: {
+                                                display: false
+                                            },
+                                            title: {
+                                                display: true,
+                                                position: "bottom",
+                                                fontFamily: "Lexend Deca",
+                                                text: "Projected datas"
+                                            },
+                                            tooltips: {
+                                                mode: 'index',
+                                                intersect: false
+                                            },
+                                            scales: {
+                                                yAxes: [{
+                                                    stacked: true,
+                                                    ticks: {
+                                                        stepSize: 300000,
+                                                        userCallback: function (value, index, values) {
+                                                            value = value.toString();
+                                                            value = value.split(/(?=(?:...)*$)/);
+                                                            value = value.join(',');
+                                                            return value;
+                                                        }
+                                                    }
+                                                }],
+                                                xAxes: [{
+                                                    gridLines: {
+                                                        display: false
+                                                    }
+                                                }]
+                                            },
+                                            maintainAspectRatio: false,
+                                            plugins: {
+                                                deferred: {
+                                                    xOffset: 150,
+                                                    yOffset: '50%',
+                                                    delay: 500
+                                                }
+                                            },
+                                        }
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="ressources/gnrl.js"></script>
+        <script src="ressources/lottieplayer.min.js"></script>
+
+        <script>
+            AOS.init()
+            document.querySelector(".navbar").insertAdjacentHTML("beforebegin",
+                '<div class="fixed-bottom text-left" style="z-index: 9999;"> <button type="button" class="btnFlottantJtv" onclick="window.open(\'index.html\',\'_self\')">Accueil</button></div>'
+            );
+        </script>
+    </div>
+
+</body>
+
+</html>
