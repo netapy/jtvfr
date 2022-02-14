@@ -58,11 +58,11 @@ var chart1 = new Chart(courbe1, {
     },
     options: {
         responsive: true,
-        interaction:{
-            intersect:true,
+        interaction: {
+            intersect: true,
         },
         tooltips: {
-            enabled:false,
+            enabled: false,
             mode: 'index',
             intersect: false,
         },
@@ -166,22 +166,27 @@ var chart3 = new Chart(courbe3, {
         tooltips: {
             mode: 'index',
             intersect: false,
-        }
-    },
-    maintainAspectRatio: false,
-    scales: {
-        xAxes: [{
-            gridLines: {
-                display: false
+            callbacks: {
+                label: function (tooltipItems, data) {
+                    var label = data.datasets[tooltipItems.datasetIndex].label + " : " + tooltipItems.yLabel + "%";
+                    return label;
+                }
             }
-        }],
-    },
-    plugins: {
-        deferred: {
-            xOffset: 150,
-            yOffset: '50%',
-            delay: 300
+        },
+        maintainAspectRatio: false,
+        scales: {
+            xAxes: [{
+                gridLines: {
+                    display: false
+                }
+            }],
+        },
+        plugins: {
+            deferred: {
+                xOffset: 150,
+                yOffset: '50%',
+                delay: 300
+            }
         }
     }
-
 });
