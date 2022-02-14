@@ -74,7 +74,7 @@ var chart1 = new Chart(courbe1, {
                 },
                 ticks: {
                     autoSkip: true,
-                    maxTicksLimit: 10
+                    maxTicksLimit: 20
                 }
             }],
         },
@@ -130,7 +130,7 @@ var chart2 = new Chart(courbe2, {
             xAxes: [{
                 gridLines: {
                     display: false
-                }
+                },
             }],
         },
         plugins: {
@@ -178,6 +178,10 @@ var chart3 = new Chart(courbe3, {
             xAxes: [{
                 gridLines: {
                     display: false
+                },
+                ticks: {
+                    autoSkip: true,
+                    maxTicksLimit: 10
                 }
             }],
         },
