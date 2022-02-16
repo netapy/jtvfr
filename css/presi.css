@@ -1,0 +1,136 @@
+.imgCandidat {
+    border-radius: 50%;
+    width: 80%;
+    max-width: 250px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    padding: 10px;
+}
+
+.titreCand {
+    font-size: 1.15rem;
+    font-weight: bold;
+}
+
+
+
+
+carroussel {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+:root {
+    --marquee-width: 80vw;
+    --marquee-height: 20vh;
+    /* --marquee-elements: 12; */
+    /* defined with JavaScript */
+    --marquee-elements-displayed: 5;
+    --marquee-element-width: calc(var(--marquee-width) / var(--marquee-elements-displayed));
+    --marquee-animation-duration: calc(var(--marquee-elements) * 3s);
+}
+
+@media (max-width: 600px) {
+    html { font-size: 12px; }
+    :root {
+      --marquee-width: 80vw;
+      --marquee-height: 16vh;
+      --marquee-elements-displayed: 1;
+    }
+    .marquee:before, .marquee:after { width: 5rem; }
+  }
+
+.marquee {
+    width: 100%;
+    height: var(--marquee-height);
+    background-color: #FAF7FF;
+    color: rgb(51, 51, 51);
+    overflow: hidden;
+    position: relative;
+}
+
+.marquee:before,
+.marquee:after {
+    position: absolute;
+    top: 0;
+    width: 10rem;
+    height: 100%;
+    content: "";
+    z-index: 1;
+}
+
+.marquee:before {
+    left: 0;
+    background: linear-gradient(to right, #FAF7FF 0%, transparent 100%);
+}
+
+.marquee:after {
+    right: 0;
+    background: linear-gradient(to left, #FAF7FF 0%, transparent 100%);
+}
+
+.marquee-content {
+    list-style: none;
+    height: 100%;
+    display: flex;
+    animation: scrolling var(--marquee-animation-duration) linear infinite;
+}
+
+/* .marquee-content:hover {
+  animation-play-state: paused;
+} */
+@keyframes scrolling {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-1 * var(--marquee-element-width) * var(--marquee-elements)));
+    }
+}
+
+.marquee-content li {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    flex-shrink: 0;
+    width: 400px;
+    max-height: 100%;
+    /* 5rem; */
+    white-space: wrap;
+}
+
+
+.tweet{
+    background-color: white;
+    padding: 20px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.photoTweet{
+    border-radius: 50%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.tweetText{}
+
+.tweet-info-counts {
+    display: flex;
+    margin-top: 15px;
+  }
+  .tweet-info-counts div {
+    display: flex;
+    margin-right: 20px;
+  }
+  .tweet-info-counts div svg {
+    color:#657786ab;
+    margin-right: 10px;
+  }
+  
