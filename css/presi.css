@@ -24,7 +24,6 @@ carroussel {
 
 :root {
     --marquee-width: 80vw;
-    --marquee-height: 20vh;
     /* --marquee-elements: 12; */
     /* defined with JavaScript */
     --marquee-elements-displayed: 5;
@@ -33,14 +32,16 @@ carroussel {
 }
 
 @media (max-width: 600px) {
-    html { font-size: 12px; }
     :root {
-      --marquee-width: 80vw;
-      --marquee-height: 16vh;
-      --marquee-elements-displayed: 1;
+        --marquee-width: 80vw;
+        --marquee-elements-displayed: 1;
     }
-    .marquee:before, .marquee:after { width: 5rem; }
-  }
+
+    .marquee:before,
+    .marquee:after {
+        width: 5rem;
+    }
+}
 
 .marquee {
     width: 100%;
@@ -100,37 +101,60 @@ carroussel {
     text-align: left;
     flex-shrink: 0;
     width: 400px;
-    max-height: 100%;
     /* 5rem; */
     white-space: wrap;
 }
 
 
-.tweet{
+.tweet {
+    font-size: 1.1rem;
     background-color: white;
     padding: 20px;
     width: 100%;
     border-radius: 10px;
+    height: auto;
+    position: relative;
 }
 
-.photoTweet{
+.photoTweet {
     border-radius: 50%;
     width: 100%;
     object-fit: contain;
 }
 
-.tweetText{}
+.tweetText {}
 
 .tweet-info-counts {
     display: flex;
     margin-top: 15px;
-  }
-  .tweet-info-counts div {
+}
+
+.tweet-info-counts div {
     display: flex;
     margin-right: 20px;
-  }
-  .tweet-info-counts div svg {
-    color:#657786ab;
+}
+
+.tweet-info-counts div svg {
+    color: #657786ab;
     margin-right: 10px;
-  }
-  
+}
+
+.sentPill {
+    border-radius: 20px;
+    padding: 5px 10px;
+    position: absolute;
+    right: -15px;
+    bottom: -20px;
+    font-size: .9rem;
+}
+
+.cardEventCand{
+    cursor: pointer;
+
+}
+
+.cardEventCand:hover{
+    transform: scale(1.02);
+    color: white;
+    background-color: #6219D8;
+}
