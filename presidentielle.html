@@ -57,47 +57,72 @@
             <div class="container neumorphSectionNoHover" data-aos="flip-down">
                 <div class="container text-center">
                     <h4>Sentiments par candidats</h4>
+
+                    <div class="p-1 w-100 d-flex flex-row align-items-center justify-content-center">
+                        <div class="p-2" style="cursor: pointer;"
+                            onclick="document.getElementById('lesEvents').selectedIndex = Math.max(document.getElementById('lesEvents').selectedIndex - 1,0); toNaviGraph(document.getElementById('lesEvents').selectedIndex);">
+                            <img src="img/utils/chevron_left_black_24dp.svg">
+                        </div>
+                        <select onchange="toNaviGraph(this.selectedIndex)" name="cars" id="lesEvents"
+                            style="padding: 10px 20px; font-size: 1.2rem; border-radius: 10px; max-width: 90%;overflow-wrap: break-word;">
+
+                        </select>
+                        <div class="p-2" style="cursor: pointer;" onclick="document.getElementById('lesEvents').selectedIndex = Math.min(document.getElementById('lesEvents').selectedIndex + 1,document.getElementById('lesEvents').options.length -1); toNaviGraph(document.getElementById('lesEvents').selectedIndex);">
+                            <img src="img/utils/chevron_right_black_24dp.svg">
+                        </div>
+
+                    </div>
+
                     <div class="col-sm" style="padding: 20px 0px;">
                         <canvas id="chart1_courbeSent" style="min-height: 500px;"></canvas>
                     </div>
-                    <div class="row p-2">
-                        <div class="col-6 col-sm-3 my-2">
-                            <div class="card h-100 cardEventCand" onclick='navigGraph({min: 0, max: 62}, ["macron", "pecresse", "le pen", "zemmour", "mélenchon", "jadot", "taubira", "hidalgo", "roussel", "dupont-aignan"])'>
-                                <div class="card-body d-flex align-content-center flex-wrap justify-content-center text-center">
-                                    Vue d'ensemble
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-sm-3 my-2">
-                            <div class="card h-100 cardEventCand" onclick="navigGraph({min: 54, max: 62}, ['zemmour','mélenchon'])">
-                                <div class="card-body d-flex align-content-between flex-wrap justify-content-center text-center">
-                                    28/01/2022 : Débat Zemmour-Melenchon
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-sm-3 my-2">
-                            <div class="card h-100 cardEventCand" onclick="navigGraph({min: 60, max: 62}, ['pecresse','mélenchon'])">
-                                <div class="card-body d-flex align-content-between flex-wrap justify-content-center text-center">
-                                    14/02/2022 : Meeting de Pecresse & Melenchon
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+
                     <script>
+                        let listeEvents = [
+                            ["Vue d'ensemble", {
+                                    min: 0,
+                                    max: 62
+                                },
+                                ["macron", "pecresse", "le pen", "zemmour", "mélenchon", "jadot", "taubira", "hidalgo", "roussel", "dupont-aignan"]
+                            ],
+                            ["28/01/2022 : Débat Zemmour-Melenchon", {
+                                    min: 54,
+                                    max: 62
+                                },
+                                ['zemmour', 'mélenchon']
+                            ],
+                            ["14/02/2022 : Meeting de Pecresse & Melenchon", {
+                                    min: 60,
+                                    max: 62
+                                },
+                                ['pecresse', 'mélenchon']
+                            ],
+                        ];
+
+                        for (ii in listeEvents){
+                            document.getElementById('lesEvents').insertAdjacentHTML("beforeend", "<option> "+ listeEvents[ii][0] +"</option>")
+                        }
+
+                        const toNaviGraph = (theIndex) => {
+                            navigGraph(listeEvents[theIndex][1], listeEvents[theIndex][2])
+                        }
+
                         const navigGraph = (scale, candidats) => {
-                            for (ii in chart1.data.datasets){
-                                if (!candidats.includes(chart1.data.datasets[ii].label)){
+                            for (ii in chart1.data.datasets) {
+                                if (!candidats.includes(chart1.data.datasets[ii].label)) {
                                     chart1.setDatasetVisibility(ii, false);
-                                } else{
+                                } else {
                                     chart1.setDatasetVisibility(ii, true);
                                 }
                             }
                             chart1.update();
-                            chart1.zoomScale(chart1.scales.xAxes.id,scale,mode='active');
+                            chart1.zoomScale(chart1.scales.xAxes.id, scale, mode = 'active');
                         };
                     </script>
                 </div>
             </div>
+
 
             <div class="carroussel">
                 <div class="marquee">
@@ -115,10 +140,23 @@
                 };
 
                 let lesTweets = [
-                    ['Vous etes les meilleurs', 'Très Positif'],
-                    ['Macron est tres mechant', 'Très Négatif'],
-                    ['Jadot est une personne parce que voila voila ce message est particulierement long mais cest comme ca', 'Neutre'],
-                    ['liberez mandela et votez pour segolene royale', 'Positif']
+                    ["Macron sera élu c'est évident personne d'autre peut gagner (ce qui est bien triste)", 'Négatif'],
+                    ["Sur tous les sujets politique #Melenchon plie le game easy ! C'est une machine de savoir et qui demande à en apprendre chaque jour 👍",
+                        "Très Positif"
+                    ],
+                    ["Pecresse : un jour un échec 😂 #PecresseNaufrage", "Très Négatif"],
+                    ["Roussel en bon Béthunois il veut pas lâcher un peu la barbaque et défendre la bonne bière ?", "Neutre"],
+                    ["Le Jadot qui s'attaque à Zemmour c'est le Jadot que j'aime bien.", "Positif"],
+                    ["@ChTaubira Surtout une lache qui se prend pour le centre de l´univers et qui commence à percevoir qu´elle pèse 3%",
+                        "Très Négatif"
+                    ],
+                    ["Vu ce que Hidalgo a fait à Paris je trouve étrange qu'il y ait autant d'élus enthousiaste à la laisser faire pareille avec le pays en entier.",
+                        "Négatif"
+                    ],
+                    ["Elle a raison. Le programme de Zemmour est intéressant. Du simple fait qu'il s’émancipe du charabia habituel des gauchistes qui a plombé l’École.",
+                        "Positif"
+                    ],
+
                 ];
 
                 for (ii in lesTweets) {
@@ -169,7 +207,7 @@
             <div class="row">
                 <div class="col-12 col-md-6">
                     <div class="container neumorphSection" style="margin: 0px;" data-aos="flip-down">
-                        <h4>Semaine</h4>
+                        <h4>Sentiments des tweets selon<br>les jours de publication</h4>
                         <div class="col-sm" style="padding: 20px 0px;">
                             <canvas id="chart2_courbeJour" style="min-height: 300px;"></canvas>
                         </div>
@@ -177,7 +215,7 @@
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="container neumorphSection" style="margin: 0px;" data-aos="flip-down">
-                        <h4>Heures</h4>
+                        <h4>Sentiments des tweets selon<br>les heures de publication</h4>
                         <div class="col-sm" style="padding: 20px 0px;">
                             <canvas id="chart3_courbeHeure" style="min-height: 300px;"></canvas>
                         </div>

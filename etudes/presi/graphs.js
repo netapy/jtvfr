@@ -67,10 +67,6 @@ var chart1 = new Chart(courbe1, {
         }]
     },
     options: {
-        legend: {
-            position: 'bottom',
-            maxWidth: 100,
-        },
         responsive: true,
         interaction: {
             intersect: true,
@@ -93,6 +89,9 @@ var chart1 = new Chart(courbe1, {
             },
         },
         plugins: {
+            legend: {
+                position: 'bottom'
+            },
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
@@ -122,7 +121,7 @@ var courbe2 = document.getElementById('chart2_courbeJour').getContext('2d');
 var chart2 = new Chart(courbe2, {
     type: 'bar',
     data: {
-        "labels": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "labels": ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"],
         "datasets": [{
             "data": ["2.1749345211870246", "2.181104304798217", "2.173469414953874", "2.163155202988543", "2.2303432222806334", "2.204978515924326", "2.1857983821413085"],
             "label": "Sentiment",
@@ -150,6 +149,9 @@ var chart2 = new Chart(courbe2, {
                 gridLines: {
                     display: false
                 },
+            },
+            yAxes: {
+                min: 2.1
             },
         },
         plugins: {
@@ -203,6 +205,10 @@ var chart3 = new Chart(courbe3, {
                     maxTicksLimit: 10
                 }
             },
+            yAxes: {
+                min: 2
+            },
+
         },
         plugins: {
             deferred: {
