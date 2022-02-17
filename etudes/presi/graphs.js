@@ -116,6 +116,8 @@ var chart1 = new Chart(courbe1, {
     }
 });
 
+chart1.canvas.style.touchAction = "pan-y";
+
 //graph jours et sentiments
 var courbe2 = document.getElementById('chart2_courbeJour').getContext('2d');
 var chart2 = new Chart(courbe2, {
