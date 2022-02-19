@@ -67,7 +67,8 @@
                             style="padding: 10px 20px; font-size: 1.2rem; border-radius: 10px; max-width: 90%;overflow-wrap: break-word;">
 
                         </select>
-                        <div class="p-2" style="cursor: pointer;" onclick="document.getElementById('lesEvents').selectedIndex = Math.min(document.getElementById('lesEvents').selectedIndex + 1,document.getElementById('lesEvents').options.length -1); toNaviGraph(document.getElementById('lesEvents').selectedIndex);">
+                        <div class="p-2" style="cursor: pointer;"
+                            onclick="document.getElementById('lesEvents').selectedIndex = Math.min(document.getElementById('lesEvents').selectedIndex + 1,document.getElementById('lesEvents').options.length -1); toNaviGraph(document.getElementById('lesEvents').selectedIndex);">
                             <img src="img/utils/chevron_right_black_24dp.svg">
                         </div>
 
@@ -77,52 +78,114 @@
                         <canvas id="chart1_courbeSent" style="min-height: 500px;"></canvas>
                     </div>
 
-
-                    <script>
-                        let listeEvents = [
-                            ["Vue d'ensemble", {
-                                    min: 0,
-                                    max: 62
-                                },
-                                ["macron", "pecresse", "le pen", "zemmour", "mélenchon", "jadot", "taubira", "hidalgo", "roussel", "dupont-aignan"]
-                            ],
-                            ["28/01/2022 : Débat Zemmour-Melenchon", {
-                                    min: 54,
-                                    max: 62
-                                },
-                                ['zemmour', 'mélenchon']
-                            ],
-                            ["14/02/2022 : Meeting de Pecresse & Melenchon", {
-                                    min: 60,
-                                    max: 62
-                                },
-                                ['pecresse', 'mélenchon']
-                            ],
-                        ];
-
-                        for (ii in listeEvents){
-                            document.getElementById('lesEvents').insertAdjacentHTML("beforeend", "<option> "+ listeEvents[ii][0] +"</option>")
-                        }
-
-                        const toNaviGraph = (theIndex) => {
-                            navigGraph(listeEvents[theIndex][1], listeEvents[theIndex][2])
-                        }
-
-                        const navigGraph = (scale, candidats) => {
-                            for (ii in chart1.data.datasets) {
-                                if (!candidats.includes(chart1.data.datasets[ii].label)) {
-                                    chart1.setDatasetVisibility(ii, false);
-                                } else {
-                                    chart1.setDatasetVisibility(ii, true);
-                                }
-                            }
-                            chart1.update();
-                            chart1.zoomScale(chart1.scales.xAxes.id, scale, mode = 'active');
-                        };
-                    </script>
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="container neumorphSection" data-aos="flip-down" data-aos-delay="200">
+                        <h4>Candidats les <u>plus</u> populaires</h4>
+                        <div class="w-100 p-3">
+                            <div class="row">
+                                <div class="col-3">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Emmanuel_Macron_%28cropped%29.jpg"
+                                        class="imgCandidat">
+                                        <!-- <span style="position:absolute; top:-50%; left: 10%; font-size: 2.2rem; ">👑</span> -->
+                                    </div>
+                                <div class="col-9 text-left d-flex justify-content-center flex-column ">
+                                    <div class="titreCand">1. J-L Melenchon</div>
+                                    <span class="goodPerf mb-1 w-50 text-center">Très positif</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 p-3">
+                            <div class="row">
+                                <div class="col-3"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Emmanuel_Macron_%28cropped%29.jpg"
+                                        class="imgCandidat"></div>
+                                <div class="col-9 text-left d-flex justify-content-center flex-column ">
+                                    <div class="titreCand">2. Christiane Taubira</div>
+                                    <span class="goodPerf mb-1 w-50 text-center">Très positif</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 p-3">
+                            <div class="row">
+                                <div class="col-3"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Emmanuel_Macron_%28cropped%29.jpg"
+                                        class="imgCandidat"></div>
+                                <div class="col-9 text-left d-flex justify-content-center flex-column ">
+                                    <div class="titreCand">3. Eric Zemmour</div>
+                                    <span class="goodPerf mb-1 w-50 text-center">Positif</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="container neumorphSection" data-aos="flip-down" data-aos-delay="200">
+                        <h4>Candidats les <u>moins</u> populaires</h4>
+                        <div class="w-100 p-3">
+                            <div class="row">
+                                <div class="col-3"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Emmanuel_Macron_%28cropped%29.jpg"
+                                        class="imgCandidat"></div>
+                                <div class="col-9 text-left d-flex justify-content-center flex-column ">
+                                    <div class="titreCand">1. Anne Hidalgo</div>
+                                    <span class="badPerf mb-1 w-50 text-center">Négatif</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 p-3">
+                            <div class="row">
+                                <div class="col-3"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Emmanuel_Macron_%28cropped%29.jpg"
+                                        class="imgCandidat"></div>
+                                <div class="col-9 text-left d-flex justify-content-center flex-column ">
+                                    <div class="titreCand">2. Valérie Pécresse</div>
+                                    <span class="badPerf mb-1 w-50 text-center">Négatif</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 p-3">
+                            <div class="row">
+                                <div class="col-3">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Emmanuel_Macron_%28cropped%29.jpg"
+                                        class="imgCandidat">
+                                        <!-- <span style="position:absolute; top:-50%; left: 10%; font-size: 2.2rem; ">👑</span> -->
+                                    </div>
+                                <div class="col-9 text-left d-flex justify-content-center flex-column ">
+                                    <div class="titreCand">3. Fabien Roussel</div>
+                                    <span class="badPerf mb-1 w-50 text-center">Très négatif</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="container neumorphSection" data-aos="flip-down">
+                <div class="container text-center">
+                    <h4>Les candidats les mieux perçus en février</h4>
+                    <div class="row px-0 px-md-5" style="padding: 20px 0px;">
+                        <div class="col-12 col-md-6 order-md-6 text-center">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Emmanuel_Macron_%28cropped%29.jpg" class="imgCandidat">
+                            <div class="titreCand">1. Yannick Jadot</div>
+                            <h6 style="opacity: .35;">(2.31 points)</h6>
+                        </div>
+                        <div class="col-6 col-md-3 order-md-1 text-center">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Yannick_Jadot_against_Miguel_Canete_%2815395546666%29_%28cropped%29.jpg"
+                                class="imgCandidat">
+                            <div class="titreCand">2. J-L Mélenchon</div>
+                            <h6 style="opacity: .35;">(2.28 points)</h6>
+                        </div>
+                        <div class="col-6 col-md-3 order-md-12 text-center">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Val%C3%A9rie_Pecresse_C%C3%A9sar_2016_%28cropped%29.jpg/220px-Val%C3%A9rie_Pecresse_C%C3%A9sar_2016_%28cropped%29.jpg"
+                                class="imgCandidat">
+                            <div class="titreCand">3. Eric Zemmour</div>
+                            <h6 style="opacity: .35;">(2.27 points)</h6>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
 
             <div class="carroussel">
                 <div class="marquee">
@@ -181,28 +244,11 @@
 
             <div class="container neumorphSection" data-aos="flip-down">
                 <div class="container text-center">
-                    <h4>Les candidats les mieux perçus en février</h4>
-                    <div class="row px-0 px-md-5" style="padding: 20px 0px;">
-                        <div class="col-12 col-md-6 order-md-6 text-center">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Emmanuel_Macron_%28cropped%29.jpg" class="imgCandidat">
-                            <div class="titreCand">1. Yannick Jadot</div>
-                            <h6 style="opacity: .35;">(2.31 points)</h6>
-                        </div>
-                        <div class="col-6 col-md-3 order-md-1 text-center">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Yannick_Jadot_against_Miguel_Canete_%2815395546666%29_%28cropped%29.jpg"
-                                class="imgCandidat">
-                            <div class="titreCand">2. J-L Mélenchon</div>
-                            <h6 style="opacity: .35;">(2.28 points)</h6>
-                        </div>
-                        <div class="col-6 col-md-3 order-md-12 text-center">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Val%C3%A9rie_Pecresse_C%C3%A9sar_2016_%28cropped%29.jpg/220px-Val%C3%A9rie_Pecresse_C%C3%A9sar_2016_%28cropped%29.jpg"
-                                class="imgCandidat">
-                            <div class="titreCand">3. Eric Zemmour</div>
-                            <h6 style="opacity: .35;">(2.27 points)</h6>
-                        </div>
-                    </div>
+                    <h4>Les termes les plus évoqués par les français lors de la campagne </h4>
+                    <div><img src="etudes/presi/presiWordCloud20220218.png" alt="nuage de mots presidentielles" style="width: 100%;"></div>
                 </div>
             </div>
+
 
             <div class="row">
                 <div class="col-12 col-md-6">
@@ -513,6 +559,90 @@
                     <script src="ressources/gnrl.js"></script>
                     <script src="ressources/lottieplayer.min.js"></script>
                     <script src="etudes/presi/graphs.js"></script>
+
+                    <script>
+                        let listeEvents = [
+                            ["7 derniers jours", {
+                                    min: chart1.data.labels.length - 7,
+                                    max: chart1.data.labels.length
+                                },
+                                ["macron", "pecresse", "le pen", "zemmour", "mélenchon", "jadot", "taubira", "hidalgo", "roussel",
+                                    "dupont-aignan"
+                                ]
+                            ],
+                            ["Vue d'ensemble", {
+                                    min: 0,
+                                    max: 62
+                                },
+                                ["macron", "pecresse", "le pen", "zemmour", "mélenchon", "jadot", "taubira", "hidalgo", "roussel",
+                                    "dupont-aignan"
+                                ]
+                            ],
+                            ["Début décembre : Pécresse remporte le Congrès des Républicains, Zemmour mène son premier meeting", {
+                                    min: 2,
+                                    max: 6
+                                },
+                                ["pecresse", "zemmour"]
+                            ],
+                            ["14/12 : Jadot décline l’invitation à la Primaire de la Gauche le 14 décembre", {
+                                    min: 11,
+                                    max: 15
+                                },
+                                ["jadot"]
+                            ],
+                            ["Debut janvier : Polémique Macron “emmerde les antivax”", {
+                                    min: 30,
+                                    max: 44
+                                },
+                                ["macron"]
+                            ],
+                            ["22/01 : Des cadres de Le Pen rejoignent Zemmour", {
+                                    min: 47,
+                                    max: 55
+                                },
+                                ["zemmour", "le pen"]
+                            ],
+                            ["28/01/2022 : Débat Zemmour-Melenchon", {
+                                    min: 57,
+                                    max: 62
+                                },
+                                ['zemmour', 'mélenchon']
+                            ],
+                            ["30/01 : Taubira élue par la Primaire Populaire", {
+                                    min: 51,
+                                    max: 63
+                                },
+                                ['taubira', 'hidalgo']
+                            ],
+                            ["14/02/2022 : Meeting de Pecresse & Melenchon", {
+                                    min: 60,
+                                    max: 62
+                                },
+                                ['pecresse', 'mélenchon']
+                            ],
+                        ];
+
+                        for (ii in listeEvents) {
+                            document.getElementById('lesEvents').insertAdjacentHTML("beforeend", "<option> " + listeEvents[ii][0] + "</option>")
+                        }
+
+                        const toNaviGraph = (theIndex) => {
+                            navigGraph(listeEvents[theIndex][1], listeEvents[theIndex][2])
+                        }
+
+                        const navigGraph = (scale, candidats) => {
+                            for (ii in chart1.data.datasets) {
+                                if (!candidats.includes(chart1.data.datasets[ii].label.toLowerCase())) {
+                                    chart1.setDatasetVisibility(ii, false);
+                                } else {
+                                    chart1.setDatasetVisibility(ii, true);
+                                }
+                            }
+                            chart1.update();
+                            chart1.zoomScale(chart1.scales.xAxes.id, scale, mode = 'active');
+                        };
+                        toNaviGraph(0)
+                    </script>
 
                     <script>
                         AOS.init()

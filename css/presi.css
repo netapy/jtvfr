@@ -1,14 +1,13 @@
 .imgCandidat {
     border-radius: 50%;
-    width: 80%;
-    max-width: 250px;
+    width: 100%;
+    max-width: 150px;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    padding: 10px;
 }
 
 .titreCand {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     font-weight: bold;
 }
 
@@ -29,18 +28,6 @@ carroussel {
     --marquee-elements-displayed: 5;
     --marquee-element-width: calc(var(--marquee-width) / var(--marquee-elements-displayed));
     --marquee-animation-duration: calc(var(--marquee-elements) * 3s);
-}
-
-@media (max-width: 600px) {
-    :root {
-        --marquee-width: 80vw;
-        --marquee-elements-displayed: 1;
-    }
-
-    .marquee:before,
-    .marquee:after {
-        width: 5rem;
-    }
 }
 
 .marquee {
@@ -105,6 +92,24 @@ carroussel {
     white-space: wrap;
 }
 
+@media (max-width: 600px) {
+    :root {
+        --marquee-width: 80vw;
+        --marquee-elements-displayed: 1;
+    }
+
+    .marquee:before {
+        left: 0;
+        background: linear-gradient(to right, #FAF7FF 0%, transparent 50%);
+        width: 5rem;
+    }
+    
+    .marquee:after {
+        right: 0;
+        background: linear-gradient(to left, #FAF7FF 0%, transparent 50%);
+        width: 5rem;
+    }
+}
 
 .tweet {
     font-size: 1.1rem;
@@ -157,4 +162,22 @@ carroussel {
     transform: scale(1.02);
     color: white;
     background-color: #6219D8;
+}
+
+.goodPerf{
+    background-color: #2FCC72;
+    font-size: .9rem;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.badPerf{
+    background-color: #E74C3C;
+    font-size: .9rem;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-weight: bold;
 }
