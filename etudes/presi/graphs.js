@@ -1,5 +1,6 @@
 minSent = 1.8
-echelleSentiments = [minSent, minSent+.2, minSent+.4, minSent+.6, minSent+.8]
+echelleSentiments = [minSent, minSent + .2, minSent + .4, minSent + .6, minSent + .8]
+echelleSentimentsShort = [minSent, minSent + .35, minSent + .4, minSent + .45, minSent + .8]
 
 //graph score candidats a travers le temps
 var courbe1 = document.getElementById('chart1_courbeSent').getContext('2d');
@@ -90,9 +91,11 @@ var chart1 = new Chart(courbe1, {
                     min: 0,
                     max: 3,
                     stepSize: .1,
-                    // Include a dollar sign in the ticks
+                    font: {
+                        size: 18
+                    },
                     callback: function (value, index, ticks) {
-                        if (echelleSentiments.includes(value)) return ['Très négatif', 'Négatif', 'Neutre', 'Positif', 'Très positif'][echelleSentiments.indexOf(value)];
+                        if (echelleSentiments.includes(value)) return ['😡', '😕', '😐', '🙂', '😀'][echelleSentiments.indexOf(value)];
                     }
                 }
             }
@@ -100,9 +103,14 @@ var chart1 = new Chart(courbe1, {
         plugins: {
             tooltip: {
                 enabled: false,
-            },    
+            },
             legend: {
-                position: 'bottom'
+                position: 'bottom',
+                labels: {
+                    font: {
+                        size: 14
+                    }
+                }
             },
             deferred: {
                 xOffset: 150,
@@ -149,9 +157,6 @@ var chart2 = new Chart(courbe2, {
     },
     options: {
         responsive: true,
-        legend: {
-            display: false
-        },
         tooltips: {
             mode: 'index',
             intersect: false,
@@ -170,18 +175,27 @@ var chart2 = new Chart(courbe2, {
                 },
             },
             yAxes: {
-                min:2,
-                max:2.5,
+                min: 2.12,
+                max: 2.25,
                 ticks: {
-                    stepSize: .1,
+                    font: {
+                        size: 18
+                    },
+                    stepSize: .01,
                     // Include a dollar sign in the ticks
                     callback: function (value, index, ticks) {
-                        if (echelleSentiments.includes(value)) return ['Très négatif', 'Négatif', 'Neutre', 'Positif', 'Très positif'][echelleSentiments.indexOf(value)];
+                        if (echelleSentimentsShort.includes(value)) return ['😡', '😕', '😐', '🙂', '😀'][echelleSentimentsShort.indexOf(value)];
                     }
                 }
             }
         },
         plugins: {
+            legend: {
+                display: false
+            },    
+            tooltip: {
+                enabled: false,
+            },
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
@@ -208,9 +222,6 @@ var chart3 = new Chart(courbe3, {
     },
     options: {
         responsive: true,
-        legend: {
-            display: false
-        },
         tooltips: {
             mode: 'index',
             intersect: false,
@@ -233,18 +244,27 @@ var chart3 = new Chart(courbe3, {
                 }
             },
             yAxes: {
-                min:2,
-                max:2.5,
+                min: 2.12,
+                max: 2.25,
                 ticks: {
-                    stepSize: .1,
+                    font: {
+                        size: 18
+                    },
+                    stepSize: .01,
                     // Include a dollar sign in the ticks
                     callback: function (value, index, ticks) {
-                        if (echelleSentiments.includes(value)) return ['Très négatif', 'Négatif', 'Neutre', 'Positif', 'Très positif'][echelleSentiments.indexOf(value)];
+                        if (echelleSentimentsShort.includes(value)) return ['😡', '😕', '😐', '🙂', '😀'][echelleSentimentsShort.indexOf(value)];
                     }
                 }
             }
         },
         plugins: {
+            legend: {
+                display: false
+            },    
+            tooltip: {
+                enabled: false,
+            },
             deferred: {
                 xOffset: 150,
                 yOffset: '50%',
