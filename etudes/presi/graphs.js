@@ -107,6 +107,7 @@ var chart1 = new Chart(courbe1, {
             legend: {
                 position: 'bottom',
                 labels: {
+                    padding: 20,
                     font: {
                         size: 14
                     }

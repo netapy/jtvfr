@@ -103,7 +103,7 @@ carroussel {
         background: linear-gradient(to right, #FAF7FF 0%, transparent 50%);
         width: 5rem;
     }
-    
+
     .marquee:after {
         right: 0;
         background: linear-gradient(to left, #FAF7FF 0%, transparent 50%);
@@ -153,18 +153,18 @@ carroussel {
     font-size: .9rem;
 }
 
-.cardEventCand{
+.cardEventCand {
     cursor: pointer;
 
 }
 
-.cardEventCand:hover{
+.cardEventCand:hover {
     transform: scale(1.02);
     color: white;
     background-color: #6219D8;
 }
 
-.goodPerf{
+.goodPerf {
     background-color: #2FCC72;
     font-size: .9rem;
     color: white;
@@ -173,11 +173,18 @@ carroussel {
     font-weight: bold;
 }
 
-.badPerf{
+.badPerf {
     background-color: #E74C3C;
     font-size: .9rem;
     color: white;
     padding: 3px 8px;
     border-radius: 10px;
     font-weight: bold;
+}
+
+.descriptionEvent {
+    font-size: 20px;
+    background-color: rgba(98, 25, 216, 0.04);
+    padding: 10px 0px;
+    border-radius: 10px;
 }

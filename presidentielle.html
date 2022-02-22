@@ -23,6 +23,9 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
     <script src="ressources/chartjs-zoom.js"></script>
+    <script src="ressources/countup.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QSTY073PT9"></script>
     <script>
@@ -71,10 +74,13 @@
                             onclick="document.getElementById('lesEvents').selectedIndex = Math.min(document.getElementById('lesEvents').selectedIndex + 1,document.getElementById('lesEvents').options.length -1); toNaviGraph(document.getElementById('lesEvents').selectedIndex);">
                             <img src="img/utils/chevron_right_black_24dp.svg">
                         </div>
-
                     </div>
 
-                    <div class="col-sm" style="padding: 20px 0px;">
+                    <div id="descriEvent" class="descriptionEvent p-2 m-3" style="display: none;">
+                        ...
+                    </div>
+
+                    <div class="col-sm">
                         <canvas id="chart1_courbeSent" style="min-height: 500px;"></canvas>
                     </div>
 
@@ -90,8 +96,8 @@
                                 <div class="col-3">
                                     <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Emmanuel_Macron_%28cropped%29.jpg"
                                         class="imgCandidat">
-                                        <!-- <span style="position:absolute; top:-50%; left: 10%; font-size: 2.2rem; ">👑</span> -->
-                                    </div>
+                                    <!-- <span style="position:absolute; top:-50%; left: 10%; font-size: 2.2rem; ">👑</span> -->
+                                </div>
                                 <div class="col-9 text-left d-flex justify-content-center flex-column ">
                                     <div class="titreCand">1. J-L Melenchon</div>
                                     <span class="goodPerf mb-1 w-50 text-center">Très positif</span>
@@ -149,8 +155,8 @@
                                 <div class="col-3">
                                     <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Emmanuel_Macron_%28cropped%29.jpg"
                                         class="imgCandidat">
-                                        <!-- <span style="position:absolute; top:-50%; left: 10%; font-size: 2.2rem; ">👑</span> -->
-                                    </div>
+                                    <!-- <span style="position:absolute; top:-50%; left: 10%; font-size: 2.2rem; ">👑</span> -->
+                                </div>
                                 <div class="col-9 text-left d-flex justify-content-center flex-column ">
                                     <div class="titreCand">3. Fabien Roussel</div>
                                     <span class="badPerf mb-1 w-50 text-center">Très négatif</span>
@@ -271,27 +277,46 @@
 
             <div class="row mt-4">
                 <div class="col-6 col-md-3">
-                    <div class="container neumorphSectionSmall d-flex flex-column align-items-center justify-content-center" data-aos="flip-down">
-                        <h1 style="margin: none;">726</h1>
-                        <div>jours analysés</div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="container neumorphSectionSmall d-flex flex-column align-items-center justify-content-center" data-aos="flip-down" data-aos-delay="100">
-                        <h1 style="margin: none;">726</h1>
-                        <div>tweets analysés</div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="container neumorphSectionSmall d-flex flex-column align-items-center justify-content-center" data-aos="flip-down" data-aos-delay="200">
-                        <h1 style="margin: none;">726</h1>
+                    <div class="container neumorphSectionSmall d-flex flex-column align-items-center justify-content-center" data-aos="flip-down"
+                        data-aos-id="super-duper">
+                        <h1 style="padding: 0px; color: #6219D8;" id="gain1">726</h1>
                         <div>candidats</div>
                     </div>
                 </div>
                 <div class="col-6 col-md-3">
-                    <div class="container neumorphSectionSmall d-flex flex-column align-items-center justify-content-center" data-aos="flip-down" data-aos-delay="300">
-                        <h1 style="margin: none;">726</h1>
+                    <div class="container neumorphSectionSmall d-flex flex-column align-items-center justify-content-center" data-aos="flip-down"
+                        data-aos-delay="100">
+                        <h1 style="padding: 0px; color: #6219D8;" id="gain2">726</h1>
+                        <div>jours analysés</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="container neumorphSectionSmall d-flex flex-column align-items-center justify-content-center" data-aos="flip-down"
+                        data-aos-delay="200">
+                        <h1 style="padding: 0px; color: #6219D8;" id="gain3">726</h1>
+                        <div>tweets analysés</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="container neumorphSectionSmall d-flex flex-column align-items-center justify-content-center" data-aos="flip-down"
+                        data-aos-delay="300">
+                        <h1 style="padding: 0px; color: #6219D8;" id="gain4">726</h1>
                         <div>mots analysés</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="container neumorphSection" style="margin: 0px;" data-aos="flip-down">
+                        <h4>Sentiments des tweets selon<br>les jours de publication</h4>
+
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="container neumorphSection" style="margin: 0px;" data-aos="flip-down">
+                        <h4>Sentiments des tweets selon<br>les heures de publication</h4>
+
                     </div>
                 </div>
             </div>
@@ -555,7 +580,6 @@
                     </script>
 
 
-                    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
                     <script src="ressources/gnrl.js"></script>
                     <script src="ressources/lottieplayer.min.js"></script>
                     <script src="etudes/presi/graphs.js"></script>
@@ -582,43 +606,50 @@
                                     min: 2,
                                     max: 6
                                 },
-                                ["pecresse", "zemmour"]
+                                ["pecresse", "zemmour"],
+                                "Description de l'evenement indiqué au dessus."
                             ],
                             ["14/12 : Jadot décline l’invitation à la Primaire de la Gauche le 14 décembre", {
                                     min: 11,
                                     max: 15
                                 },
-                                ["jadot"]
+                                ["jadot"],
+                                "Description de l'evenement indiqué au dessus."
                             ],
                             ["Debut janvier : Polémique Macron “emmerde les antivax”", {
                                     min: 30,
                                     max: 44
                                 },
-                                ["macron"]
+                                ["macron"],
+                                "Description de l'evenement indiqué au dessus."
                             ],
                             ["22/01 : Des cadres de Le Pen rejoignent Zemmour", {
                                     min: 47,
                                     max: 55
                                 },
-                                ["zemmour", "le pen"]
+                                ["zemmour", "le pen"],
+                                "Description de l'evenement indiqué au dessus."
                             ],
                             ["28/01/2022 : Débat Zemmour-Melenchon", {
                                     min: 57,
                                     max: 62
                                 },
-                                ['zemmour', 'mélenchon']
+                                ['zemmour', 'mélenchon'],
+                                "Description de l'evenement indiqué au dessus."
                             ],
                             ["30/01 : Taubira élue par la Primaire Populaire", {
                                     min: 51,
                                     max: 63
                                 },
-                                ['taubira', 'hidalgo']
+                                ['taubira', 'hidalgo'],
+                                "Description de l'evenement indiqué au dessus."
                             ],
                             ["14/02/2022 : Meeting de Pecresse & Melenchon", {
                                     min: 60,
                                     max: 62
                                 },
-                                ['pecresse', 'mélenchon']
+                                ['pecresse', 'mélenchon'],
+                                "Description de l'evenement indiqué au dessus."
                             ],
                         ];
 
@@ -627,6 +658,12 @@
                         }
 
                         const toNaviGraph = (theIndex) => {
+                            if (theIndex >= 2) {
+                                document.querySelector('#descriEvent').style.display = '';
+                                document.querySelector('#descriEvent').innerHTML = listeEvents[theIndex][3]
+                            } else {
+                                document.querySelector('#descriEvent').style.display = 'none';
+                            }
                             navigGraph(listeEvents[theIndex][1], listeEvents[theIndex][2])
                         }
 
@@ -641,7 +678,24 @@
                             chart1.update();
                             chart1.zoomScale(chart1.scales.xAxes.id, scale, mode = 'active');
                         };
-                        toNaviGraph(0)
+                        toNaviGraph(0);
+
+                        var gain1 = new CountUp("gain1", 10);
+                        var gain2 = new CountUp("gain2", 76);
+                        var gain3 = new CountUp("gain3", 3147615);
+                        var gain4 = new CountUp("gain4", 73320438);
+
+                        function roulement() {
+                            gain1.start();
+                            gain2.start();
+                            gain3.start();
+                            gain4.start();
+                        };
+                        document.addEventListener('aos:in:super-duper', ({
+                            detail
+                        }) => {
+                            roulement();
+                        });
                     </script>
 
                     <script>
