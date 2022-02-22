@@ -89,7 +89,7 @@
             <div class="row">
                 <div class="col-12 col-md-6">
                     <div class="container neumorphSection" data-aos="flip-down" data-aos-delay="200">
-                        <h4>Candidats les <u>plus</u> populaires</h4>
+                        <h4>Les candidats les <u>plus</u> populaires<br>de la semaine</h4>
                         <div class="w-100 p-3">
                             <div class="row">
                                 <div class="col-3">
@@ -108,7 +108,7 @@
                                 <div class="col-3"><img src="https://cdn.radiofrance.fr/s3/cruiser-production/2020/09/aa82c9e7-b213-4c02-8845-7b5b848b563d/838_photo_christiane_taubira.webp"
                                         class="imgCandidat"></div>
                                 <div class="col-9 text-left d-flex justify-content-center flex-column ">
-                                    <div class="titreCand">2. Christiane Taubira</div>
+                                    <div class="titreCand">2. Marine Le Pen</div>
                                     <span class="goodPerf mb-1 w-50 text-center">Très positif</span>
                                 </div>
                             </div>
@@ -128,14 +128,14 @@
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="container neumorphSection" data-aos="flip-down" data-aos-delay="200">
-                        <h4>Candidats les <u>moins</u> populaires</h4>
+                        <h4>Les candidats les <u>moins</u> populaires<br>de la semaine</h4>
                         <div class="w-100 p-3">
                             <div class="row">
                                 <div class="col-3"><img src="https://cdn.paris.fr/paris/2020/07/03/huge-dc64cc08aac6ec80b6fb7162599222be.jpg"
                                         class="imgCandidat"></div>
                                 <div class="col-9 text-left d-flex justify-content-center flex-column ">
                                     <div class="titreCand">1. Anne Hidalgo</div>
-                                    <span class="badPerf mb-1 w-50 text-center">Négatif</span>
+                                    <span class="badPerf mb-1 w-50 text-center">Très Négatif</span>
                                 </div>
                             </div>
                         </div>
@@ -144,7 +144,7 @@
                                 <div class="col-3"><img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Val%C3%A9rie_Pecresse_C%C3%A9sar_2016_%28cropped%29.jpg"
                                         class="imgCandidat"></div>
                                 <div class="col-9 text-left d-flex justify-content-center flex-column ">
-                                    <div class="titreCand">2. Valérie Pécresse</div>
+                                    <div class="titreCand">2. Fabien Roussel</div>
                                     <span class="badPerf mb-1 w-50 text-center">Négatif</span>
                                 </div>
                             </div>
@@ -157,8 +157,8 @@
                                     <!-- <span style="position:absolute; top:-50%; left: 10%; font-size: 2.2rem; ">👑</span> -->
                                 </div>
                                 <div class="col-9 text-left d-flex justify-content-center flex-column ">
-                                    <div class="titreCand">3. Fabien Roussel</div>
-                                    <span class="badPerf mb-1 w-50 text-center">Très négatif</span>
+                                    <div class="titreCand">3. Valérie Pécresse</div>
+                                    <span class="badPerf mb-1 w-50 text-center">Négatif</span>
                                 </div>
                             </div>
                         </div>
@@ -590,15 +590,15 @@
                                     max: chart1.data.labels.length
                                 },
                                 ["macron", "pecresse", "le pen", "zemmour", "mélenchon", "jadot", "taubira", "hidalgo", "roussel",
-                                    "dupont-aignan"
+                                    "dupont-aignan", "arthaud","lassalle"
                                 ]
                             ],
                             ["Vue d'ensemble", {
                                     min: 0,
-                                    max: 62
+                                    max: chart1.data.labels.length
                                 },
                                 ["macron", "pecresse", "le pen", "zemmour", "mélenchon", "jadot", "taubira", "hidalgo", "roussel",
-                                    "dupont-aignan"
+                                    "dupont-aignan", "arthaud","lassalle"
                                 ]
                             ],
                             ["Début décembre : Pécresse remporte le Congrès des Républicains, Zemmour mène son premier meeting", {
@@ -680,9 +680,9 @@
                         toNaviGraph(0);
 
                         var gain1 = new CountUp("gain1", 10);
-                        var gain2 = new CountUp("gain2", 76);
-                        var gain3 = new CountUp("gain3", 3147615);
-                        var gain4 = new CountUp("gain4", 73320438);
+                        var gain2 = new CountUp("gain2", 82);
+                        var gain3 = new CountUp("gain3", 3444740);
+                        var gain4 = new CountUp("gain4", 80245194);
 
                         function roulement() {
                             gain1.start();
