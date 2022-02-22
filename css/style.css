@@ -747,3 +747,11 @@ hr {
 .textCartMsg{
     font-size: 1.2rem;
 }
+
+.textgreen {
+    color: #2FCC72;
+}
+
+.textred {
+    color: #E74C3C;
+}
