@@ -1,9 +1,7 @@
 .imgCandidat {
-    border-radius: 50%;
-    max-width: 100px;
     padding: 10px;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
+    border-radius: 20px;
+    width: 100px;
 }
 
 .titreCand {
@@ -11,7 +9,9 @@
     font-weight: bold;
 }
 
-
+.descrCandidat{
+    min-width: 200px;
+}
 
 
 carroussel {
@@ -108,6 +108,12 @@ carroussel {
         right: 0;
         background: linear-gradient(to left, #FAF7FF 0%, transparent 50%);
         width: 5rem;
+    }
+}
+@media (max-width: 990px) {
+    #gain3,
+    #gain4{
+        font-size: 1.2rem!important;
     }
 }
 

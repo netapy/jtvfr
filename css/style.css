@@ -210,7 +210,15 @@ body {
     transition: all .8s cubic-bezier(.25, .8, .25, 1);
 }
 
-.neumorphSectionSmall{
+.neumorphSectionCreux {
+    border-radius: 20px;
+    background: #FAF7FF;
+    box-shadow: inset 9px 9px 18px #f0edf5,
+                inset -9px -9px 18px #ffffff;    padding: 40px 10px;
+    margin: 50px 0px;
+}
+
+.neumorphSectionSmall {
     border-radius: 20px;
     background: #FAF7FF;
     box-shadow: 20px 20px 35px #eeebf2,
@@ -744,7 +752,7 @@ hr {
     align-items: center;
 }
 
-.textCartMsg{
+.textCartMsg {
     font-size: 1.2rem;
 }
 
