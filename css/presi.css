@@ -27,7 +27,7 @@ carroussel {
     /* defined with JavaScript */
     --marquee-elements-displayed: 5;
     --marquee-element-width: calc(var(--marquee-width) / var(--marquee-elements-displayed));
-    --marquee-animation-duration: calc(var(--marquee-elements) * 3s);
+    --marquee-animation-duration: calc(var(--marquee-elements) * 6s);
 }
 
 .marquee {
@@ -157,6 +157,8 @@ carroussel {
     right: -15px;
     bottom: -20px;
     font-size: .9rem;
+    color: white;
+    font-weight: bold;
 }
 
 .cardEventCand {
