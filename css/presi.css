@@ -1,9 +1,7 @@
 .imgCandidat {
-    border-radius: 50%;
-    max-width: 100px;
     padding: 10px;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
+    border-radius: 20px;
+    width: 100px;
 }
 
 .titreCand {
@@ -11,7 +9,9 @@
     font-weight: bold;
 }
 
-
+.descrCandidat{
+    min-width: 200px;
+}
 
 
 carroussel {
@@ -27,7 +27,7 @@ carroussel {
     /* defined with JavaScript */
     --marquee-elements-displayed: 5;
     --marquee-element-width: calc(var(--marquee-width) / var(--marquee-elements-displayed));
-    --marquee-animation-duration: calc(var(--marquee-elements) * 3s);
+    --marquee-animation-duration: calc(var(--marquee-elements) * 6s);
 }
 
 .marquee {
@@ -110,6 +110,12 @@ carroussel {
         width: 5rem;
     }
 }
+@media (max-width: 990px) {
+    #gain3,
+    #gain4{
+        font-size: 1.2rem!important;
+    }
+}
 
 .tweet {
     font-size: 1.1rem;
@@ -151,6 +157,8 @@ carroussel {
     right: -15px;
     bottom: -20px;
     font-size: .9rem;
+    color: white;
+    font-weight: bold;
 }
 
 .cardEventCand {
