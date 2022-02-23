@@ -240,37 +240,37 @@ var chart4 = new Chart(courbe4, {
             label: "Candidat",
             tree: [{
                 'title': 'Arthaud',
-                'tweets': 818
+                'tweets': 820
             }, {
                 'title': 'Macron',
-                'tweets': 33147
+                'tweets': 33150
             }, {
                 'title': 'Pécresse',
-                'tweets': 27325
+                'tweets': 27330
             }, {
                 'title': 'Le Pen',
-                'tweets': 8085
+                'tweets': 8090
             }, {
                 'title': 'Zemmour',
-                'tweets': 37936
+                'tweets': 37940
             }, {
                 'title': 'Mélenchon',
-                'tweets': 14813
+                'tweets': 14800
             }, {
                 'title': 'Jadot',
-                'tweets': 6861
+                'tweets': 6860
             }, {
                 'title': 'Taubira',
-                'tweets': 11177
+                'tweets': 11180
             }, {
                 'title': 'Hidalgo',
-                'tweets': 4221
+                'tweets': 4220
             }, {
                 'title': 'Roussel',
-                'tweets': 6046
+                'tweets': 6050
             }, {
                 'title': 'Dupont-Aignan',
-                'tweets': 3532
+                'tweets': 3530
             }, {
                 'title': 'Lassalle',
                 'tweets': 330
@@ -282,7 +282,9 @@ var chart4 = new Chart(courbe4, {
                 color: 'white',
                 font: {
                     size: 12,
-                }
+                },
+                formatter: (ctx) =>[ ctx.raw.g, ctx.raw.v + " tweets"]
+
             },
             borderWidth: 0,
             spacing: 1,
