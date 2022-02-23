@@ -38,7 +38,10 @@ var chart1 = new Chart(courbe1, {
                 },
                 ticks: {
                     autoSkip: true,
-                    maxTicksLimit: 14
+                    maxTicksLimit: 5,
+                    font: {
+                        size: 8
+                    },
                 }
             },
             y: {
