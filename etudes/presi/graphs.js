@@ -48,7 +48,7 @@ var chart1 = new Chart(courbe1, {
                 ticks: {
                     min: 0,
                     max: 3,
-                    stepSize: .1,
+                    stepSize: .2,
                     font: {
                         size: 18
                     },
@@ -65,7 +65,7 @@ var chart1 = new Chart(courbe1, {
             legend: {
                 position: 'bottom',
                 labels: {
-                    padding: 20,
+                    padding: 18,
                     font: {
                         size: 14
                     }
