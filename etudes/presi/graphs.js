@@ -243,40 +243,43 @@ var chart4 = new Chart(courbe4, {
             label: "Candidat",
             tree: [{
                 'title': 'Arthaud',
-                'tweets': 820
+                'tweets': 586
             }, {
                 'title': 'Macron',
-                'tweets': 33150
+                'tweets': 56066
             }, {
                 'title': 'Pécresse',
-                'tweets': 27330
+                'tweets': 10887
             }, {
                 'title': 'Le Pen',
-                'tweets': 8090
+                'tweets': 10350
             }, {
                 'title': 'Zemmour',
-                'tweets': 37940
+                'tweets': 27483
             }, {
                 'title': 'Mélenchon',
-                'tweets': 14800
+                'tweets': 16760
             }, {
                 'title': 'Jadot',
-                'tweets': 6860
+                'tweets': 3546
             }, {
                 'title': 'Taubira',
-                'tweets': 11180
+                'tweets': 1670
             }, {
                 'title': 'Hidalgo',
-                'tweets': 4220
+                'tweets': 5884
             }, {
                 'title': 'Roussel',
-                'tweets': 6050
+                'tweets': 2950
             }, {
                 'title': 'Dupont-Aignan',
-                'tweets': 3530
+                'tweets': 1618
             }, {
                 'title': 'Lassalle',
-                'tweets': 330
+                'tweets': 305
+            }, {
+                'title': 'Poutou',
+                'tweets': 2086
             }],
             key: 'tweets',
             groups: ['title'],
