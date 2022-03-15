@@ -110,6 +110,12 @@ carroussel {
         width: 5rem;
     }
 }
+
+#gain3,
+#gain4{
+    font-size: 1.4rem!important;
+}
+
 @media (max-width: 990px) {
     #gain3,
     #gain4{
