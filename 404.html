@@ -18,6 +18,7 @@
 <script>
   if (localStorage.getItem("404") != "1") {
     let source = String(window.location.href).toLowerCase() + ".html"
+    if(String(window.location.href).toLowerCase() == "offres") source = String(window.location.href).toLowerCase() + ".pdf"
     window.location.href = source;
     localStorage.setItem("404", "1")
   }
